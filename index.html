@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -351,17 +351,14 @@
         <a href="https://github.com/YouthGT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;YouthGT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
+        <a href="https://baidu.com/" title="Resume → https:&#x2F;&#x2F;baidu.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-address-card fa-fw"></i>Resume</a>
+      </span>
+      <span class="links-of-author-item">
         <a href="mailto:750817118@qq.com" title="E-Mail → mailto:750817118@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
         <a href="http://wpa.qq.com/msgrd?v=3&uin=750817118&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;750817118&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
       </span>
-      <span class="links-of-author-item">
-        <a href="https://baidu.com/" title="Resume → https:&#x2F;&#x2F;baidu.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-user fa-fw"></i>Resume</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -371,10 +368,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://youthgt.gitee.io/" title="https:&#x2F;&#x2F;youthgt.gitee.io" rel="noopener" target="_blank">Gitee站点</a>
+          <a href="https://youthgt.github.io/" title="https:&#x2F;&#x2F;youthgt.github.io" rel="noopener" target="_blank">GitHub站点</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://youthgt.github.io/" title="https:&#x2F;&#x2F;youthgt.github.io" rel="noopener" target="_blank">GitHub站点</a>
+          <a href="https://youthgt.gitee.io/" title="https:&#x2F;&#x2F;youthgt.gitee.io" rel="noopener" target="_blank">Gitee站点</a>
         </li>
     </ul>
   </div>
@@ -436,92 +433,6 @@
 
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"Hh5d37yWjfYpkMFoMUKeUfTu-gzGzoHsz# <your app id>","app_key":"AcD8jXWqCCcQWra5jX2JAb89# <your app key>","server_url":"https://hh5d37yw.lc-cn-n1-shared.com# <your server url>","security":true};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
       </div>
@@ -583,15 +494,15 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     });
     new Valine({
       el         : '#valine-comments',
-      verify     : false,
-      notify     : false,
+      verify     : true,
+      notify     : true,
       appId      : 'Hh5d37yWjfYpkMFoMUKeUfTu-gzGzoHsz',
       appKey     : 'AcD8jXWqCCcQWra5jX2JAb89',
-      placeholder: "Just go go",
+      placeholder: "键入内容",
       avatar     : 'mm',
       meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
+      pageSize   : '5' || 10,
+      visitor    : true,
       lang       : '' || 'zh-cn',
       path       : location.pathname,
       recordIP   : true,
