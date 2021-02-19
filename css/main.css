@@ -14,9 +14,9 @@
   --btn-default-bg: #fff;
   --btn-default-color: #006762;
   --btn-default-border-color: #006762;
-  --btn-default-hover-bg: #456f95;
+  --btn-default-hover-bg: #1e90ff;
   --btn-default-hover-color: #fff;
-  --btn-default-hover-border-color: #456f95;
+  --btn-default-hover-border-color: #1e90ff;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1250,7 +1250,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #03ffb6;
+  background: #bf33d4;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2805,11 +2805,4 @@ ul.breadcrumb li + li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
-}
-.post {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  padding: 25px;
-  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
-  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
