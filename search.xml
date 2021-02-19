@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo 博客的搭建记录</title>
+    <url>/2020/02/19/construct/</url>
+    <content><![CDATA[<h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><p>node -v    #查看node版本<br>npm -v    #查看npm版本</p>
+<h2 id="安装淘宝的cnpm-管理器"><a href="#安装淘宝的cnpm-管理器" class="headerlink" title="安装淘宝的cnpm 管理器"></a>安装淘宝的cnpm 管理器</h2><p>npm install -g cnpm –registry=<a href="http://registry.npm.taobao.org/">http://registry.npm.taobao.org</a><br>cnpm -v    #查看cnpm版本</p>
+<h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><p>cnpm install -g hexo-cli<br>hexo -v    #查看hexo版本<br>##创建blog目录<br>mkdir blog<br> #进入blog目录 生成博客 初始化博客<br>cd blog<br>sudo hexo init </p>
+<h2 id="启动本地博客服务-本地访问地址"><a href="#启动本地博客服务-本地访问地址" class="headerlink" title="启动本地博客服务 本地访问地址"></a>启动本地博客服务 本地访问地址</h2><p>hexo s<br><a href="http://localhost:4000/">http://localhost:4000/</a>    </p>
+<h2 id="创建新的文章"><a href="#创建新的文章" class="headerlink" title="创建新的文章"></a>创建新的文章</h2><p>hexo n “我的第一篇文章”</p>
+<h2 id="返回blog目录"><a href="#返回blog目录" class="headerlink" title="返回blog目录"></a>返回blog目录</h2><p>hexo clean #清理<br>hexo g #生成</p>
+<h2 id="Github创建一个新的仓库"><a href="#Github创建一个新的仓库" class="headerlink" title="Github创建一个新的仓库"></a>Github创建一个新的仓库</h2><p>YourGithubName.github.io</p>
+<h2 id="在blog目录下安装git部署插件"><a href="#在blog目录下安装git部署插件" class="headerlink" title="在blog目录下安装git部署插件"></a>在blog目录下安装git部署插件</h2><h2 id="cnpm-install-–save-hexo-deployer-git"><a href="#cnpm-install-–save-hexo-deployer-git" class="headerlink" title="cnpm install –save hexo-deployer-git "></a>cnpm install –save hexo-deployer-git </h2><h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置_config.yml"></a>配置_config.yml</h2><hr>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+     repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+      branch: master
+</code></pre>
+<hr>
+<h2 id="部署到Github仓库里"><a href="#部署到Github仓库里" class="headerlink" title="部署到Github仓库里"></a>部署到Github仓库里</h2><p>hexo d    </p>
+<h2 id="访问这个地址可以查看博客"><a href="#访问这个地址可以查看博客" class="headerlink" title="访问这个地址可以查看博客"></a>访问这个地址可以查看博客</h2><p><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a>  </p>
+<h2 id="下载NEXT主题到本地"><a href="#下载NEXT主题到本地" class="headerlink" title="下载NEXT主题到本地"></a>下载NEXT主题到本地</h2><p>git clone <a href="https://github.com.cnpmjs.org/theme-next/hexo-theme-next">https://github.com.cnpmjs.org/theme-next/hexo-theme-next</a> themes/next </p>
+<h2 id="修改hexo根目录下的-config-yml-文件-：-theme-Next"><a href="#修改hexo根目录下的-config-yml-文件-：-theme-Next" class="headerlink" title="修改hexo根目录下的 _config.yml 文件 ： theme: Next"></a>修改hexo根目录下的 _config.yml 文件 ： theme: Next</h2><p>hexo c    #清理一下<br>hexo g    #生成<br>hexo d    #部署到远程Github仓库</p>
+<h2 id="只需要将www-github-com-改为www-github-com-cnpmjs-org-就可以实现一键式加速"><a href="#只需要将www-github-com-改为www-github-com-cnpmjs-org-就可以实现一键式加速" class="headerlink" title="只需要将www.github.com/改为www.github.com.cnpmjs.org/就可以实现一键式加速"></a>只需要将<a href="http://www.github.com/%E6%94%B9%E4%B8%BAwww.github.com.cnpmjs.org/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E5%BC%8F%E5%8A%A0%E9%80%9F">www.github.com/改为www.github.com.cnpmjs.org/就可以实现一键式加速</a></h2>]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo - Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2021/02/18/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
