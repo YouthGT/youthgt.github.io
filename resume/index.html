@@ -14,7 +14,7 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-material.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
@@ -470,11 +470,11 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       placeholder: "键入内容",
       avatar     : 'mm',
       meta       : guest,
-      pageSize   : '5' || 10,
+      pageSize   : '3' || 10,
       visitor    : true,
       lang       : '' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : true,
+      recordIP   : false,
       serverURLs : ''
     });
   }, window.Valine);
