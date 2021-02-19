@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Altium Designer学习总结（不定时更新）</title>
+    <url>/2021/02/19/Altium-Designer%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="Altlium-designer画PCB步骤"><a href="#Altlium-designer画PCB步骤" class="headerlink" title="Altlium designer画PCB步骤"></a>Altlium designer画PCB步骤</h1><h2 id="原理图绘制"><a href="#原理图绘制" class="headerlink" title="原理图绘制"></a>原理图绘制</h2><p>元件的放置，网络编号，封装添加（封装管理器），编译，导入到PCB</p>
+<h3 id="PCB绘制"><a href="#PCB绘制" class="headerlink" title="PCB绘制"></a>PCB绘制</h3><p> 布局，布线，敷铜，电器规则检查（规则设置）<br>调整并锁定特殊零件</p>
+<a id="more"></a>
+<h5 id="常见特殊位置的零件："><a href="#常见特殊位置的零件：" class="headerlink" title="常见特殊位置的零件："></a>常见特殊位置的零件：</h5><ol>
+<li>接口类：如：电源接口、扬声器、视频、音频接口、键盘、鼠标、USB等；</li>
+<li>显示类：如：发光二极管、数码显示管等;                               </li>
+<li>旋钮类：如：音量控制、调谐、波段等；</li>
+<li>其他类：必须放置在特定位置的零件。<h3 id="PCB设计的基本原则"><a href="#PCB设计的基本原则" class="headerlink" title="PCB设计的基本原则"></a>PCB设计的基本原则</h3><h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4></li>
+<li>元件的布局要求均衡，疏密有序，避免头重脚轻。</li>
+<li>元件布局应按照元件的关键性来进行，先布置关键元件如微处理器、DSP、FPGA、存储器等，按照数据线和地址线的走向，就近原则布置元件。</li>
+<li>存储器模块尽量并排放置，以缩短走线长度。</li>
+<li>尽可能按照信号流向进行布局。<br>注意：零件布局，应当从机械结构散热、电磁干扰、将来布线的方便性等方面综合考虑。先布置与机械尺寸有关的器件，并锁定这些器件，然后是大的占位置的器件和电路的核心元件，再是外围的小元件。<h4 id="布线原则"><a href="#布线原则" class="headerlink" title="布线原则"></a>布线原则</h4></li>
+<li>一定要确保导线的宽度达到导线的载流要求，并尽可能宽些，留出余量。电源和地的导线要更宽，具体数值视实际情况而定。地线＞电源线＞导线</li>
+<li>导线间最小间距是由线的绝缘电阻和击穿电阻决定的，在可能的情况下尽量定得大一些，一般不能小于12mil。</li>
+<li>设计布线时，走线尽量少拐弯，力求线条简单明了。</li>
+<li>微处理器芯片的数据线地址线应尽量平行布置。</li>
+<li>输入端与输入端边线应避免相邻平行，以免产生反射干扰，必要时应加线隔离。两相邻的布线要相互垂直。平行容易产生寄生耦合。</li>
+<li>利用包地，覆铜等工艺提高PCB的稳定性和抗干扰性。<h4 id="重点规则"><a href="#重点规则" class="headerlink" title="重点规则"></a>重点规则</h4></li>
+<li>零件（元件）之间最小距离。</li>
+<li>零件方向。</li>
+<li>零件放置所在层。</li>
+<li>导线的宽度。</li>
+<li>导线所在层。<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1></li>
+<li> action not available in 3D view的意思是：3D视图中不可用的操作，也就是不能连线（按 2 就可以连线）。如果是要在3D模式切换视角，就是：Shift+鼠标右键，Ctrl+鼠标右键是放大缩小。v+b是翻转。</li>
+<li>出现多余的线点工具-》复位错误标志</li>
+<li>系统自带了两个集成库：多种器件集成库miscellaneous devices和多种连接器miscellaneous connectors。这两个集成库，包括了画原理图和PCB板图所需要的绝大部分零件。但集成库中有的SCH零件或PCB封装的外形、图形，不是我们所需的，不符合我们的要求，需要进行修改。但我们知道集成库是不能直接修改和编辑的。需要先把集成库分解成SCH库和PCB库，然后分别启动SCH图编辑器或PCB库编辑器，进行修改。方法很简单。<br>在电脑硬盘上找到adxx软件的安装位置<br>找到AD16软件</li>
+</ol>
+<p>-双击打开软件的文件夹———-双击打开库文件夹Librares——-找到miscellaneous devices intlib——-电脑自动启动AD程序——–弹出：摘录源文件或安装文件  对话框——–点击对话框底部：摘取源文件———弹出：萃取位置对话框———–选中：打开已有的集成库工程———–单击：确定———此时在AD16屏幕的左侧弹出：projects工程面板———面板内出现分解出来的SCHLIB原理图库和PCBLIB封装库———双击SCHLIB——–打开SCH库零件视图———-单击AD16屏幕右下角的SCH——–选中SCH LIBRARY———弹出SCH库面板——-在SCH库面板的器件栏———-显示上百种SCH零件———选中需要的SCH零件——–单击选中——-在SCH库编辑器的主窗口选中这个SCH零件的图形——对图形进行编辑和修改 使之符合你的个人要求——–保持——–退出。<br>同理：如果想要在AD16系统自带的集成库中添加零件，也是不能直接添加的，也要先把集成库分解成SCH库和PCB库，然后在SCH库中添加新零件，在SCH零件编辑器中添加PCB封装模型。就OK了。<br>4.  GPIO（英语：General-purpose input/output），通用型之输入输出的简称，功能类似8051的P0—P3，其接脚可以供使用者由程控自由使用，PIN脚依现实考量可作为通用输入（GPI）或通用输出（GPO）或通用输入与输出（GPIO），如当clk generator, chip select等。<br>5. 主菜单File-&gt;Import，选择一个AutoCAD文件（*.DXF或*.DWG），在弹出的对话框“Import From AutoCAD”中，设置CAD单位到PCB单位的转换（例如：1 AutoCAD Unit = 1mm），CAD文件导入PCB的哪一层（例如：放置于Mechanical4层），点击OK即可。切换层标签到Mechanical4，快捷键s-&gt;All on layer。主菜单Design-&gt;Board Shape-&gt;Define from Selected Objects，按end键刷新一下页面即可<br>6. Top Solder层，就是用来控制做板的时候不覆盖绿油（白油）的区域，比如焊盘的位置，一些关键信号的测试点，不覆盖绿油，才能漏出焊盘。如果你在焊盘的位置不包含Top Solder层，则焊盘会盖上绿油，需要你磨掉绿油（白油），才能焊接。<br>Top Paste层，提供给制版厂，用于制作钢网，凡是Top Paste层出现的地方，钢网上均开孔。也就是说，这一层不是用来控制PCB的，而是控制钢网开孔的，当SMT贴片生产时，这些开孔用来刷锡膏，刷锡膏（漏锡膏）的位置，恰好就是焊盘所在地位置。<br>7. SOT的英文全名是：Small Outline Transistor(小外形晶体管)，SOT是一种表面贴装的封装形式，一般引脚小于等于5个的小外形晶体管。根据表面宽度的不同分为两种，一种宽度为1.3mm，一种宽度为1.6mm。<br>SOD的英文全名是：Small Outline Diode(小外形二级管)，SOD后面常会是跟一串数字，表示封装的标准序号，如：SOD-23,SOD-523，SOD323等等。<br>其实SOD指贴片二极管的封装，而SOT是一般指贴片三极管的封装。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hexo 博客的搭建记录</title>
     <url>/2020/02/19/construct/</url>
     <content><![CDATA[<h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v	<span class="comment">#查看node版本</span></span><br><span class="line">npm -v	<span class="comment">#查看npm版本&gt;</span></span><br></pre></td></tr></table></figure>
@@ -31,45 +64,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Altium Designer学习总结（不定时更新）</title>
-    <url>/2021/02/19/Altium-Designer%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%8D%E5%AE%9A%E6%97%B6%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="Altlium-designer画PCB步骤"><a href="#Altlium-designer画PCB步骤" class="headerlink" title="Altlium designer画PCB步骤"></a>Altlium designer画PCB步骤</h1><h2 id="原理图绘制"><a href="#原理图绘制" class="headerlink" title="原理图绘制"></a>原理图绘制</h2><p>元件的放置，网络编号，封装添加（封装管理器），编译，导入到PCB</p>
-<h3 id="PCB绘制"><a href="#PCB绘制" class="headerlink" title="PCB绘制"></a>PCB绘制</h3><p> 布局，布线，敷铜，电器规则检查（规则设置）<br>调整并锁定特殊零件</p>
-<h5 id="常见特殊位置的零件："><a href="#常见特殊位置的零件：" class="headerlink" title="常见特殊位置的零件："></a>常见特殊位置的零件：</h5><ol>
-<li>接口类：如：电源接口、扬声器、视频、音频接口、键盘、鼠标、USB等；</li>
-<li>显示类：如：发光二极管、数码显示管等；                                      </li>
-<li>旋钮类：如：音量控制、调谐、波段等；</li>
-<li>其他类：必须放置在特定位置的零件。<a id="more"></a>
-<h3 id="PCB设计的基本原则"><a href="#PCB设计的基本原则" class="headerlink" title="PCB设计的基本原则"></a>PCB设计的基本原则</h3><h4 id="布局原则"><a href="#布局原则" class="headerlink" title="布局原则"></a>布局原则</h4></li>
-<li>元件的布局要求均衡，疏密有序，避免头重脚轻。</li>
-<li>元件布局应按照元件的关键性来进行，先布置关键元件如微处理器、DSP、FPGA、存储器等，按照数据线和地址线的走向，就近原则布置元件。</li>
-<li>存储器模块尽量并排放置，以缩短走线长度。</li>
-<li>尽可能按照信号流向进行布局。<br>注意：零件布局，应当从机械结构散热、电磁干扰、将来布线的方便性等方面综合考虑。先布置与机械尺寸有关的器件，并锁定这些器件，然后是大的占位置的器件和电路的核心元件，再是外围的小元件。<h4 id="布线原则"><a href="#布线原则" class="headerlink" title="布线原则"></a>布线原则</h4></li>
-<li>一定要确保导线的宽度达到导线的载流要求，并尽可能宽些，留出余量。电源和地的导线要更宽，具体数值视实际情况而定。地线＞电源线＞导线</li>
-<li>导线间最小间距是由线的绝缘电阻和击穿电阻决定的，在可能的情况下尽量定得大一些，一般不能小于12mil。</li>
-<li>设计布线时，走线尽量少拐弯，力求线条简单明了。</li>
-<li>微处理器芯片的数据线地址线应尽量平行布置。</li>
-<li>输入端与输入端边线应避免相邻平行，以免产生反射干扰，必要时应加线隔离。两相邻的布线要相互垂直。平行容易产生寄生耦合。</li>
-<li>利用包地，覆铜等工艺提高PCB的稳定性和抗干扰性。<h4 id="重点规则"><a href="#重点规则" class="headerlink" title="重点规则"></a>重点规则</h4></li>
-<li>零件（元件）之间最小距离。</li>
-<li>零件方向。</li>
-<li>零件放置所在层。</li>
-<li>导线的宽度。</li>
-<li>导线所在层。<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1></li>
-<li> action not available in 3D view的意思是：3D视图中不可用的操作，也就是不能连线（按 2 就可以连线）。如果是要在3D模式切换视角，就是：Shift+鼠标右键，Ctrl+鼠标右键是放大缩小。v+b是翻转。</li>
-<li>出现多余的线点工具-》复位错误标志</li>
-<li>系统自带了两个集成库：多种器件集成库miscellaneous devices和多种连接器miscellaneous connectors。这两个集成库，包括了画原理图和PCB板图所需要的绝大部分零件。但集成库中有的SCH零件或PCB封装的外形、图形，不是我们所需的，不符合我们的要求，需要进行修改。但我们知道集成库是不能直接修改和编辑的。需要先把集成库分解成SCH库和PCB库，然后分别启动SCH图编辑器或PCB库编辑器，进行修改。方法很简单。<br>在电脑硬盘上找到adxx软件的安装位置<br>找到AD16软件</li>
-</ol>
-<p>-双击打开软件的文件夹———-双击打开库文件夹Librares——-找到miscellaneous devices intlib——-电脑自动启动AD程序——–弹出：摘录源文件或安装文件  对话框——–点击对话框底部：摘取源文件———弹出：萃取位置对话框———–选中：打开已有的集成库工程———–单击：确定———此时在AD16屏幕的左侧弹出：projects工程面板———面板内出现分解出来的SCHLIB原理图库和PCBLIB封装库———双击SCHLIB——–打开SCH库零件视图———-单击AD16屏幕右下角的SCH——–选中SCH LIBRARY———弹出SCH库面板——-在SCH库面板的器件栏———-显示上百种SCH零件———选中需要的SCH零件——–单击选中——-在SCH库编辑器的主窗口选中这个SCH零件的图形——对图形进行编辑和修改 使之符合你的个人要求——–保持——–退出。<br>同理：如果想要在AD16系统自带的集成库中添加零件，也是不能直接添加的，也要先把集成库分解成SCH库和PCB库，然后在SCH库中添加新零件，在SCH零件编辑器中添加PCB封装模型。就OK了。<br>4.  GPIO（英语：General-purpose input/output），通用型之输入输出的简称，功能类似8051的P0—P3，其接脚可以供使用者由程控自由使用，PIN脚依现实考量可作为通用输入（GPI）或通用输出（GPO）或通用输入与输出（GPIO），如当clk generator, chip select等。<br>5. 主菜单File-&gt;Import，选择一个AutoCAD文件（*.DXF或*.DWG），在弹出的对话框“Import From AutoCAD”中，设置CAD单位到PCB单位的转换（例如：1 AutoCAD Unit = 1mm），CAD文件导入PCB的哪一层（例如：放置于Mechanical4层），点击OK即可。切换层标签到Mechanical4，快捷键s-&gt;All on layer。主菜单Design-&gt;Board Shape-&gt;Define from Selected Objects，按end键刷新一下页面即可<br>6. Top Solder层，就是用来控制做板的时候不覆盖绿油（白油）的区域，比如焊盘的位置，一些关键信号的测试点，不覆盖绿油，才能漏出焊盘。如果你在焊盘的位置不包含Top Solder层，则焊盘会盖上绿油，需要你磨掉绿油（白油），才能焊接。<br>Top Paste层，提供给制版厂，用于制作钢网，凡是Top Paste层出现的地方，钢网上均开孔。也就是说，这一层不是用来控制PCB的，而是控制钢网开孔的，当SMT贴片生产时，这些开孔用来刷锡膏，刷锡膏（漏锡膏）的位置，恰好就是焊盘所在地位置。<br>7. SOT的英文全名是：Small Outline Transistor(小外形晶体管)，SOT是一种表面贴装的封装形式，一般引脚小于等于5个的小外形晶体管。根据表面宽度的不同分为两种，一种宽度为1.3mm，一种宽度为1.6mm。<br>SOD的英文全名是：Small Outline Diode(小外形二级管)，SOD后面常会是跟一串数字，表示封装的标准序号，如：SOD-23,SOD-523，SOD323等等。<br>其实SOD指贴片二极管的封装，而SOT是一般指贴片三极管的封装。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>keil uvsion5与51单片机的学习总结（不定时更新）</title>
     <url>/2020/12/19/%E6%B5%8B%E8%AF%95-1/</url>
     <content><![CDATA[<h3 id="keil-uvsion5软件下载"><a href="#keil-uvsion5软件下载" class="headerlink" title="keil uvsion5软件下载"></a>keil uvsion5软件下载</h3><p><a href="https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw">https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw</a><br>提取码: f7xv （失效请提醒）</p>
-<h3 id="常见报错总结"><a href="#常见报错总结" class="headerlink" title="常见报错总结"></a>常见报错总结</h3><p> 1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS<br> 出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。</p>
-<a id="more"></a>
-
+<h3 id="常见报错总结"><a href="#常见报错总结" class="headerlink" title="常见报错总结"></a>常见报错总结</h3><a id="more"></a>
+<p> 1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS<br> 出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。</p>
 <blockquote>
 <p>extern用于变量的用法：<br>extern int a;//声明一个全局变量a<br>int a; //定义一个全局变量a<br>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。（注意：经过测试在GCC中，这样定义变量是不能通过编译的，而在VS2013可以）<br>int a =0;//定义一个全局变量a,并给初值，<br>声明之后不能直接使用这个变量，需要定义之后才能使用。<br>第四个等于第三个，都是定义一个可以被外部使用的全局变量，并给初值。<br>当你要引用一个全局变量的时候，你就要声明extern int a;这时候extern不能省略，因为省略了，就变成int a;这是一个定义，不是声明，就会出现变量重复定义的错误。</p>
 </blockquote>
