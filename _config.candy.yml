@@ -1,0 +1,402 @@
+# Version of the configuration file
+version: 4.0.0
+# Icarus theme variant, can be "default" or "cyberpunk"
+variant: default
+# Path or URL to the website's logo
+logo: /images/logo.ico
+# Page metadata configurations
+head:
+    # URL or path to the website's icon
+    favicon: /images/logo.ico
+    # Web application manifests configuration Web应用程序清单配置
+    # https://developer.mozilla.org/en-US/docs/Web/Manifest
+    manifest:
+        # Name of the web application (default to the site title)
+        name: YouthGT_技术博客
+        # The displayed name of the web application
+        # when there is not enough space to display full name
+        short_name: youthgt
+        # The start URL of the web application
+        start_url: 
+        # The default theme color for the application 应用程序的默认主题颜色
+        theme_color: 
+        # A placeholder background color for the application page to display
+        # before its stylesheet is loaded
+        background_color: 
+        # The preferred display mode for the website
+        display: standalone
+        # Image files that can serve as application icons for different contexts
+        icons:
+            -
+                # The path to the image file
+                src: ''
+                # A string containing space-separated image dimensions
+                sizes: ''
+                # A hint as to the media type of the image
+                type: 
+    # Open Graph metadata 打开图元数据
+    # https://hexo.io/docs/helpers.html#open-graph
+    open_graph:
+        # Page title (og:title) (optional)
+        # You should leave this blank for most of the time
+        title: 
+        # Page type (og:type) (optional)
+        # You should leave this blank for most of the time
+        type: blog
+        # Page URL (og:url) (optional)
+        # You should leave this blank for most of the time
+        url: 
+        # Page cover (og:image) (optional)
+        # You should leave this blank for most of the time
+        image: 
+        # Site name (og:site_name) (optional)
+        # You should leave this blank for most of the time
+        site_name: 
+        # Page author (article:author) (optional)
+        # You should leave this blank for most of the time
+        author: 
+        # Page description (og:description) (optional)
+        # You should leave this blank for most of the time
+        description: 
+        # Twitter card type (twitter:card)
+        twitter_card: 
+        # Twitter ID (twitter:creator)
+        twitter_id: 
+        # Twitter Site (twitter:site)
+        twitter_site: 
+        # Google+ profile link (deprecated)
+        google_plus: 
+        # Facebook admin ID
+        fb_admins: 
+        # Facebook App ID
+        fb_app_id: 
+    # Structured data of the page 页面的结构化数据
+    # https://developers.google.com/search/docs/guides/intro-structured-data
+    structured_data:
+        # Page title (optional)
+        # You should leave this blank for most of the time
+        title: 
+        # Page description (optional)
+        # You should leave this blank for most of the time
+        description: 
+        # Page URL (optional)
+        # You should leave this blank for most of the time
+        url: 
+        # Page author (article:author) (optional)
+        # You should leave this blank for most of the time
+        author: 
+        # Page images (optional)
+        # You should leave this blank for most of the time
+        image: 
+    # Additional HTML meta tags in an array
+    meta:
+        # Meta tag specified in <attribute>=<value> style
+        # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
+        - ''
+    # URL or path to the website's RSS atom.xml
+    rss: 
+# Page top navigation bar configurations 页面顶部导航栏配置
+navbar:
+    # Navigation menu items
+    menu:
+        主页: /
+        归档: /archives
+        分类: /categories
+        标签: /tags
+        关于: /about
+    # Links to be shown on the right of the navigation bar 显示在导航栏的右侧的按钮
+    # links:
+    #     Download on GitHub:
+    #         icon: fab fa-github
+    #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
+# Page footer configurations右下角设置
+# footer:
+#     # Links to be shown on the right of the footer section
+#     links:
+#         Creative Commons:
+#             icon: fab fa-creative-commons
+#             url: 'https://creativecommons.org/'
+#         Attribution 4.0 International:
+#             icon: fab fa-creative-commons-by
+#             url: 'https://creativecommons.org/licenses/by/4.0/'
+#         Download on GitHub:
+#             icon: fab fa-github
+#             url: 'https://github.com/ppoffice/hexo-theme-icarus'
+
+# Article related configurations文章相关配置
+article:
+    # Code highlight settings代码高亮
+    highlight:
+        # Code highlight themes代码高亮主题
+        # https://github.com/highlightjs/highlight.js/tree/master/src/styles
+        theme: github
+        # Show copy code button显示复制代码按钮
+        clipboard: true
+        # Default folding status of the code blocks. Can be "", "folded", "unfolded"
+        #代码块的默认折叠状态。可以是“”，“折叠”，“展开”
+        fold: unfolded
+    # hether to show estimated article reading timeW是否显示文章估计阅读时间
+    readtime: true
+    # Article licensing block文章许可栏
+    licenses:
+        Creative Commons:
+            icon: fab fa-creative-commons
+            url: 'https://creativecommons.org/'
+        Attribution:
+            icon: fab fa-creative-commons-by
+            url: 'https://creativecommons.org/licenses/by/4.0/'
+        Noncommercial:
+            icon: fab fa-creative-commons-nc
+            url: 'https://creativecommons.org/licenses/by-nc/4.0/'
+# Search plugin configurations搜索插件的配置
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Search/
+search:
+    type: insight
+# Comment plugin configurations评论插件的配置
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
+
+comment:
+    # type: disqus
+    # # Disqus shortname
+    # shortname: 
+    type: twikoo
+    envId: blog-comment-8g0jby431a7c5d5a # 腾讯云环境id
+    jsUrl: https://cdn.jsdelivr.net/npm/twikoo@1.0.0/dist/twikoo.all.min.js
+# Donate plugin configurations 打赏插件的配置
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
+donates:
+    # # "Afdian.net" donate button configurations 爱发电
+    # -
+    #     type: afdian
+    #     # URL to the "Afdian.net" personal page
+    #     url: ''
+    # Alipay donate button configurations 支付宝
+    -
+        type: alipay
+        # Alipay qrcode image URL
+        qrcode: images/alipay.jpg
+    # # "Buy me a coffee" donate button configurations buymeacoffee
+    # -
+    #     type: buymeacoffee
+    #     # URL to the "Buy me a coffee" page
+    #     url: ''
+    # # Patreon donate button configurations  
+    # -
+    #     type: patreon
+    #     # URL to the Patreon page
+    #     url: ''
+    # # Paypal donate button configurations PayPal
+    # -
+    #     type: paypal
+    #     # Paypal business ID or email address
+    #     business: ''
+    #     # Currency code
+    #     currency_code: USD
+    # Wechat donate button configurations 微信
+    -
+        type: wechat
+        # Wechat qrcode image URL
+        qrcode: images/wechatpay.png
+# Share plugin configurations 分享插件配置
+# # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
+# share:
+#     type: sharethis
+#     # URL to the ShareThis share plugin script
+#     install_url: ''
+# Sidebar configurations. 侧边栏配置
+# Please be noted that a sidebar is only visible when it has at least one widget
+#请注意，侧边栏只有在至少有一个小部件时才可见
+sidebar:
+    # Left sidebar configurations左侧边栏配置
+    left:
+        # Whether the sidebar sticks to the top when page scrolls
+        #当页面滚动时，侧边栏是否停留在顶部
+        sticky: false
+    # Right sidebar configurations右侧边栏配置
+    right:
+        # Whether the sidebar sticks to the top when page scrolls
+        #当页面滚动时，侧边栏是否停留在顶部
+        sticky: false
+# Sidebar widget configurations 侧边栏小部件配置
+# http://ppoffice.github.io/hexo-theme-icarus/categories/Widgets/
+widgets:
+    # Profile widget configurations 配置小部件
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        #设置小部件放左边还是放右边
+        position: left
+        type: profile
+        # Author name博主名字
+        author: YouthGT
+        # Author title 作者标题
+        author_title: 技术博客
+        # Author's current location现在位置
+        location: Hebei,China
+        # URL or path to the avatar image 头像图像的网址或者位置
+        avatar: images/avatar.jpg
+        # Whether show the rounded avatar image 是否显示圆形头像
+        avatar_rounded: true
+        # Email address for the Gravatar Email地址用来显示头像的
+        gravatar:
+        # URL or path for the follow button 关注按钮的链接
+        follow_link: 'https://github.com/youthgt'
+        # Links to be shown on the bottom of the profile widget链接将显示在小部件的底部
+        social_links:
+            Github:
+                icon: fab fa-github
+                url: 'https://github.com/youthgt'
+            WeChat:
+                icon: fab fa-weixin
+                url: 'images/wechat_channel.jpg'
+            #Twitter:
+            #     icon: fab fa-twitter
+            #     url: 'https://twitter.com'
+            # Dribbble:
+            #     icon: fab fa-dribbble
+            #     url: 'https://dribbble.com'
+            # RSS:
+            #     icon: fas fa-rss
+            #     url: /
+   
+    # Recommendation links widget configurations 推荐链接小部件配置
+    -
+        # Where should the widget be placed, left sidebar or right sidebar 放左边还是放右边
+        position: left
+        type: links
+        # Names and URLs of the sites站点名称和地址
+        links:
+            Gitee站点: 'https://youthgt.gitee.io'
+            GitHub站点: 'https://youthgt.github.io'
+    # Table of contents widget configurations 目录小部件配置
+    -
+        # Where should the widget be placed, left sidebar or right sidebar放左边还是右边
+        position: left
+        type: toc
+        # Whether to show the index of each heading 是否显示每个标题的索引
+        index: true
+
+    # Recent posts widget configurations 最近发布小部件配置
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: recent_posts
+
+    # Categories widget configurations 类别小部件配置
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: categories
+
+    # Tags widget configurations 标签小部件配置
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: tags
+    # Archives widget configurations 归档小部件配置
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: archives
+    # Google FeedBurner email subscription widget configurations 谷歌邮箱订阅小部件配置
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: subscribe_email
+    #     # Hint text under the email input
+    #     description: 
+    #     # Feedburner ID
+    #     feedburner_id: ''
+
+    # Google AdSense unit configurations 谷歌广告联盟的配置
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: left
+    #     type: adsense
+    #     # AdSense client ID
+    #     client_id: ''
+    #     # AdSense AD unit ID
+    #     slot_id: ''
+# Plugin configurations 插件配置
+# https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
+plugins:
+    # Enable page startup animations启用页面启动动画
+    animejs: true
+    # Show the "back to top" button 显示“回到顶部”按钮
+    back_to_top: true
+    # Baidu Analytics plugin settings
+    # https://tongji.baidu.com
+    baidu_analytics:
+        # Baidu Analytics tracking ID
+        tracking_id: 
+    # Bing Webmaster Tools plugin settings
+    # https://www.bing.com/toolbox/webmaster/
+    bing_webmaster:
+        # Bing Webmaster Tools tracking ID in the <meta> tag
+        tracking_id: 
+    # BuSuanZi site/page view counter
+    # https://busuanzi.ibruce.info不蒜子统计
+    busuanzi: true
+    # CNZZ statistics CNZZ统计
+    # https://www.umeng.com/web
+    cnzz:
+        # CNZZ tracker id
+        id: 
+        # CNZZ website id
+        web_id: 
+    # Alerting users about the use of cookies 提醒用户cookies的使用
+    # https://www.osano.com/cookieconsent/
+    cookie_consent:
+        # The compliance type. Can be "info", "opt-in", or "opt-out"
+        type: info
+        # Theme of the popup. Can be "block", "edgeless", or "classic"
+        theme: edgeless
+        # Whether the popup should stay static regardless of the page scrolls
+        static: false
+        # Where on the screen the consent popup should display
+        position: bottom-left
+        # URL to your site's cookie policy
+        policyLink: 'https://www.cookiesandyou.com/'
+    # Enable the lightGallery and Justified Gallery plugins  启用lightGallery和正楷图库插件
+    gallery: true
+    # Google Analytics plugin settings
+    # https://analytics.google.com
+    google_analytics:
+        # Google Analytics tracking ID
+        tracking_id: 
+    # Hotjar user feedback plugin
+    # https://www.hotjar.com/
+    hotjar:
+        # Hotjar site id
+        site_id: 
+    # Enable the KaTeX math typesetting supprot
+    # https://katex.org/
+    katex: false
+    # Enable the MathJax math typesetting support
+    # https://www.mathjax.org/
+    mathjax: false
+    # Enable the Outdated Browser plugin
+    # http://outdatedbrowser.com/
+    outdated_browser: false
+    # Show a progress bar at top of the page on page loading
+    progressbar: true
+    # Statcounter statistics
+    # https://statcounter.com/
+    statcounter:
+        # Statcounter project id
+        project: 
+        # Statcounter project security code
+        security: 
+    # Twitter conversion tracking plugin settings
+    # https://business.twitter.com/en/help/campaign-measurement-and-analytics/conversion-tracking-for-websites.html
+    twitter_conversion_tracking:
+        # Twitter Pixel ID
+        pixel_id: 
+# CDN provider settings
+# https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
+providers:
+    # Name or URL template of the JavaScript and/or stylesheet CDN provider
+    cdn: jsdelivr
+    # Name or URL template of the webfont CDN provider
+    fontcdn: google
+    # Name or URL of the fontawesome icon font CDN provider
+    iconcdn: fontawesome
