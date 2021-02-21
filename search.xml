@@ -33,7 +33,7 @@
 <p>-双击打开软件的文件夹———-双击打开库文件夹Librares——-找到miscellaneous devices intlib——-电脑自动启动AD程序——–弹出：摘录源文件或安装文件  对话框——–点击对话框底部：摘取源文件———弹出：萃取位置对话框———–选中：打开已有的集成库工程———–单击：确定———此时在AD16屏幕的左侧弹出：projects工程面板———面板内出现分解出来的SCHLIB原理图库和PCBLIB封装库———双击SCHLIB——–打开SCH库零件视图———-单击AD16屏幕右下角的SCH——–选中SCH LIBRARY———弹出SCH库面板——-在SCH库面板的器件栏———-显示上百种SCH零件———选中需要的SCH零件——–单击选中——-在SCH库编辑器的主窗口选中这个SCH零件的图形——对图形进行编辑和修改 使之符合你的个人要求——–保持——–退出。<br>同理：如果想要在AD16系统自带的集成库中添加零件，也是不能直接添加的，也要先把集成库分解成SCH库和PCB库，然后在SCH库中添加新零件，在SCH零件编辑器中添加PCB封装模型。就OK了。<br>4.  GPIO（英语：General-purpose input/output），通用型之输入输出的简称，功能类似8051的P0—P3，其接脚可以供使用者由程控自由使用，PIN脚依现实考量可作为通用输入（GPI）或通用输出（GPO）或通用输入与输出（GPIO），如当clk generator, chip select等。<br>5. 主菜单File-&gt;Import，选择一个AutoCAD文件（*.DXF或*.DWG），在弹出的对话框“Import From AutoCAD”中，设置CAD单位到PCB单位的转换（例如：1 AutoCAD Unit = 1mm），CAD文件导入PCB的哪一层（例如：放置于Mechanical4层），点击OK即可。切换层标签到Mechanical4，快捷键s-&gt;All on layer。主菜单Design-&gt;Board Shape-&gt;Define from Selected Objects，按end键刷新一下页面即可<br>6. Top Solder层，就是用来控制做板的时候不覆盖绿油（白油）的区域，比如焊盘的位置，一些关键信号的测试点，不覆盖绿油，才能漏出焊盘。如果你在焊盘的位置不包含Top Solder层，则焊盘会盖上绿油，需要你磨掉绿油（白油），才能焊接。<br>Top Paste层，提供给制版厂，用于制作钢网，凡是Top Paste层出现的地方，钢网上均开孔。也就是说，这一层不是用来控制PCB的，而是控制钢网开孔的，当SMT贴片生产时，这些开孔用来刷锡膏，刷锡膏（漏锡膏）的位置，恰好就是焊盘所在地位置。<br>7. SOT的英文全名是：Small Outline Transistor(小外形晶体管)，SOT是一种表面贴装的封装形式，一般引脚小于等于5个的小外形晶体管。根据表面宽度的不同分为两种，一种宽度为1.3mm，一种宽度为1.6mm。<br>SOD的英文全名是：Small Outline Diode(小外形二级管)，SOD后面常会是跟一串数字，表示封装的标准序号，如：SOD-23,SOD-523，SOD323等等。<br>其实SOD指贴片二极管的封装，而SOT是一般指贴片三极管的封装。</p>
 ]]></content>
       <categories>
-        <category>Altium Designer使用</category>
+        <category>软件使用</category>
       </categories>
       <tags>
         <tag>Altium Designer</tag>
@@ -45,9 +45,36 @@
     <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
 ]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
       <tags>
         <tag>头文件</tag>
         <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>keil uvsion5与51单片机的学习总结（不定时更新）</title>
+    <url>/2020/12/19/keil/</url>
+    <content><![CDATA[<h3 id="keil-uvsion5软件下载"><a href="#keil-uvsion5软件下载" class="headerlink" title="keil uvsion5软件下载"></a>keil uvsion5软件下载</h3><p><a href="https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw">https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw</a><br>提取码: f7xv （失效请提醒）</p>
+<h3 id="常见报错总结"><a href="#常见报错总结" class="headerlink" title="常见报错总结"></a>常见报错总结</h3><a id="more"></a>
+<p> 1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS<br> 出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。</p>
+<blockquote>
+<p>extern用于变量的用法：<br>extern int a;//声明一个全局变量a<br>int a; //定义一个全局变量a<br>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。（注意：经过测试在GCC中，这样定义变量是不能通过编译的，而在VS2013可以）<br>int a =0;//定义一个全局变量a,并给初值，<br>声明之后不能直接使用这个变量，需要定义之后才能使用。<br>第四个等于第三个，都是定义一个可以被外部使用的全局变量，并给初值。<br>当你要引用一个全局变量的时候，你就要声明extern int a;这时候extern不能省略，因为省略了，就变成int a;这是一个定义，不是声明，就会出现变量重复定义的错误。</p>
+</blockquote>
+<h2 id="C51语法的常见问题"><a href="#C51语法的常见问题" class="headerlink" title="C51语法的常见问题"></a>C51语法的常见问题</h2><ol>
+<li><em>nop</em>()函数。<br>C语言中没有<em>nop</em>()函数。<br>在51C中一般包含在#include “intrins.h” 头文件中。该函数是在51单片机中用的延时函数，表示执行一条没有什么意义的指令，延时一个指令周期，有的指令周期是两个或两个以上的机械周期，但是<em>nop</em>();指令需要的只是一个机械周期也就是12个时钟周期（震荡周期）。<br>51单片机中，1个机械周期 = 12个时钟周期 = 12 * （ 1 / f）。（f 为晶振频率）。如果只用的是12MHZ的晶振，那么 一个机械周期就是1us；也就是说：nop(); 指令的延迟时间为 1us。可以较为精确得控制延迟时间。<blockquote>
+<p>nop指令的作用：<br>1）就是通过nop指令的填充（nop指令一个字节），使指令按字对齐，从而减少取指令时的内存访问次数。（一般用来内存地址偶数对齐，比如有一条指令，占3字节，这时候使用nop指令，cpu 就可以从第四个字节处读取指令了。）<br>2）通过nop指令产生一定的延迟，但是对于快速的CPU来说效果不明显，可以使用rep前缀，多延迟几个时钟。<br>3）i/o传输时，也会用一下 nop，等待缓冲区清空，总线恢复；<br>4）清除由上一个算术逻辑指令设置的flag位；</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>keil uvsion 5</tag>
+        <tag>51单片机</tag>
       </tags>
   </entry>
   <entry>
@@ -78,30 +105,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>keil uvsion5与51单片机的学习总结（不定时更新）</title>
-    <url>/2020/12/19/keil/</url>
-    <content><![CDATA[<h3 id="keil-uvsion5软件下载"><a href="#keil-uvsion5软件下载" class="headerlink" title="keil uvsion5软件下载"></a>keil uvsion5软件下载</h3><p><a href="https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw">https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw</a><br>提取码: f7xv （失效请提醒）</p>
-<h3 id="常见报错总结"><a href="#常见报错总结" class="headerlink" title="常见报错总结"></a>常见报错总结</h3><a id="more"></a>
-<p> 1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS<br> 出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。</p>
-<blockquote>
-<p>extern用于变量的用法：<br>extern int a;//声明一个全局变量a<br>int a; //定义一个全局变量a<br>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。（注意：经过测试在GCC中，这样定义变量是不能通过编译的，而在VS2013可以）<br>int a =0;//定义一个全局变量a,并给初值，<br>声明之后不能直接使用这个变量，需要定义之后才能使用。<br>第四个等于第三个，都是定义一个可以被外部使用的全局变量，并给初值。<br>当你要引用一个全局变量的时候，你就要声明extern int a;这时候extern不能省略，因为省略了，就变成int a;这是一个定义，不是声明，就会出现变量重复定义的错误。</p>
-</blockquote>
-<h2 id="C51语法的常见问题"><a href="#C51语法的常见问题" class="headerlink" title="C51语法的常见问题"></a>C51语法的常见问题</h2><ol>
-<li><em>nop</em>()函数。<br>C语言中没有<em>nop</em>()函数。<br>在51C中一般包含在#include “intrins.h” 头文件中。该函数是在51单片机中用的延时函数，表示执行一条没有什么意义的指令，延时一个指令周期，有的指令周期是两个或两个以上的机械周期，但是<em>nop</em>();指令需要的只是一个机械周期也就是12个时钟周期（震荡周期）。<br>51单片机中，1个机械周期 = 12个时钟周期 = 12 * （ 1 / f）。（f 为晶振频率）。如果只用的是12MHZ的晶振，那么 一个机械周期就是1us；也就是说：nop(); 指令的延迟时间为 1us。可以较为精确得控制延迟时间。<blockquote>
-<p>nop指令的作用：<br>1）就是通过nop指令的填充（nop指令一个字节），使指令按字对齐，从而减少取指令时的内存访问次数。（一般用来内存地址偶数对齐，比如有一条指令，占3字节，这时候使用nop指令，cpu 就可以从第四个字节处读取指令了。）<br>2）通过nop指令产生一定的延迟，但是对于快速的CPU来说效果不明显，可以使用rep前缀，多延迟几个时钟。<br>3）i/o传输时，也会用一下 nop，等待缓冲区清空，总线恢复；<br>4）清除由上一个算术逻辑指令设置的flag位；</p>
-</blockquote>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Keil使用</category>
-      </categories>
-      <tags>
-        <tag>keil uvsion 5</tag>
-        <tag>51单片机</tag>
       </tags>
   </entry>
 </search>
