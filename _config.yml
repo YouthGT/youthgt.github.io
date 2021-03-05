@@ -3,7 +3,9 @@ subtitle: 技术博客
 description: 分享技术，记录生活
 keywords: null
 author: YouthGT
-language: zh-CN
+language: 
+  - zh-CN
+  - en
 timezone: ''
 url: 'http://youthgt.github.io'
 root: /
@@ -19,7 +21,10 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: ':lang'
-skip_render: README.md resume\**
+skip_render:
+             - README.md
+             - resume\**
+             - 404.html
 new_post_name: ':title.md'
 default_layout: post
 titlecase: false
@@ -34,7 +39,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
@@ -64,6 +69,7 @@ theme: candy
 deploy:
   type: git
   repo:
+    # coding: 'https://e.coding.net/youthgt/hexo/youthgt.coding.me.git'
     github: 'https://github.com/YouthGT/youthgt.github.io.git'
     gitee: 'https://gitee.com/youthgt/youthgt.git'
   branch: master

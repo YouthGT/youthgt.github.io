@@ -2,17 +2,18 @@
 version: 4.0.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
-# Path or URL to the website's logo
-logo: /images/logo.ico
+# Path or URL to the website's logo 网站logo
+logo: /images/logo.ico 
 # Page metadata configurations
-head:
+head: 
+    text: YouthGT
     # URL or path to the website's icon
     favicon: /images/logo.ico
     # Web application manifests configuration Web应用程序清单配置
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
         # Name of the web application (default to the site title)
-        name: YouthGT_技术博客
+        name: YouthGT_博客
         # The displayed name of the web application
         # when there is not enough space to display full name
         short_name: youthgt
@@ -109,19 +110,19 @@ navbar:
     #     Download on GitHub:
     #         icon: fab fa-github
     #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
-# Page footer configurations右下角设置
-# footer:
-#     # Links to be shown on the right of the footer section
-#     links:
-#         Creative Commons:
-#             icon: fab fa-creative-commons
-#             url: 'https://creativecommons.org/'
-#         Attribution 4.0 International:
-#             icon: fab fa-creative-commons-by
-#             url: 'https://creativecommons.org/licenses/by/4.0/'
-#         Download on GitHub:
-#             icon: fab fa-github
-#             url: 'https://github.com/ppoffice/hexo-theme-icarus'
+#Page footer configurations右下角设置
+footer:
+    # Links to be shown on the right of the footer section
+    links:
+        Creative Commons:
+            icon: fab fa-creative-commons
+            url: 'https://creativecommons.org/'
+        Attribution 4.0 International:
+            icon: fab fa-creative-commons-by
+            url: 'https://creativecommons.org/licenses/by/4.0/'
+        Download on GitHub:
+            icon: fab fa-github
+            url: 'https://github.com/youthgt'
 
 # Article related configurations文章相关配置
 article:
@@ -165,11 +166,6 @@ comment:
 # Donate plugin configurations 打赏插件的配置
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 donates:
-    # # "Afdian.net" donate button configurations 爱发电
-    # -
-    #     type: afdian
-    #     # URL to the "Afdian.net" personal page
-    #     url: ''
     # Alipay donate button configurations 支付宝
     -
         type: alipay
@@ -185,13 +181,11 @@ donates:
     #     type: patreon
     #     # URL to the Patreon page
     #     url: ''
-    # # Paypal donate button configurations PayPal
-    # -
-    #     type: paypal
-    #     # Paypal business ID or email address
-    #     business: ''
-    #     # Currency code
-    #     currency_code: USD
+    # "Afdian.net" donate button configurations 爱发电
+    -
+        type: afdian
+        # URL to the "Afdian.net" personal page
+        url: 'https://afdian.net/@youthgt'
     # Wechat donate button configurations 微信
     -
         type: wechat
@@ -229,7 +223,7 @@ widgets:
         # Author name博主名字
         author: YouthGT
         # Author title 作者标题
-        author_title: 技术博客
+        author_title: 分享技术，记录生活
         # Author's current location现在位置
         location: Hebei,China
         # URL or path to the avatar image 头像图像的网址或者位置
@@ -248,15 +242,15 @@ widgets:
             WeChat:
                 icon: fab fa-weixin
                 url: 'images/wechat_channel.jpg'
-            #Twitter:
-            #     icon: fab fa-twitter
-            #     url: 'https://twitter.com'
-            # Dribbble:
-            #     icon: fab fa-dribbble
-            #     url: 'https://dribbble.com'
-            # RSS:
-            #     icon: fas fa-rss
-            #     url: /
+            # E-mail:
+            #      icon: fab fa-envelope
+            #     url: '<mailto:youthgt@foxmail.com>'
+            Dribbble:
+                icon: fab fa-qq
+                url: 'http://wpa.qq.com/msgrd?v=3&uin=750817118&site=qq&menu=yes '
+            RSS:
+                icon: fa fa-address-card
+                url: 'https://youthgt.github.io/resume'
    
     # Recommendation links widget configurations 推荐链接小部件配置
     -
@@ -343,19 +337,19 @@ plugins:
         id: 
         # CNZZ website id
         web_id: 
-    # Alerting users about the use of cookies 提醒用户cookies的使用
-    # https://www.osano.com/cookieconsent/
-    cookie_consent:
-        # The compliance type. Can be "info", "opt-in", or "opt-out"
-        type: info
-        # Theme of the popup. Can be "block", "edgeless", or "classic"
-        theme: edgeless
-        # Whether the popup should stay static regardless of the page scrolls
-        static: false
-        # Where on the screen the consent popup should display
-        position: bottom-left
-        # URL to your site's cookie policy
-        policyLink: 'https://www.cookiesandyou.com/'
+    # # Alerting users about the use of cookies 提醒用户cookies的使用
+    # # https://www.osano.com/cookieconsent/
+    # cookie_consent:
+    #     # The compliance type. Can be "info", "opt-in", or "opt-out"
+    #     type: info
+    #     # Theme of the popup. Can be "block", "edgeless", or "classic"
+    #     theme: edgeless
+    #     # Whether the popup should stay static regardless of the page scrolls
+    #     static: false
+    #     # Where on the screen the consent popup should display
+    #     position: bottom-left
+    #     # URL to your site's cookie policy
+    #     policyLink: 'https://www.cookiesandyou.com/'
     # Enable the lightGallery and Justified Gallery plugins  启用lightGallery和正楷图库插件
     gallery: true
     # Google Analytics plugin settings

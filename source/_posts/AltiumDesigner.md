@@ -9,8 +9,10 @@ categories:
 date: 2021-02-19 20:40:00
 ---
 
-# Altlium designer画PCB步骤
+![AD](https://img-blog.csdnimg.cn/20210223003740743.png)
 <!--more-->
+# Altlium designer画PCB步骤
+
 ## 原理图绘制
 元件的放置，网络编号，封装添加（封装管理器），编译，导入到PCB
 ### PCB绘制

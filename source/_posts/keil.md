@@ -7,11 +7,13 @@ categories:
   - 软件使用
 date: 2020-12-19 20:16:00
 ---
+![keil](https://img-blog.csdnimg.cn/20210223003647586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lvdXRoR1Q=,size_16,color_FFFFFF,t_70)
+<!--more-->
 ### keil uvsion5软件下载
 https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw 
 提取码: f7xv （失效请提醒）
 ### 常见报错总结
-<!--more-->
+
  1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
  出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。
 > extern用于变量的用法：

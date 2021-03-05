@@ -1,21 +1,23 @@
----
 title: Hexo 博客的搭建记录
-date: 2020-02-19 12:18:15
-tags:  [Hexo, Markdown]
-categories: 搭建博客
-
-
+tags:
+  - Hexo
+  - Markdown
+categories:
+  - 搭建博客
+date: 2020-02-19 12:18:00
 ---
+
 ## 安装Nodejs
 ```bash
 node -v	#查看node版本
 npm -v	#查看npm版本>
 ```
+<!--more-->
 ## 安装淘宝的cnpm 管理器
 ```bash
 npm install -g cnpm --registry=http://registry.npm.taobao.org	
 ```
-<!--more-->
+
 ## 查看cnpm版本
 ```bash
 cnpm -v
@@ -25,7 +27,7 @@ cnpm -v
 cnpm install -g hexo-cli
 hexo -v	
 ```
-##创建blog目录
+## 创建blog目录
 ```bash
 mkdir blog	   
 ```                       
@@ -75,9 +77,10 @@ git clone https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next
 ```bash 
 theme: Next
 ```
-## 最后发布
+##
 ```bash
-hexo c	#清理一下
+hexo c	
+#清理一下
 hexo g	#生成
 hexo d	#部署到远程Github仓库
 ```
