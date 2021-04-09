@@ -1,37 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C语言引用头文件时“ ”与&lt; &gt; 的区别</title>
-    <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>头文件</tag>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cnpm命令无反应的解决办法</title>
-    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
-<ol>
-<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
-<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
-<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>cnpm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Altium Designer学习总结（不定时更新）</title>
     <url>/2021/02/19/AltiumDesigner/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20210223003740743.png" alt="AD"></p>
@@ -73,28 +42,16 @@
       </tags>
   </entry>
   <entry>
-    <title>keil uvsion5与51单片机的学习总结（不定时更新）</title>
-    <url>/2020/12/19/keil/</url>
-    <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20210223003647586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lvdXRoR1Q=,size_16,color_FFFFFF,t_70" alt="keil"></p>
-<a id="more"></a>
-<h3 id="keil-uvsion5软件下载"><a href="#keil-uvsion5软件下载" class="headerlink" title="keil uvsion5软件下载"></a>keil uvsion5软件下载</h3><p><a href="https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw">https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw</a><br>提取码: f7xv （失效请提醒）</p>
-<h3 id="常见报错总结"><a href="#常见报错总结" class="headerlink" title="常见报错总结"></a>常见报错总结</h3><p> 1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS<br> 出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。</p>
-<blockquote>
-<p>extern用于变量的用法：<br>extern int a;//声明一个全局变量a<br>int a; //定义一个全局变量a<br>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。（注意：经过测试在GCC中，这样定义变量是不能通过编译的，而在VS2013可以）<br>int a =0;//定义一个全局变量a,并给初值，<br>声明之后不能直接使用这个变量，需要定义之后才能使用。<br>第四个等于第三个，都是定义一个可以被外部使用的全局变量，并给初值。<br>当你要引用一个全局变量的时候，你就要声明extern int a;这时候extern不能省略，因为省略了，就变成int a;这是一个定义，不是声明，就会出现变量重复定义的错误。</p>
-</blockquote>
-<h2 id="C51语法的常见问题"><a href="#C51语法的常见问题" class="headerlink" title="C51语法的常见问题"></a>C51语法的常见问题</h2><ol>
-<li><em>nop</em>()函数。<br>C语言中没有<em>nop</em>()函数。<br>在51C中一般包含在#include “intrins.h” 头文件中。该函数是在51单片机中用的延时函数，表示执行一条没有什么意义的指令，延时一个指令周期，有的指令周期是两个或两个以上的机械周期，但是<em>nop</em>();指令需要的只是一个机械周期也就是12个时钟周期（震荡周期）。<br>51单片机中，1个机械周期 = 12个时钟周期 = 12 * （ 1 / f）。（f 为晶振频率）。如果只用的是12MHZ的晶振，那么 一个机械周期就是1us；也就是说：nop(); 指令的延迟时间为 1us。可以较为精确得控制延迟时间。<blockquote>
-<p>nop指令的作用：<br>1）就是通过nop指令的填充（nop指令一个字节），使指令按字对齐，从而减少取指令时的内存访问次数。（一般用来内存地址偶数对齐，比如有一条指令，占3字节，这时候使用nop指令，cpu 就可以从第四个字节处读取指令了。）<br>2）通过nop指令产生一定的延迟，但是对于快速的CPU来说效果不明显，可以使用rep前缀，多延迟几个时钟。<br>3）i/o传输时，也会用一下 nop，等待缓冲区清空，总线恢复；<br>4）清除由上一个算术逻辑指令设置的flag位；</p>
-</blockquote>
-</li>
-</ol>
+    <title>C语言引用头文件时“ ”与&lt; &gt; 的区别</title>
+    <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
 ]]></content>
       <categories>
-        <category>软件使用</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>keil uvsion 5</tag>
-        <tag>51单片机</tag>
+        <tag>头文件</tag>
+        <tag>C语言</tag>
       </tags>
   </entry>
   <entry>
@@ -119,6 +76,24 @@
       <tags>
         <tag>编译Android</tag>
         <tag>ROM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cnpm命令无反应的解决办法</title>
+    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
+<ol>
+<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
+<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
+<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>cnpm</tag>
       </tags>
   </entry>
   <entry>
@@ -148,6 +123,50 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 本地，远程回退版本</title>
+    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h1 id="一、本地回滚："><a href="#一、本地回滚：" class="headerlink" title="一、本地回滚："></a>一、本地回滚：</h1><p> git reset –hard commit-id  //回滚到commit-id</p>
+<h1 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h1><p>　　1、git checkout main</p>
+<p>　　2、git pull</p>
+<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
+<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
+<p>　　5、git push origin :master //删除远程 master</p>
+<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
+<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>keil uvsion5与51单片机的学习总结（不定时更新）</title>
+    <url>/2020/12/19/keil/</url>
+    <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20210223003647586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lvdXRoR1Q=,size_16,color_FFFFFF,t_70" alt="keil"></p>
+<a id="more"></a>
+<h3 id="keil-uvsion5软件下载"><a href="#keil-uvsion5软件下载" class="headerlink" title="keil uvsion5软件下载"></a>keil uvsion5软件下载</h3><p><a href="https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw">https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw</a><br>提取码: f7xv （失效请提醒）</p>
+<h3 id="常见报错总结"><a href="#常见报错总结" class="headerlink" title="常见报错总结"></a>常见报错总结</h3><p> 1.*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS<br> 出现该错误则是因为程序中bai某个变du量重复定义，把头文件zhi中的变量定义前加extern(只是变量声明不用初始化)，再在某一个要调用该变量的c文件的程序之前再定义(注意第一个调用的c文件要负责附带初始化该变量，其他调用的c文件就不需要初始化过程啦)。</p>
+<blockquote>
+<p>extern用于变量的用法：<br>extern int a;//声明一个全局变量a<br>int a; //定义一个全局变量a<br>extern int a =0 ;//定义一个全局变量a 并给初值。一旦给予赋值，一定是定义，定义才会分配存储空间。（注意：经过测试在GCC中，这样定义变量是不能通过编译的，而在VS2013可以）<br>int a =0;//定义一个全局变量a,并给初值，<br>声明之后不能直接使用这个变量，需要定义之后才能使用。<br>第四个等于第三个，都是定义一个可以被外部使用的全局变量，并给初值。<br>当你要引用一个全局变量的时候，你就要声明extern int a;这时候extern不能省略，因为省略了，就变成int a;这是一个定义，不是声明，就会出现变量重复定义的错误。</p>
+</blockquote>
+<h2 id="C51语法的常见问题"><a href="#C51语法的常见问题" class="headerlink" title="C51语法的常见问题"></a>C51语法的常见问题</h2><ol>
+<li><em>nop</em>()函数。<br>C语言中没有<em>nop</em>()函数。<br>在51C中一般包含在#include “intrins.h” 头文件中。该函数是在51单片机中用的延时函数，表示执行一条没有什么意义的指令，延时一个指令周期，有的指令周期是两个或两个以上的机械周期，但是<em>nop</em>();指令需要的只是一个机械周期也就是12个时钟周期（震荡周期）。<br>51单片机中，1个机械周期 = 12个时钟周期 = 12 * （ 1 / f）。（f 为晶振频率）。如果只用的是12MHZ的晶振，那么 一个机械周期就是1us；也就是说：nop(); 指令的延迟时间为 1us。可以较为精确得控制延迟时间。<blockquote>
+<p>nop指令的作用：<br>1）就是通过nop指令的填充（nop指令一个字节），使指令按字对齐，从而减少取指令时的内存访问次数。（一般用来内存地址偶数对齐，比如有一条指令，占3字节，这时候使用nop指令，cpu 就可以从第四个字节处读取指令了。）<br>2）通过nop指令产生一定的延迟，但是对于快速的CPU来说效果不明显，可以使用rep前缀，多延迟几个时钟。<br>3）i/o传输时，也会用一下 nop，等待缓冲区清空，总线恢复；<br>4）清除由上一个算术逻辑指令设置的flag位；</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+      <tags>
+        <tag>keil uvsion 5</tag>
+        <tag>51单片机</tag>
       </tags>
   </entry>
 </search>
