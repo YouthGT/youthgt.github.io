@@ -14,6 +14,27 @@
       </tags>
   </entry>
   <entry>
+    <title>git 本地，远程回退版本</title>
+    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
+<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
+
+<p>　　1、git checkout main</p>
+<p>　　2、git pull</p>
+<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
+<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
+<p>　　5、git push origin :master //删除远程 master</p>
+<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
+<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Altium Designer学习总结（不定时更新）</title>
     <url>/2021/02/19/AltiumDesigner/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20210223003740743.png" alt="AD"></p>
@@ -94,27 +115,6 @@
       </categories>
       <tags>
         <tag>cnpm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 本地，远程回退版本</title>
-    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
-<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
-
-<p>　　1、git checkout main</p>
-<p>　　2、git pull</p>
-<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
-<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
-<p>　　5、git push origin :master //删除远程 master</p>
-<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
-<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
