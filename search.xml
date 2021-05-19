@@ -149,29 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>为LG V50 ThinQ (flashlmdd)编译Evolution X</title>
-    <url>/2021/03/09/LG-V50-ThinQ-%E7%BC%96%E8%AF%91u/</url>
-    <content><![CDATA[<p><img src="https://s3.ax1x.com/2021/03/09/68Q0pQ.md.png" alt="Evolution X"></p>
-<p>　　刷机这么多年了没有自己整出来过一个Rom是不是有点遗憾？<a id="more"></a>我也这么想的，随后便开始寻找编译Rom的方法，其实有了 内核 设备树 和 vendor 就很简单了，稍加修改即可。自己前前后后弄了四天才搞定。（下载链接在最后)<br>　　最初准备搞exTHmUI毕竟本地化比较好，奈何Android R的exTHmUI源码出了问题一时半会儿团队修好，不能整个Android Q 的吧？毕竟要紧跟最新（别提刚出来开没几天的Android S图片）只好转个方向吧。Havoc有GSI直接就可以刷，还有Xtend 和Dotos 有大佬youngguo已经搞了，最后想起来用LG G7时候用过的Evolution X ，即有 PE 的所有，又有较为完整的自定义功能。就它了，开工！<br>　　首先找个教程，讲真对于我这个小白来说这些教程真的没有什么很大的帮助，大多只提到了很多的基础操作步骤。这些步骤对于编译已经包含在这些类原生的项目中机型之类的已经够了（因为官方已经把这些设备的设备树，Vendor 内核放在仓库中，编译时 lunch 即可把仓库中与机型相关的编译必须文件下载下来）但是这样的机型一般比较老，显然flashmdd是没有的。只能从GitHub获取，国外的Markus已经把基于Lineage 的Kernel device tree vendor放出来了，我下载下来进行修改便开始编译，想象是美好的，现实是残酷的，报错给我整吐了。最后终于编译出来了，刷进去不开机。。。。。。　　<br>　　转机在昨天晚上，想起先前编译类原生的大佬youngguo，GItHub上会不会有他的commits可以参考呢？果然是有的，直接看着大佬的commits进行修改过后在进行编译，早上起床看进度，编译完成了，刷入，开机，完美！</p>
-<p><strong>Bug:</strong></p>
-<p>有bug欢迎反馈，我会尽力修复！</p>
-<p><strong>Tips：</strong></p>
-<p>1.　刷机方法：使用twrp3.3.1_四清_格data_刷Evolution X__刷twrp3.3.1_刷magisk22.0_选择b分区_重启进入twrp_刷magisk22.0_刷解密_重启系统开机（引用youngguo的教程，这个流程可以确保开机）</p>
-<p>2.　volte基本无解吧，本人没有能力修复这个。</p>
-<p>3.　本人移动卡4G使用无问题，联通5G功能自行测试，联通应该是没问题的，电信据说需要volte才可以打电话和发短信。</p>
-<p>** Dowload：**<br>QQ群号：291437424</p>
-<p>最后感谢youngguo 、Markus的开源，以及大家对我的支持</p>
-<p>编译耗时，耗财，费力,有能力的兄弟可以赞助支持一下</p>
-]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>编译Android</tag>
-        <tag>ROM</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HC-05蓝牙模块的调试</title>
     <url>/2021/04/28/HC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<p>一、进入AT模式<br>（只适用于有一点点基础的看，看不太懂的可以先百度一下）<br>HC-05带小黑色按钮的，要选按着黑色按钮，然后再插上电脑的USB口<br>不带按钮的，要给KEY接线端接上一个电压（VCC），然后再插入电脑，即可<br>当蓝牙模块state灯变为慢闪，则表明已经进入AT模式。</p>
@@ -193,21 +170,26 @@
       </categories>
   </entry>
   <entry>
-    <title>cnpm命令无反应的解决办法</title>
-    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
-<ol>
-<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
-<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
-<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-</ol>
+    <title>为LG V50 ThinQ (flashlmdd)编译Evolution X</title>
+    <url>/2021/03/09/LG-V50-ThinQ-%E7%BC%96%E8%AF%91u/</url>
+    <content><![CDATA[<p><img src="https://s3.ax1x.com/2021/03/09/68Q0pQ.md.png" alt="Evolution X"></p>
+<p>　　刷机这么多年了没有自己整出来过一个Rom是不是有点遗憾？<a id="more"></a>我也这么想的，随后便开始寻找编译Rom的方法，其实有了 内核 设备树 和 vendor 就很简单了，稍加修改即可。自己前前后后弄了四天才搞定。（下载链接在最后)<br>　　最初准备搞exTHmUI毕竟本地化比较好，奈何Android R的exTHmUI源码出了问题一时半会儿团队修好，不能整个Android Q 的吧？毕竟要紧跟最新（别提刚出来开没几天的Android S图片）只好转个方向吧。Havoc有GSI直接就可以刷，还有Xtend 和Dotos 有大佬youngguo已经搞了，最后想起来用LG G7时候用过的Evolution X ，即有 PE 的所有，又有较为完整的自定义功能。就它了，开工！<br>　　首先找个教程，讲真对于我这个小白来说这些教程真的没有什么很大的帮助，大多只提到了很多的基础操作步骤。这些步骤对于编译已经包含在这些类原生的项目中机型之类的已经够了（因为官方已经把这些设备的设备树，Vendor 内核放在仓库中，编译时 lunch 即可把仓库中与机型相关的编译必须文件下载下来）但是这样的机型一般比较老，显然flashmdd是没有的。只能从GitHub获取，国外的Markus已经把基于Lineage 的Kernel device tree vendor放出来了，我下载下来进行修改便开始编译，想象是美好的，现实是残酷的，报错给我整吐了。最后终于编译出来了，刷进去不开机。。。。。。　　<br>　　转机在昨天晚上，想起先前编译类原生的大佬youngguo，GItHub上会不会有他的commits可以参考呢？果然是有的，直接看着大佬的commits进行修改过后在进行编译，早上起床看进度，编译完成了，刷入，开机，完美！</p>
+<p><strong>Bug:</strong></p>
+<p>有bug欢迎反馈，我会尽力修复！</p>
+<p><strong>Tips：</strong></p>
+<p>1.　刷机方法：使用twrp3.3.1_四清_格data_刷Evolution X__刷twrp3.3.1_刷magisk22.0_选择b分区_重启进入twrp_刷magisk22.0_刷解密_重启系统开机（引用youngguo的教程，这个流程可以确保开机）</p>
+<p>2.　volte基本无解吧，本人没有能力修复这个。</p>
+<p>3.　本人移动卡4G使用无问题，联通5G功能自行测试，联通应该是没问题的，电信据说需要volte才可以打电话和发短信。</p>
+<p>** Dowload：**<br>QQ群号：291437424</p>
+<p>最后感谢youngguo 、Markus的开源，以及大家对我的支持</p>
+<p>编译耗时，耗财，费力,有能力的兄弟可以赞助支持一下</p>
 ]]></content>
       <categories>
-        <category>问题记录</category>
+        <category>Android</category>
       </categories>
       <tags>
-        <tag>cnpm</tag>
+        <tag>编译Android</tag>
+        <tag>ROM</tag>
       </tags>
   </entry>
   <entry>
@@ -258,6 +240,24 @@
       </categories>
       <tags>
         <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cnpm命令无反应的解决办法</title>
+    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
+<ol>
+<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
+<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
+<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>cnpm</tag>
       </tags>
   </entry>
   <entry>
