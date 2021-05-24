@@ -42,19 +42,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C语言引用头文件时“ ”与&lt; &gt; 的区别</title>
-    <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>头文件</tag>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android 类原生编译教程</title>
     <url>/2021/04/15/Android-%E7%B1%BB%E5%8E%9F%E7%94%9F%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p><img src="https://z3.ax1x.com/2021/04/15/cgaJyT.jpg" alt="Android"></p>
@@ -170,6 +157,19 @@
       </categories>
   </entry>
   <entry>
+    <title>C语言引用头文件时“ ”与&lt; &gt; 的区别</title>
+    <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>头文件</tag>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为LG V50 ThinQ (flashlmdd)编译Evolution X</title>
     <url>/2021/03/09/LG-V50-ThinQ-%E7%BC%96%E8%AF%91u/</url>
     <content><![CDATA[<p><img src="https://s3.ax1x.com/2021/03/09/68Q0pQ.md.png" alt="Evolution X"></p>
@@ -190,27 +190,6 @@
       <tags>
         <tag>编译Android</tag>
         <tag>ROM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 本地，远程回退版本</title>
-    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
-<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
-
-<p>　　1、git checkout main</p>
-<p>　　2、git pull</p>
-<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
-<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
-<p>　　5、git push origin :master //删除远程 master</p>
-<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
-<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -258,6 +237,27 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 本地，远程回退版本</title>
+    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
+<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
+
+<p>　　1、git checkout main</p>
+<p>　　2、git pull</p>
+<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
+<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
+<p>　　5、git push origin :master //删除远程 master</p>
+<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
+<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
