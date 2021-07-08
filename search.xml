@@ -170,24 +170,6 @@
       </categories>
   </entry>
   <entry>
-    <title>cnpm命令无反应的解决办法</title>
-    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
-<ol>
-<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
-<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
-<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>cnpm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>为LG V50 ThinQ (flashlmdd)编译Evolution X</title>
     <url>/2021/03/09/LG-V50-ThinQ-%E7%BC%96%E8%AF%91u/</url>
     <content><![CDATA[<p><img src="https://s3.ax1x.com/2021/03/09/68Q0pQ.md.png" alt="Evolution X"></p>
@@ -208,6 +190,53 @@
       <tags>
         <tag>编译Android</tag>
         <tag>ROM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 博客的搭建记录</title>
+    <url>/2020/02/19/construct/</url>
+    <content><![CDATA[<h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v	<span class="comment">#查看node版本</span></span><br><span class="line">npm -v	<span class="comment">#查看npm版本&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="安装淘宝的cnpm-管理器"><a href="#安装淘宝的cnpm-管理器" class="headerlink" title="安装淘宝的cnpm 管理器"></a>安装淘宝的cnpm 管理器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org	</span><br></pre></td></tr></table></figure>
+<h2 id="查看cnpm版本"><a href="#查看cnpm版本" class="headerlink" title="查看cnpm版本"></a>查看cnpm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+<h2 id="安装hexo框架-查看hexo版本"><a href="#安装hexo框架-查看hexo版本" class="headerlink" title="安装hexo框架 查看hexo版本"></a>安装hexo框架 查看hexo版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo -v	</span><br></pre></td></tr></table></figure>
+<h2 id="创建blog目录"><a href="#创建blog目录" class="headerlink" title="创建blog目录"></a>创建blog目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir blog	   </span><br><span class="line">```                       </span><br><span class="line"><span class="comment">## 进入blog目录 生成博客 初始化博客</span></span><br><span class="line">```bash</span><br><span class="line"><span class="built_in">cd</span> blog	</span><br><span class="line">sudo hexo init </span><br></pre></td></tr></table></figure>
+<h2 id="启动本地博客服务-本地访问地址"><a href="#启动本地博客服务-本地访问地址" class="headerlink" title="启动本地博客服务 本地访问地址"></a>启动本地博客服务 本地访问地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s	</span><br><span class="line">http://localhost:4000/	</span><br></pre></td></tr></table></figure>
+<h2 id="创建新的文章"><a href="#创建新的文章" class="headerlink" title="创建新的文章"></a>创建新的文章</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇文章&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="返回blog目录"><a href="#返回blog目录" class="headerlink" title="返回blog目录"></a>返回blog目录</h2><p>hexo clean #清理<br>hexo g #生成</p>
+<h2 id="Github创建一个新的仓库"><a href="#Github创建一个新的仓库" class="headerlink" title="Github创建一个新的仓库"></a>Github创建一个新的仓库</h2><p>YourGithubName.github.io</p>
+<h2 id="在blog目录下安装git部署插件"><a href="#在blog目录下安装git部署插件" class="headerlink" title="在blog目录下安装git部署插件"></a>在blog目录下安装git部署插件</h2><h2 id="cnpm-install-–save-hexo-deployer-git"><a href="#cnpm-install-–save-hexo-deployer-git" class="headerlink" title="cnpm install –save hexo-deployer-git "></a>cnpm install –save hexo-deployer-git </h2><h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置_config.yml"></a>配置_config.yml</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line"> 		<span class="built_in">type</span>: git</span><br><span class="line">		repo: https://github.com/YourGithubName/YourGithubName.github.io.git</span><br><span class="line"> 		branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="部署到Github仓库里"><a href="#部署到Github仓库里" class="headerlink" title="部署到Github仓库里"></a>部署到Github仓库里</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d	</span><br></pre></td></tr></table></figure>
+<h2 id="访问这个地址可以查看博客"><a href="#访问这个地址可以查看博客" class="headerlink" title="访问这个地址可以查看博客"></a>访问这个地址可以查看博客</h2><p><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a></p>
+<h2 id="下载NEXT主题到本地"><a href="#下载NEXT主题到本地" class="headerlink" title="下载NEXT主题到本地"></a>下载NEXT主题到本地</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next </span><br></pre></td></tr></table></figure>
+<h2 id="修改hexo根目录下的-config-yml-文件"><a href="#修改hexo根目录下的-config-yml-文件" class="headerlink" title="修改hexo根目录下的 _config.yml 文件"></a>修改hexo根目录下的 _config.yml 文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">theme: Next</span><br></pre></td></tr></table></figure>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo c	</span><br><span class="line"><span class="comment">#清理一下</span></span><br><span class="line">hexo g	<span class="comment">#生成</span></span><br><span class="line">hexo d	<span class="comment">#部署到远程Github仓库</span></span><br></pre></td></tr></table></figure>
+<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>1 只需要将<a href="http://www.github.com/%E6%94%B9%E4%B8%BAwww.github.com.cnpmjs.org/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E5%BC%8F%E5%8A%A0%E9%80%9F">www.github.com/改为www.github.com.cnpmjs.org/就可以实现一键式加速</a></p>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cnpm命令无反应的解决办法</title>
+    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
+<ol>
+<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
+<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
+<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>cnpm</tag>
       </tags>
   </entry>
   <entry>
@@ -254,35 +283,6 @@
       <tags>
         <tag>keil uvsion 5</tag>
         <tag>51单片机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 博客的搭建记录</title>
-    <url>/2020/02/19/construct/</url>
-    <content><![CDATA[<h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v	<span class="comment">#查看node版本</span></span><br><span class="line">npm -v	<span class="comment">#查看npm版本&gt;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="安装淘宝的cnpm-管理器"><a href="#安装淘宝的cnpm-管理器" class="headerlink" title="安装淘宝的cnpm 管理器"></a>安装淘宝的cnpm 管理器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org	</span><br></pre></td></tr></table></figure>
-<h2 id="查看cnpm版本"><a href="#查看cnpm版本" class="headerlink" title="查看cnpm版本"></a>查看cnpm版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
-<h2 id="安装hexo框架-查看hexo版本"><a href="#安装hexo框架-查看hexo版本" class="headerlink" title="安装hexo框架 查看hexo版本"></a>安装hexo框架 查看hexo版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo -v	</span><br></pre></td></tr></table></figure>
-<h2 id="创建blog目录"><a href="#创建blog目录" class="headerlink" title="创建blog目录"></a>创建blog目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir blog	   </span><br><span class="line">```                       </span><br><span class="line"><span class="comment">## 进入blog目录 生成博客 初始化博客</span></span><br><span class="line">```bash</span><br><span class="line"><span class="built_in">cd</span> blog	</span><br><span class="line">sudo hexo init </span><br></pre></td></tr></table></figure>
-<h2 id="启动本地博客服务-本地访问地址"><a href="#启动本地博客服务-本地访问地址" class="headerlink" title="启动本地博客服务 本地访问地址"></a>启动本地博客服务 本地访问地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s	</span><br><span class="line">http://localhost:4000/	</span><br></pre></td></tr></table></figure>
-<h2 id="创建新的文章"><a href="#创建新的文章" class="headerlink" title="创建新的文章"></a>创建新的文章</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇文章&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="返回blog目录"><a href="#返回blog目录" class="headerlink" title="返回blog目录"></a>返回blog目录</h2><p>hexo clean #清理<br>hexo g #生成</p>
-<h2 id="Github创建一个新的仓库"><a href="#Github创建一个新的仓库" class="headerlink" title="Github创建一个新的仓库"></a>Github创建一个新的仓库</h2><p>YourGithubName.github.io</p>
-<h2 id="在blog目录下安装git部署插件"><a href="#在blog目录下安装git部署插件" class="headerlink" title="在blog目录下安装git部署插件"></a>在blog目录下安装git部署插件</h2><h2 id="cnpm-install-–save-hexo-deployer-git"><a href="#cnpm-install-–save-hexo-deployer-git" class="headerlink" title="cnpm install –save hexo-deployer-git "></a>cnpm install –save hexo-deployer-git </h2><h2 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置_config.yml"></a>配置_config.yml</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line"> 		<span class="built_in">type</span>: git</span><br><span class="line">		repo: https://github.com/YourGithubName/YourGithubName.github.io.git</span><br><span class="line"> 		branch: master</span><br></pre></td></tr></table></figure>
-<h2 id="部署到Github仓库里"><a href="#部署到Github仓库里" class="headerlink" title="部署到Github仓库里"></a>部署到Github仓库里</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d	</span><br></pre></td></tr></table></figure>
-<h2 id="访问这个地址可以查看博客"><a href="#访问这个地址可以查看博客" class="headerlink" title="访问这个地址可以查看博客"></a>访问这个地址可以查看博客</h2><p><a href="https://yourgithubname.github.io/">https://YourGithubName.github.io/</a></p>
-<h2 id="下载NEXT主题到本地"><a href="#下载NEXT主题到本地" class="headerlink" title="下载NEXT主题到本地"></a>下载NEXT主题到本地</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next </span><br></pre></td></tr></table></figure>
-<h2 id="修改hexo根目录下的-config-yml-文件"><a href="#修改hexo根目录下的-config-yml-文件" class="headerlink" title="修改hexo根目录下的 _config.yml 文件"></a>修改hexo根目录下的 _config.yml 文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">theme: Next</span><br></pre></td></tr></table></figure>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo c	</span><br><span class="line"><span class="comment">#清理一下</span></span><br><span class="line">hexo g	<span class="comment">#生成</span></span><br><span class="line">hexo d	<span class="comment">#部署到远程Github仓库</span></span><br></pre></td></tr></table></figure>
-<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>1 只需要将<a href="http://www.github.com/%E6%94%B9%E4%B8%BAwww.github.com.cnpmjs.org/%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E9%94%AE%E5%BC%8F%E5%8A%A0%E9%80%9F">www.github.com/改为www.github.com.cnpmjs.org/就可以实现一键式加速</a></p>
-]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>
