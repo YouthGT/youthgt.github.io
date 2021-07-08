@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言引用头文件时“ ”与&lt; &gt; 的区别</title>
+    <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>头文件</tag>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Altium Designer学习总结（不定时更新）</title>
     <url>/2021/02/19/AltiumDesigner/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20210223003740743.png" alt="AD"></p>
@@ -136,19 +149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C语言引用头文件时“ ”与&lt; &gt; 的区别</title>
-    <url>/2021/02/21/C%E8%AF%AD%E8%A8%80%E5%BC%95%E7%94%A8%E5%A4%B4%E6%96%87%E4%BB%B6%E2%80%9C-%E2%80%9D%E4%B8%8E-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>尖括号:直接去系统配置的库环境变量和用户配置的路径去搜索<br>双引号:编译器会先在项目的当前目录查找头文件,一般用于包含用户自己编写的头文件，包含范围最大，找不到后会向尖括号一样在系统配置的库的环境变量去寻找<br>由于搜索范围不同会导致预编译处理的速度不同</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>头文件</tag>
-        <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HC-05蓝牙模块的调试</title>
     <url>/2021/04/28/HC-05%E8%93%9D%E7%89%99%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<p>一、进入AT模式<br>（只适用于有一点点基础的看，看不太懂的可以先百度一下）<br>HC-05带小黑色按钮的，要选按着黑色按钮，然后再插上电脑的USB口<br>不带按钮的，要给KEY接线端接上一个电压（VCC），然后再插入电脑，即可<br>当蓝牙模块state灯变为慢闪，则表明已经进入AT模式。</p>
@@ -170,12 +170,21 @@
       </categories>
   </entry>
   <entry>
-    <title>Keil5编译时wraing：no previous prototype SystemInit</title>
-    <url>/2021/07/08/Keil5%E7%BC%96%E8%AF%91%E6%97%B6wraing%EF%BC%9Ano-previous-prototype-SystemInit/</url>
-    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>打开魔术棒按钮，将ARM Complier版本改成5，不要用6。如果遇到头文件打不开等报错也用该方法解决。</p>
+    <title>cnpm命令无反应的解决办法</title>
+    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
+<ol>
+<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
+<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
+<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ol>
 ]]></content>
+      <categories>
+        <category>问题记录</category>
+      </categories>
       <tags>
-        <tag>keil uvsion 5</tag>
+        <tag>cnpm</tag>
       </tags>
   </entry>
   <entry>
@@ -199,24 +208,6 @@
       <tags>
         <tag>编译Android</tag>
         <tag>ROM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cnpm命令无反应的解决办法</title>
-    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
-<ol>
-<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
-<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
-<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>cnpm</tag>
       </tags>
   </entry>
   <entry>
@@ -249,6 +240,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Keil5编译时wraing：no previous prototype SystemInit</title>
+    <url>/2021/07/08/Keil5%E7%BC%96%E8%AF%91%E6%97%B6wraing%EF%BC%9Ano-previous-prototype-SystemInit/</url>
+    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>打开魔术棒按钮，将ARM Complier版本改成5，不要用6。如果遇到头文件打不开等报错也用该方法解决。</p>
+]]></content>
+      <tags>
+        <tag>keil uvsion 5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 本地，远程回退版本</title>
+    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
+<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
+
+<p>　　1、git checkout main</p>
+<p>　　2、git pull</p>
+<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
+<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
+<p>　　5、git push origin :master //删除远程 master</p>
+<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
+<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>keil uvsion5与51单片机的学习总结（不定时更新）</title>
     <url>/2020/12/19/keil/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20210223003647586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1lvdXRoR1Q=,size_16,color_FFFFFF,t_70" alt="keil"></p>
@@ -271,27 +292,6 @@
       <tags>
         <tag>keil uvsion 5</tag>
         <tag>51单片机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 本地，远程回退版本</title>
-    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
-<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
-
-<p>　　1、git checkout main</p>
-<p>　　2、git pull</p>
-<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
-<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
-<p>　　5、git push origin :master //删除远程 master</p>
-<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
-<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
       </tags>
   </entry>
 </search>
