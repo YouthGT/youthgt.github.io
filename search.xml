@@ -170,6 +170,39 @@
       </categories>
   </entry>
   <entry>
+    <title>Keil5编译时wraing：no previous prototype SystemInit</title>
+    <url>/2021/07/08/Keil5%E7%BC%96%E8%AF%91%E6%97%B6wraing%EF%BC%9Ano-previous-prototype-SystemInit/</url>
+    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ul>
+<li><p>打开魔术棒按钮</p>
+</li>
+<li><p>将ARM Complier版本改成5</p>
+</li>
+</ul>
+<p>如果遇到头文件打不开等报错也用该方法解决。</p>
+]]></content>
+      <tags>
+        <tag>keil uvsion 5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>cnpm命令无反应的解决办法</title>
+    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
+<ol>
+<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
+<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
+<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>cnpm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为LG V50 ThinQ (flashlmdd)编译Evolution X</title>
     <url>/2021/03/09/LG-V50-ThinQ-%E7%BC%96%E8%AF%91u/</url>
     <content><![CDATA[<p><img src="https://s3.ax1x.com/2021/03/09/68Q0pQ.md.png" alt="Evolution X"></p>
@@ -219,41 +252,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Keil5编译时wraing：no previous prototype SystemInit</title>
-    <url>/2021/07/08/Keil5%E7%BC%96%E8%AF%91%E6%97%B6wraing%EF%BC%9Ano-previous-prototype-SystemInit/</url>
-    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ul>
-<li>打开魔术棒按钮</li>
-</ul>
-<p><img src="images%5Csoftware%5Cpasted-1.png" alt="filename already exists, renamed"></p>
-<ul>
-<li>将ARM Complier版本改成5</li>
-</ul>
-<p><img src="images%5Csoftware%5Cpasted-2.png" alt="filename already exists, renamed"></p>
-<p>如果遇到头文件打不开等报错也用该方法解决。</p>
-]]></content>
-      <tags>
-        <tag>keil uvsion 5</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>cnpm命令无反应的解决办法</title>
-    <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
-<ol>
-<li>卸载 <code>npm uninstall -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-<li>注册 <code>npm set registry https://registry.npm.taobao.org</code></li>
-<li>解析 <code>npm set disturl https://npm.taobao.org/dist</code></li>
-<li>安装 <code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>cnpm</tag>
       </tags>
   </entry>
   <entry>
