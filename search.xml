@@ -193,23 +193,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Keil5编译时wraing：no previous prototype SystemInit</title>
-    <url>/2021/07/08/Keil5%E7%BC%96%E8%AF%91%E6%97%B6wraing%EF%BC%9Ano-previous-prototype-SystemInit/</url>
-    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ul>
-<li>打开魔术棒按钮</li>
-</ul>
-<p><img src="%5Cimages%5Cpasted-1.png" alt="filename already exists, renamed"></p>
-<ul>
-<li>将ARM Complier版本改成5</li>
-</ul>
-<p><img src="%5Cimages%5Cpasted-2.png" alt="filename already exists, renamed"></p>
-<p>如果遇到头文件打不开等报错也用该方法解决。</p>
-]]></content>
-      <tags>
-        <tag>keil uvsion 5</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo 博客的搭建记录</title>
     <url>/2020/02/19/construct/</url>
     <content><![CDATA[<h2 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v	<span class="comment">#查看node版本</span></span><br><span class="line">npm -v	<span class="comment">#查看npm版本&gt;</span></span><br></pre></td></tr></table></figure>
@@ -239,6 +222,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Keil5编译时wraing：no previous prototype SystemInit</title>
+    <url>/2021/07/08/Keil5%E7%BC%96%E8%AF%91%E6%97%B6wraing%EF%BC%9Ano-previous-prototype-SystemInit/</url>
+    <content><![CDATA[<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ul>
+<li>打开魔术棒按钮</li>
+</ul>
+<p><img src="images%5Csoftware%5Cpasted-1.png" alt="filename already exists, renamed"></p>
+<ul>
+<li>将ARM Complier版本改成5</li>
+</ul>
+<p><img src="images%5Csoftware%5Cpasted-2.png" alt="filename already exists, renamed"></p>
+<p>如果遇到头文件打不开等报错也用该方法解决。</p>
+]]></content>
+      <tags>
+        <tag>keil uvsion 5</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cnpm命令无反应的解决办法</title>
     <url>/2021/02/26/cnpm%E5%91%BD%E4%BB%A4%E6%97%A0%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[<p>前几天发现cnpm命令无反应也无报错，最后尝试卸载重装即可解决该问题<a id="more"></a><img src="https://s3.ax1x.com/2021/02/26/6SkDqf.png" alt="cnpm无反应.png"></p>
@@ -254,27 +254,6 @@
       </categories>
       <tags>
         <tag>cnpm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git 本地，远程回退版本</title>
-    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
-    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
-<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
-
-<p>　　1、git checkout main</p>
-<p>　　2、git pull</p>
-<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
-<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
-<p>　　5、git push origin :master //删除远程 master</p>
-<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
-<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -300,6 +279,27 @@
       <tags>
         <tag>keil uvsion 5</tag>
         <tag>51单片机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git 本地，远程回退版本</title>
+    <url>/2021/04/09/git-%E6%9C%AC%E5%9C%B0%EF%BC%8C%E8%BF%9C%E7%A8%8B%E5%9B%9E%E9%80%80%E7%89%88%E6%9C%AC/</url>
+    <content><![CDATA[<h2 id="一、本地回滚"><a href="#一、本地回滚" class="headerlink" title="一、本地回滚"></a>一、本地回滚</h2><p> git reset –hard commit-id  //回滚到commit-id</p>
+<h2 id="二、远程回滚"><a href="#二、远程回滚" class="headerlink" title="二、远程回滚"></a>二、远程回滚</h2><a id="more"></a>
+
+<p>　　1、git checkout main</p>
+<p>　　2、git pull</p>
+<p>　　3、git branch main_backup //备份一下这个分支当前的情况</p>
+<p>　　4、git reset –hard the_commit_id //把master本地回滚到the_commit_id</p>
+<p>　　5、git push origin :master //删除远程 master</p>
+<p>　　6、git push origin master //用回滚后的本地分支重新建立远程分支</p>
+<p>　　7、git branch -d master_backup //如果前面都成功了，删除这个备份分支</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
       </tags>
   </entry>
 </search>
