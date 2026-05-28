@@ -1,0 +1,239 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import Button from "@/components/ui/Button.astro";
+import { siteConfig } from "@/config/site";
+import {
+  LayoutDashboard, Layers, FileText, Sparkles, Zap, Palette,
+  ArrowRight, Check
+} from "@lucide/astro";
+
+const featureModules = [
+  {
+    icon: LayoutDashboard,
+    title: "Clean, scalable page structure",
+    desc: "Nine pre-built pages — Home, Features, Pricing, Blog, Changelog, About, Contact, Elements, 404 — wired with consistent hierarchy, spacing, and typography. Add your tenth without re-deciding any of it.",
+    points: ["9 pre-built page templates", "Token-driven spacing (4 / 8 / 12 / 16 / 24 …)", "1200px max-width, 800px inner content", "Mobile-first responsive (375 / 768 / 1024 / 1440)"],
+    direction: "left",
+    visual: "wireframe",
+  },
+  {
+    icon: Layers,
+    title: "Modular, plug-and-play sections",
+    desc: "Every section is a standalone Astro component with a consistent props interface. Reorder Hero, Features, Pricing, Steps, FAQ, FinalCTA without rewriting layout glue.",
+    points: ["15+ reusable section components", "Consistent props API (title, description, items)", "Mix, match, and reorder without conflicts", "Documented in /elements for quick reference"],
+    direction: "right",
+    visual: "blocks",
+  },
+  {
+    icon: FileText,
+    title: "Content with full MDX support",
+    desc: "Blog and changelog powered by Astro v5 Content Layer. Plain Markdown for prose, imported Astro components for interactive bits. No CMS, no plugin sprawl.",
+    points: ["Astro v5 Content Layer (glob loader)", "Component imports inside MDX", "TOC + reading progress + share built-in", "Auto RSS feed at /rss.xml"],
+    direction: "left",
+    visual: "mdx",
+  },
+  {
+    icon: Sparkles,
+    title: "Subtle, purposeful animations",
+    desc: "Scroll reveals via AOS, orchestrated entrances via motion.js, and a staggered hero text component. Restraint over spectacle — every animation has a reason.",
+    points: ["AOS scroll reveal with `data-aos-once`", "motion.js for orchestrated timelines", "AnimatedText for hero stagger", "Honors prefers-reduced-motion"],
+    direction: "right",
+    visual: "motion",
+  },
+  {
+    icon: Zap,
+    title: "Fast by default",
+    desc: "Astro ships zero JavaScript by default — interactive islands load only where needed. Tested on Vercel Edge and Cloudflare Pages, scoring Lighthouse 95+ across the board from a fresh install.",
+    points: ["Zero JS by default (Astro Islands)", "Automatic Sharp image optimization", "Static output, deployable anywhere", "Lighthouse 95+ on a fresh install"],
+    direction: "left",
+    visual: "lighthouse",
+  },
+  {
+    icon: Palette,
+    title: "Token-driven design system",
+    desc: "Colors, fonts, spacing, radii, and motion timing are all CSS custom properties documented in docs/DESIGN.md. Rebrand by editing one file — the rest of the site follows.",
+    points: ["~30 documented CSS tokens", "Tailwind v4 @theme integration", "Built-in dark mode with no flash", "/elements page as live reference"],
+    direction: "right",
+    visual: "palette",
+  },
+];
+---
+
+<Layout
+  title="Features — RicoFast"
+  description="Everything you need to build a modern SaaS site. Carefully designed sections and production-ready components."
+>
+  <section class="site-container my-12">
+    <PageHeader
+      title="Everything you need to build a modern SaaS site"
+      description="Carefully designed sections, production-ready components, and a layout system that scales with your product."
+    />
+  </section>
+
+  <!-- Feature Detail Modules -->
+  {featureModules.map((mod) => (
+    <section class="py-16 md:py-24 site-container">
+      <div class={`flex flex-col ${mod.direction === 'right' ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}>
+        <!-- Text -->
+        <div class="flex-1 min-w-0" data-aos={mod.direction === 'right' ? 'fade-left-sm' : 'fade-right-sm'} data-aos-once="true">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+            <mod.icon class="w-6 h-6 text-primary" />
+          </div>
+          <h2 class="text-2xl md:text-3xl font-brand mb-4">{mod.title}</h2>
+          <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">{mod.desc}</p>
+          <ul class="space-y-3">
+            {mod.points.map((point) => (
+              <li class="flex items-start gap-2">
+                <Check class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                <span class="text-sm text-neutral-600 dark:text-neutral-300">{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Visual -->
+        <div class="flex-1 min-w-0 w-full" data-aos={mod.direction === 'right' ? 'fade-right-sm' : 'fade-left-sm'} data-aos-delay="200" data-aos-once="true">
+          <div class="relative rounded-2xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700 h-[280px] md:h-[340px] overflow-hidden p-6">
+
+            <!-- 1. Page wireframe -->
+            {mod.visual === "wireframe" && (
+              <div class="h-full flex flex-col gap-2.5">
+                <div class="h-5 rounded-md border border-dashed border-primary/30 flex items-center px-2 gap-1.5">
+                  <div class="w-2 h-2 rounded-full bg-primary/40"></div>
+                  <div class="flex-1"></div>
+                  <div class="w-6 h-1 rounded-full bg-primary/30"></div>
+                  <div class="w-6 h-1 rounded-full bg-primary/30"></div>
+                  <div class="w-6 h-1 rounded-full bg-primary/30"></div>
+                </div>
+                <div class="h-16 rounded-md border border-dashed border-primary/30 bg-primary/5 flex items-center justify-center">
+                  <div class="text-[9px] uppercase tracking-wider text-primary/60">Hero</div>
+                </div>
+                <div class="grid grid-cols-3 gap-2 flex-1">
+                  <div class="rounded-md border border-dashed border-primary/30 bg-primary/5"></div>
+                  <div class="rounded-md border border-dashed border-primary/30 bg-primary/5"></div>
+                  <div class="rounded-md border border-dashed border-primary/30 bg-primary/5"></div>
+                </div>
+                <div class="h-10 rounded-md border border-dashed border-primary/30 bg-accent/10"></div>
+              </div>
+            )}
+
+            <!-- 2. Modular blocks -->
+            {mod.visual === "blocks" && (
+              <div class="h-full relative flex items-center justify-center">
+                <div class="absolute top-4 left-4 w-28 h-20 rounded-xl border border-dashed border-primary/40 bg-primary/10 rotate-[-6deg] shadow-sm flex items-center justify-center">
+                  <span class="text-[10px] uppercase tracking-wider text-primary/70">Hero</span>
+                </div>
+                <div class="relative w-32 h-24 rounded-xl border border-dashed border-primary/50 bg-bg-secondary dark:bg-bg-secondary-dark shadow-md flex items-center justify-center z-10">
+                  <span class="text-[10px] uppercase tracking-wider text-primary">Features</span>
+                </div>
+                <div class="absolute bottom-4 right-4 w-28 h-20 rounded-xl border border-dashed border-accent/50 bg-accent/15 rotate-[8deg] shadow-sm flex items-center justify-center">
+                  <span class="text-[10px] uppercase tracking-wider text-amber-700/80 dark:text-amber-300/80">Pricing</span>
+                </div>
+                <div class="absolute top-12 right-10 w-20 h-14 rounded-xl border border-dashed border-primary/30 bg-bg-primary/40 dark:bg-neutral-900/40 rotate-[-4deg] shadow-sm flex items-center justify-center">
+                  <span class="text-[9px] uppercase tracking-wider text-primary/50">FAQ</span>
+                </div>
+              </div>
+            )}
+
+            <!-- 3. MDX code -->
+            {mod.visual === "mdx" && (
+              <div class="h-full font-mono text-[11px] leading-relaxed text-neutral-600 dark:text-neutral-300 overflow-hidden">
+                <div class="text-neutral-400">---</div>
+                <div><span class="text-primary">title</span>: <span class="text-emerald-600 dark:text-emerald-400">"Launching v1.2"</span></div>
+                <div><span class="text-primary">publishDate</span>: 2026-03-18</div>
+                <div><span class="text-primary">tags</span>: [<span class="text-emerald-600 dark:text-emerald-400">"Release"</span>]</div>
+                <div class="text-neutral-400">---</div>
+                <div class="mt-2"><span class="text-amber-600 dark:text-amber-400">## What's new</span></div>
+                <div class="mt-1">Three months after v1, RicoFast</div>
+                <div>v1.2 ships today.</div>
+                <div class="mt-2 text-purple-600 dark:text-purple-400">&lt;Callout type="success"&gt;</div>
+                <div class="pl-4">Lighthouse 95+ across the board</div>
+                <div class="text-purple-600 dark:text-purple-400">&lt;/Callout&gt;</div>
+              </div>
+            )}
+
+            <!-- 4. Motion -->
+            {mod.visual === "motion" && (
+              <div class="h-full relative flex items-center justify-center">
+                <div class="absolute w-24 h-24 rounded-2xl border border-primary/20 bg-primary/5 translate-x-[-32px] translate-y-[-24px] opacity-30"></div>
+                <div class="absolute w-24 h-24 rounded-2xl border border-primary/30 bg-primary/10 translate-x-[-16px] translate-y-[-12px] opacity-60"></div>
+                <div class="absolute w-24 h-24 rounded-2xl border border-primary/50 bg-primary/20 shadow-md"></div>
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+                  <Sparkles class="w-3 h-3 text-primary" />
+                  <span class="text-[10px] uppercase tracking-wider text-primary">Staggered entrance</span>
+                </div>
+              </div>
+            )}
+
+            <!-- 5. Lighthouse -->
+            {mod.visual === "lighthouse" && (
+              <div class="h-full flex flex-col">
+                <div class="grid grid-cols-4 gap-3 flex-1 items-center">
+                  {[
+                    { label: "Perf", value: 98, color: "text-emerald-500" },
+                    { label: "A11y", value: 90, color: "text-emerald-500" },
+                    { label: "Best", value: 100, color: "text-emerald-500" },
+                    { label: "SEO", value: 95, color: "text-emerald-500" },
+                  ].map((m) => (
+                    <div class="flex flex-col items-center gap-2">
+                      <div class="relative w-14 h-14 rounded-full border-2 border-emerald-500/30 bg-emerald-500/5 flex items-center justify-center">
+                        <span class={`text-base font-brand ${m.color}`}>{m.value}</span>
+                      </div>
+                      <span class="text-[10px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400">{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <div class="mt-4 flex items-center justify-center gap-1.5">
+                  <Zap class="w-3 h-3 text-primary" />
+                  <span class="text-[10px] uppercase tracking-wider text-primary">Lighthouse · Home page</span>
+                </div>
+              </div>
+            )}
+
+            <!-- 6. Palette -->
+            {mod.visual === "palette" && (
+              <div class="h-full flex flex-col gap-3">
+                <div class="flex gap-2">
+                  <div class="flex-1 rounded-lg" style="background: #2d6dc3; height: 56px;"></div>
+                  <div class="flex-1 rounded-lg" style="background: #0066ff; height: 56px;"></div>
+                  <div class="flex-1 rounded-lg" style="background: #8fb9ff; height: 56px;"></div>
+                  <div class="flex-1 rounded-lg" style="background: #fad13b; height: 56px;"></div>
+                  <div class="flex-1 rounded-lg" style="background: #faeb75; height: 56px;"></div>
+                </div>
+                <div class="flex-1 rounded-lg border border-primary/10 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-800/40 p-3 font-mono text-[10px] leading-snug">
+                  <div class="text-neutral-400">@theme &#123;</div>
+                  <div class="pl-3"><span class="text-primary">--color-primary</span>: <span class="text-amber-600 dark:text-amber-400">#2d6dc3</span>;</div>
+                  <div class="pl-3"><span class="text-primary">--color-accent</span>: <span class="text-amber-600 dark:text-amber-400">#fad13b</span>;</div>
+                  <div class="pl-3"><span class="text-primary">--font-brand</span>: Instrument Serif;</div>
+                  <div class="text-neutral-400">&#125;</div>
+                </div>
+              </div>
+            )}
+
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700 my-4 site-container"></div>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 site-container" data-aos="fade-up-xs" data-aos-once="true">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-brand mb-4">See it in action</h2>
+      <p class="text-neutral-600 dark:text-neutral-300 mb-8 leading-relaxed">
+        Browse the live demo, then fork the repo when you're ready to make it yours.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button url="/" type="fill" className="text-lg px-8 py-3">
+          View Live Demo <ArrowRight size={18} />
+        </Button>
+        <Button url={siteConfig.social.github} className="text-lg px-8 py-3">
+          Get Template
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,94 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import { getCollection } from "astro:content";
+import Badge from "@/components/ui/Badge.astro";
+
+const allEntries = await getCollection("changelog");
+const entries = allEntries.sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<Layout
+  title="Changelog — RicoFast"
+  description="Track improvements, new releases, and updates."
+>
+  <section class="site-container my-12">
+    <PageHeader
+      title="Changelog"
+      description="Track improvements and new releases."
+    />
+  </section>
+
+  <section class="site-container max-w-3xl mx-auto pb-24">
+    <div class="relative">
+      <div class="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-700"></div>
+
+      <div class="space-y-12">
+        {entries.map((entry, i) => (
+          <div
+            class="relative pl-12 md:pl-16"
+            data-aos="fade-up-sm"
+            data-aos-delay={i * 80}
+            data-aos-once="true"
+          >
+            <div class="absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-bg-primary dark:border-bg-primary-dark"></div>
+
+            <div class="mb-2 flex items-center gap-3 flex-wrap">
+              {entry.data.version && (
+                <Badge variant="primary" size="sm">{entry.data.version}</Badge>
+              )}
+              <time class="text-sm text-neutral-400 dark:text-neutral-500">
+                {formatDate(entry.data.publishDate)}
+              </time>
+            </div>
+
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-4">
+              {entry.data.title}
+            </h2>
+
+            <article class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed changelog-content">
+              <Fragment set:html={entry.rendered?.html || ""} />
+            </article>
+          </div>
+        ))}
+
+        {entries.length === 0 && (
+          <p class="text-center text-neutral-400 dark:text-neutral-500 py-12">
+            No changelog entries yet.
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .changelog-content :global(h2) {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-neutral-800);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  :global(html.dark) .changelog-content :global(h2) {
+    color: var(--color-neutral-100);
+  }
+  .changelog-content :global(ul) {
+    list-style: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .changelog-content :global(li) {
+    margin-bottom: 0.25rem;
+  }
+</style>

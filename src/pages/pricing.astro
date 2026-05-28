@@ -1,0 +1,115 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import PricingSection from "@/components/sections/Pricing.astro";
+import AccordionItem from "@/components/ui/AccordionItem.astro";
+import Button from "@/components/ui/Button.astro";
+import { siteConfig } from "@/config/site";
+import { Check, X, ArrowRight } from "@lucide/astro";
+
+const comparisonFeatures = [
+  { name: "Projects", free: "1", pro: "Unlimited", enterprise: "Unlimited" },
+  { name: "Page templates", free: "Basic", pro: "Full", enterprise: "Full + Custom" },
+  { name: "Components", free: "Core", pro: "Full library", enterprise: "Full + Custom" },
+  { name: "Customization", free: "Limited", pro: "Full", enterprise: "Advanced" },
+  { name: "Animations", free: "Basic AOS", pro: "Full motion.js", enterprise: "Full + Custom" },
+  { name: "Support", free: "Community", pro: "Email (1 biz day)", enterprise: "Priority (same day)" },
+  { name: "Custom domain", free: false, pro: true, enterprise: true },
+  { name: "Team seats", free: "1", pro: "3", enterprise: "10+" },
+  { name: "SSO + audit log", free: false, pro: false, enterprise: true },
+  { name: "SLA", free: false, pro: false, enterprise: "99.9%" },
+];
+
+const faqItems = [
+  { question: "Is there a free trial on Pro?", answer: "Yes — Pro includes a 7-day free trial. No credit card required to start; we'll only ask for billing details when the trial ends." },
+  { question: "What's your refund policy?", answer: "14-day money-back guarantee on all paid plans, no questions asked. Email hello@ricoui.com within 14 days of the charge and we'll process the refund within 2 business days." },
+  { question: "Can I upgrade or downgrade later?", answer: "Anytime. Upgrades take effect immediately and we prorate the difference. Downgrades take effect at the end of the current billing period, so you keep paid features until then." },
+  { question: "How does team billing work?", answer: "Pro includes 3 seats and Enterprise starts at 10 seats. Additional seats are $9/seat/month on Pro and $19/seat/month on Enterprise, billed on the same cycle as your main subscription." },
+];
+---
+
+<Layout
+  title="Pricing — RicoFast"
+  description="Simple, transparent pricing. Choose a plan that fits your stage."
+>
+  <section class="site-container my-12">
+    <PageHeader
+      title="Simple, transparent pricing"
+      description="Choose a plan that fits your stage. Upgrade anytime as you grow."
+    />
+    <p class="text-center text-xs text-neutral-400 dark:text-neutral-500 mt-6 italic">
+      Demo pricing — replace with your own plans. The RicoFast template itself is free and MIT-licensed.
+    </p>
+  </section>
+
+  <PricingSection showHeader={false} />
+
+  <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700 my-8 site-container"></div>
+
+  <!-- Feature Comparison -->
+  <section class="site-container py-16 md:py-24" data-aos="fade-up-xs" data-aos-once="true">
+    <h2 class="text-3xl font-brand text-center mb-8">Compare plans</h2>
+    <div class="max-w-4xl mx-auto overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-dashed border-neutral-200 dark:border-neutral-700">
+            <th class="text-left py-4 pr-8 text-sm font-medium text-neutral-500">Feature</th>
+            <th class="text-center py-4 px-4 text-sm font-medium text-neutral-500">Free</th>
+            <th class="text-center py-4 px-4 text-sm font-medium text-primary">Pro</th>
+            <th class="text-center py-4 px-4 text-sm font-medium text-neutral-500">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparisonFeatures.map((feature) => (
+            <tr class="border-b border-dashed border-neutral-100 dark:border-neutral-800">
+              <td class="py-4 pr-8 text-sm text-neutral-700 dark:text-neutral-300">{feature.name}</td>
+              {[feature.free, feature.pro, feature.enterprise].map((val) => (
+                <td class="text-center py-4 px-4">
+                  {typeof val === 'boolean' ? (
+                    val ? (
+                      <Check class="w-4 h-4 text-primary mx-auto" />
+                    ) : (
+                      <X class="w-4 h-4 text-neutral-300 dark:text-neutral-600 mx-auto" />
+                    )
+                  ) : (
+                    <span class="text-sm text-neutral-600 dark:text-neutral-300">{val}</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700 my-8 site-container"></div>
+
+  <!-- Pricing FAQ -->
+  <section class="py-16 md:py-24 site-container">
+    <h2 class="text-3xl font-brand text-center mb-8">Pricing FAQ</h2>
+    <div class="max-w-2xl mx-auto" data-aos="fade-up-xs" data-aos-once="true">
+      {faqItems.map((item, index) => (
+        <AccordionItem question={item.question} answer={item.answer} index={index} />
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 site-container" data-aos="fade-up-xs" data-aos-once="true">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-brand mb-4">Not sure which plan?</h2>
+      <p class="text-neutral-600 dark:text-neutral-300 mb-8 leading-relaxed">
+        Start on Free, upgrade when you outgrow it. Most teams switch to Pro within their first month.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button url={siteConfig.social.github} type="fill" className="text-lg px-8 py-3">
+          Start free <ArrowRight size={18} />
+        </Button>
+        <Button url="/contact" className="text-lg px-8 py-3">
+          Talk to sales
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

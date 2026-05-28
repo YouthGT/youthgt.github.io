@@ -1,0 +1,58 @@
+---
+title: "Introducing RicoFast"
+description: "Why we built another SaaS template and what makes this one different. A design-led foundation for indie hackers, AI tools, and open-source maintainers."
+publishDate: 2026-01-12
+read: 5
+tags: ["Announcement", "Product"]
+img: "/assets/article-cover.jpg"
+img_alt: "RicoFast, a design-led SaaS template for Astro"
+featured: true
+---
+
+When you start a new SaaS, the website is rarely the first thing on your mind. You want to ship the product. But three days in, you are still wrestling with hero spacing, picking a font that will not look generic, or wondering why your pricing page somehow looks worse than the throwaway one you made on a Sunday afternoon.
+
+That is the gap **RicoFast** is built for.
+
+## A polished foundation, not a starter
+
+There are plenty of SaaS templates out there. Most of them fall into one of two camps:
+
+- **Bare-bones starters** - a navbar, a hero, three feature cards, and not much else. You spend the next week building everything around it.
+- **Maximalist bundles** - dozens of sections, page variants, and themes. You spend the next week deleting things you will never use.
+
+RicoFast aims for the middle: core marketing pages, auth templates, content pages, utility pages, reusable sections you can mix and match, and a token-based design system that is documented well enough to extend with confidence.
+
+## What's in the box
+
+- **Home, Features, Pricing, Blog, Changelog, About, Contact, Elements, Sign in, Sign up, 404** - wired, responsive, and dark-mode ready
+- A reusable section system for hero areas, feature blocks, pricing cards, comparison tables, FAQ, tech stack, use cases, and final CTAs
+- MDX-powered blog and changelog with sample content
+- A documented design system in `docs/DESIGN.md` where colors, fonts, spacing, and motion rules are explained
+- An `/elements` reference page so you can inspect available UI before writing new CSS
+
+## Built on Astro, not against it
+
+We picked Astro deliberately. It ships zero JavaScript by default, which keeps a marketing site fast even as you add sections. When you need interactivity - a pricing toggle, a mobile menu, an accordion - you add it where it belongs instead of shipping a global runtime for every page.
+
+The template uses Astro v5 Content Layer for blog and changelog content. That gives the site a simple local-content workflow today and a clear path to external content sources later.
+
+## Who it's for
+
+- Indie hackers launching their first product
+- AI and developer tool teams that need a credible site quickly
+- Open-source maintainers who want a product-quality project site
+- Design-conscious engineers who can read CSS but do not want to invent a design system from scratch
+
+## The road to v1.0
+
+This article introduced RicoFast before the stable release. The preview line focused on three milestones:
+
+1. **v0.1** - prove the core page set, content structure, and design tokens.
+2. **v0.2** - polish dark mode, motion, and product-preview framing.
+3. **v0.3** - move content to Astro Content Layer and tighten performance.
+
+The stable `v1.0` release now builds on that foundation with auth templates, refreshed utility pages, final navigation, and production-ready English sample content.
+
+If you build something with it, [open an issue on GitHub](https://github.com/ricocc/ricoui-saas-template) and tell us what worked and what did not. The template gets better every time someone uses it for something we did not anticipate.
+
+- The RicoFast team

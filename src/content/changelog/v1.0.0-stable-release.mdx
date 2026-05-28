@@ -1,0 +1,51 @@
+---
+title: "Stable release"
+publishDate: 2026-05-18
+version: "v1.0.0"
+description: "The final stable RicoFast release: SaaS polish, auth templates, refreshed utility pages, and production-ready content."
+---
+
+## Why v1.0
+
+The `v0.x` line proved the foundation: layout, content, design tokens, dark mode, and performance. `v1.0` is the point where RicoFast becomes a stable SaaS website template instead of a moving preview.
+
+This release focuses on consistency. The demo brand, page copy, content model, navigation, and utility pages now tell the same story.
+
+## What changed
+
+### Brand and story
+
+- Unified the demo brand as **RicoFast** across pages, metadata, blog posts, and changelog entries
+- Reworked page copy around a single audience: English-speaking SaaS teams, indie hackers, AI tool builders, and open-source maintainers
+- Replaced hard-coded early-preview language with stable `v1.0` release language
+
+### Page and route coverage
+
+- Added static auth templates for `/sign-in` and `/sign-up`
+- Refreshed the 404 page with clearer recovery actions and a stronger visual state
+- Completed Header and Footer links for Sign in, Sign up, and 404
+- Kept core marketing pages, auth templates, content pages, and utility pages wired through the same layout system
+
+### Content polish
+
+- Reframed the release history as `v0.1`, `v0.2`, `v0.3`, and final `v1.0`
+- Reworked sample blog posts so they read like production-ready English content, not placeholder copy
+- Preserved the verified Lighthouse 95+ claim across Performance, Accessibility, Best Practices, and SEO
+- Removed stale roadmap language that implied newer post-1.0 versions already existed
+
+### Compatibility
+
+- No new runtime dependency is required for the stable content set
+- Existing forks can keep their page structure and update content incrementally
+- Teams upgrading from an earlier preview should review `src/config/site.js`, `src/styles/global.css`, and `src/content/`
+
+## Upgrade notes
+
+If you forked a `v0.x` preview:
+
+1. Run `pnpm install`
+2. Review `src/content/post/` and `src/content/changelog/` for the new release story
+3. Update any custom links pointing to `/blog/launching-v1-2`; the stable release article now lives at `/blog/launching-v1-0`
+4. Re-check your own copy against the final `v1.0` page set
+
+RicoFast `v1.0` is the version to build from.

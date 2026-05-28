@@ -1,0 +1,276 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Badge from "@/components/ui/Badge.astro";
+import AnimatedText from "@/components/ui/AnimatedText.astro";
+import BrowserFrame from "@/components/ui/BrowserFrame.astro";
+import { siteConfig } from "@/config/site";
+import { ArrowRight, BarChart3 } from "@lucide/astro";
+
+const stats = [
+  { label: "Active users", value: "12,438", delta: "+24.5%", cycle: ["12,438", "12,441", "12,447", "12,453"] },
+  { label: "Sessions",     value: "8,291",  delta: "+12.1%", cycle: ["8,291", "8,296", "8,302", "8,309"] },
+  { label: "Revenue",      value: "$24.5k", delta: "+18.2%", cycle: ["$24.5k", "$24.6k", "$24.7k", "$24.8k"] },
+  { label: "Conversion",   value: "4.8%",   delta: "+0.6%",  cycle: ["4.8%", "4.9%", "5.0%", "4.9%"] },
+];
+
+const bars = [32, 48, 40, 64, 56, 80, 72];
+const barCycles = JSON.stringify([
+  [32, 48, 40, 64, 56, 80, 72],
+  [38, 42, 50, 58, 64, 72, 86],
+  [28, 54, 44, 68, 50, 76, 80],
+  [42, 46, 38, 60, 62, 84, 70],
+]);
+---
+
+<div class="relative site-container z-20 w-full mx-auto mt-16 px-4 md:mt-18 lg:mt-32 xl:px-0">
+  <div class="relative w-full px-4 flex flex-col items-center justify-between md:flex-row mb-16">
+    <!-- Left: Text -->
+    <div class="relative w-full md:max-w-[520px] md:w-1/2 text-center sm:text-left sm:-mt-8">
+      <!-- Badges -->
+      <div
+        class="flex flex-wrap gap-2 justify-center sm:justify-start mb-6"
+        data-aos="fade-up-xs"
+        data-aos-delay="100"
+        data-aos-duration="500"
+        data-aos-once="true"
+      >
+        <Badge variant="primary">Open-source</Badge>
+        <Badge variant="accent">Astro + Tailwind</Badge>
+      </div>
+
+      <!-- Title -->
+      <h1 class="mb-4">
+        <AnimatedText
+          content="Ship your SaaS site in days, not weeks"
+          delay={0.1}
+          duration={0.5}
+          stagger={0.08}
+          class="text-4xl text-pri leading-tight md:text-4xl lg:text-6xl font-brand"
+        />
+      </h1>
+
+      <!-- Subtitle -->
+      <div class="mb-6">
+        <AnimatedText
+          content="A design-led, open-source SaaS template with 15+ modular sections, built-in dark mode, and Lighthouse 95+ out of the box. Astro + Tailwind by default."
+          delay={0.3}
+          duration={0.5}
+          stagger={0.015}
+          class="text-base text-neutral-600 dark:text-neutral-300 leading-relaxed"
+        />
+      </div>
+
+      <!-- Buttons -->
+      <div
+        class="flex flex-wrap gap-3 justify-center sm:justify-start"
+        data-aos="fade-up-sm"
+        data-aos-delay="600"
+        data-aos-duration="500"
+        data-aos-once="true"
+      >
+        <Button url={siteConfig.social.github} type="fill">
+
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-gfykqide="true" class="lucide lucide-github"> <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path>  </svg>  View on GitHub
+        </Button>
+        <Button url={siteConfig.social.github}>
+            Twitter <ArrowRight size={16} />
+        </Button>
+      </div>
+    </div>
+
+    <!-- Right: Product Preview (Dashboard mock) -->
+    <div
+      class="relative justify-end w-full mt-16 md:flex md:pl-10 md:w-1/2 md:mt-0 md:translate-y-4 xl:translate-y-0"
+      data-aos="fade-left-sm"
+      data-aos-delay="300"
+      data-aos-duration="800"
+      data-aos-once="true"
+    >
+      <BrowserFrame url="ricoui.com" className="w-full">
+        <div class="p-5 md:p-6 h-[300px] md:h-[350px] flex flex-col gap-4">
+          <!-- Mock toolbar -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="hero-live-dot relative w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-xs font-semibold text-neutral-700 dark:text-neutral-200">Dashboard</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <div class="w-6 h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
+              <div class="w-6 h-1.5 rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
+              <div class="hero-toolbar-progress w-6 h-1.5 rounded-full bg-primary/50"></div>
+            </div>
+          </div>
+
+          <!-- 2x2 Stat grid -->
+          <div class="grid grid-cols-2 gap-3 flex-1">
+            {stats.map((stat, i) => (
+              <div class="rounded-lg border border-primary/10 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-800/40 p-3 flex flex-col justify-between">
+                <span class="text-[10px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400">{stat.label}</span>
+                <div class="flex items-end justify-between">
+                  <span
+                    class="hero-stat-value text-lg md:text-xl font-brand text-neutral-800 dark:text-neutral-100 leading-none"
+                    data-cycle={stat.cycle.join("|")}
+                    style={`animation-delay: ${i * 400}ms;`}
+                  >{stat.value}</span>
+                  <span
+                    class="hero-delta text-[10px] font-medium text-emerald-600 dark:text-emerald-400"
+                    style={`animation-delay: ${i * 600}ms;`}
+                  >{stat.delta}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Mini chart -->
+          <div class="rounded-lg border border-primary/10 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-800/40 p-3">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-1.5">
+                <BarChart3 class="w-3 h-3 text-primary" />
+                <span class="text-[10px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Weekly</span>
+              </div>
+              <span class="text-[10px] text-neutral-400">7d</span>
+            </div>
+            <div
+              class="flex items-end gap-1.5 h-10 hero-bars"
+              data-bar-cycles={barCycles}
+            >
+              {bars.map((h, i) => (
+                <div
+                  class:list={[
+                    "hero-bar flex-1 rounded-sm origin-bottom",
+                    i === bars.length - 1 ? "bg-primary hero-bar-active" : "bg-primary/25 dark:bg-primary/35",
+                  ]}
+                  style={`--bar-h: ${h}%; height: ${h}%; animation-delay: ${i * 90}ms;`}
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </BrowserFrame>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ─── Live ping dot (toolbar) ─────────────────────── */
+  .hero-live-dot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: currentColor;
+    color: rgb(16, 185, 129);
+    animation: hero-live-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes hero-live-ping {
+    0%   { transform: scale(1);   opacity: 0.7; }
+    80%, 100% { transform: scale(3); opacity: 0; }
+  }
+
+  /* ─── Toolbar third progress pill — subtle width loop ───────── */
+  .hero-toolbar-progress {
+    animation: hero-progress-cycle 3.4s ease-in-out infinite;
+    transform-origin: left center;
+  }
+  @keyframes hero-progress-cycle {
+    0%, 100% { opacity: 0.5; transform: scaleX(0.85); }
+    50%      { opacity: 1;   transform: scaleX(1);    }
+  }
+
+  /* ─── Stat values — fade-flash on cycle update ──── */
+  .hero-stat-value {
+    transition: opacity 200ms ease, transform 200ms ease;
+    display: inline-block;
+  }
+  .hero-stat-value.is-flashing {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+
+  /* ─── Stat delta — staggered breathing glow ──────── */
+  .hero-delta {
+    animation: hero-delta-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes hero-delta-pulse {
+    0%, 100% { opacity: 1;   filter: drop-shadow(0 0 0 transparent); }
+    50%      { opacity: 0.65; filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.5)); }
+  }
+
+  /* ─── Bar chart — staggered rise on first paint + smooth height transitions ── */
+  .hero-bar {
+    animation: hero-bar-rise 700ms cubic-bezier(0.4, 0, 0.2, 1) backwards;
+    transition: height 900ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes hero-bar-rise {
+    from { height: 0 !important; opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ─── Highest bar — gentle vertical pulse loop ───── */
+  .hero-bar-active {
+    animation:
+      hero-bar-rise 700ms cubic-bezier(0.4, 0, 0.2, 1) backwards,
+      hero-bar-glow 2.6s ease-in-out 1.2s infinite;
+  }
+  @keyframes hero-bar-glow {
+    0%, 100% { transform: scaleY(1);    filter: brightness(1); }
+    50%      { transform: scaleY(0.93); filter: brightness(1.15); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-live-dot::before,
+    .hero-toolbar-progress,
+    .hero-delta,
+    .hero-bar,
+    .hero-bar-active,
+    .hero-stat-value {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Cycle stat values on a stagger (live-data feel)
+  document.querySelectorAll<HTMLElement>('.hero-stat-value').forEach((el, i) => {
+    const cycleAttr = el.dataset.cycle;
+    if (!cycleAttr) return;
+    const values = cycleAttr.split('|');
+    if (values.length < 2) return;
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % values.length;
+      el.classList.add('is-flashing');
+      window.setTimeout(() => {
+        el.textContent = values[idx];
+        el.classList.remove('is-flashing');
+      }, 200);
+    }, 3200 + i * 700);
+  });
+
+  // Rotate bar-chart heights through predefined sets
+  const heroBarsHost = document.querySelector<HTMLElement>('.hero-bars');
+  const heroBars = document.querySelectorAll<HTMLElement>('.hero-bar');
+  if (heroBarsHost && heroBars.length > 0) {
+    try {
+      const cycles = JSON.parse(heroBarsHost.dataset.barCycles || '[]') as number[][];
+      if (cycles.length > 1) {
+        let cycleIdx = 0;
+        // Let the entry rise animation finish first (~1.3s)
+        window.setTimeout(() => {
+          window.setInterval(() => {
+            cycleIdx = (cycleIdx + 1) % cycles.length;
+            const next = cycles[cycleIdx];
+            heroBars.forEach((b, i) => {
+              if (typeof next[i] === 'number') {
+                b.style.height = `${next[i]}%`;
+              }
+            });
+          }, 2400);
+        }, 1500);
+      }
+    } catch {
+      /* swallow JSON parse errors silently */
+    }
+  }
+</script>

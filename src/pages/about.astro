@@ -1,0 +1,139 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import Button from "@/components/ui/Button.astro";
+import Badge from "@/components/ui/Badge.astro";
+import { siteConfig } from "@/config/site";
+import { ArrowRight, Heart, Code, Users, GitBranch, Github } from "@lucide/astro";
+
+const timeline = [
+  {
+    version: "v0.1",
+    date: "May 2026",
+    title: "First sketches",
+    desc: "Started as a side project — a designer-built SaaS template that didn't look like a template. Hero, three feature cards, a pricing page. ",
+  },
+  {
+    version: "v0.2",
+    date: "May 2026",
+    title: "Initial public release",
+    desc: "Nine pages, fifteen sections, dark mode, MDX blog and changelog. Released on GitHub under MIT. First wave of forks and bug reports — most of them turned into v1.1 features.",
+  },
+  {
+    version: "v0.3",
+    date: "May 2026",
+    title: "Content layer + polish",
+    desc: "Migrated to Astro v5 Content Layer API. Tightened dark mode contrast, cut cold-build time by 30%, added the BrowserFrame reusable component. See the launch post for details.",
+  },
+  {
+    version: "v1.0",
+    date: "May 2026",
+    title: "Story-first refresh",
+    desc: "Refocused around a coherent virtual brand to make the demo feel like a real product. Cleaned portfolio leftovers, rewrote section copy, upgraded every visual placeholder.",
+  },
+];
+---
+
+<Layout
+  title="About — RicoFast"
+  description="Learn about RicoFast, a design-led SaaS template built with Astro and Tailwind CSS."
+>
+  <section class="site-container my-12">
+    <PageHeader
+      title="A template that doesn't feel like one"
+      description="Built for makers who care about how their product is presented. Open-source under MIT — fork it, ship with it, sell what you build on top."
+    />
+  </section>
+
+  <section class="site-container max-w-3xl mx-auto pb-24">
+    <article class="space-y-10">
+
+      <!-- Why we built it -->
+      <div data-aos="fade-up-xs" data-aos-once="true">
+        <h2 class="text-2xl font-brand text-neutral-800 dark:text-neutral-100 mb-4">Why we built RicoFast</h2>
+        <div class="space-y-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          <p>
+            Most open-source SaaS templates fall into one of two camps. Some are bare-bones starters — a hero, three feature cards, a pricing page — and you spend the next two weeks rebuilding everything else. Others are maximalist bundles with eighty sections you'll never use, four color themes you'll never pick, and a build pipeline you don't fully understand.
+          </p>
+          <p>
+            RicoFast is built for the middle. Nine pages that cover what a real SaaS site actually needs. Fifteen-plus section components you mix and match. A documented design system that holds together even after you swap the content. Restraint over bloat.
+          </p>
+          <p>
+            We picked Astro because zero JavaScript by default keeps marketing sites fast, even as you add sections. We picked Tailwind v4 because the new <code class="text-primary">@theme</code> token system makes rebranding a one-file edit. We picked Instrument Serif + Inter because the pairing gives the template editorial weight without being precious about it.
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700"></div>
+
+      <!-- Values -->
+      <div data-aos="fade-up-xs" data-aos-delay="100" data-aos-once="true">
+        <h2 class="text-2xl font-brand text-neutral-800 dark:text-neutral-100 mb-6">What we care about</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700">
+            <Code class="w-5 h-5 text-primary mb-3" />
+            <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100 mb-1">Clean code</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">Readable, maintainable, and well-structured. Every component follows the same conventions.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700">
+            <Users class="w-5 h-5 text-primary mb-3" />
+            <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100 mb-1">User-first design</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">Accessibility and usability are non-negotiable. Every component is tested in both light and dark mode.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700">
+            <Heart class="w-5 h-5 text-primary mb-3" />
+            <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100 mb-1">Thoughtful craft</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">Spacing, typography, and motion are deliberate, not default. The details add up.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700">
+            <GitBranch class="w-5 h-5 text-primary mb-3" />
+            <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100 mb-1">Open by default</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">MIT-licensed, no vendor lock-in, no attribution required. Roadmap shaped by what people actually build.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700"></div>
+
+      <!-- Timeline -->
+      <div data-aos="fade-up-xs" data-aos-delay="100" data-aos-once="true">
+        <h2 class="text-2xl font-brand text-neutral-800 dark:text-neutral-100 mb-6">How we got here</h2>
+        <div class="relative">
+          <div class="absolute left-3 md:left-4 top-1.5 bottom-1.5 w-px bg-neutral-200 dark:bg-neutral-700"></div>
+          <ol class="space-y-8">
+            {timeline.map((item, i) => (
+              <li class="relative pl-10 md:pl-12" data-aos="fade-up-sm" data-aos-delay={i * 80} data-aos-once="true">
+                <div class="absolute left-1.5 md:left-2.5 top-1.5 w-3 h-3 rounded-full bg-primary border-2 border-bg-primary dark:border-bg-primary-dark"></div>
+                <div class="mb-1 flex items-center gap-3 flex-wrap">
+                  <Badge variant="primary" size="sm">{item.version}</Badge>
+                  <span class="text-xs text-neutral-400 dark:text-neutral-500">{item.date}</span>
+                </div>
+                <h3 class="text-base font-semibold text-neutral-800 dark:text-neutral-100 mb-1">{item.title}</h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{item.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700"></div>
+
+      <!-- Open source -->
+      <div data-aos="fade-up-xs" data-aos-delay="100" data-aos-once="true">
+        <h2 class="text-2xl font-brand text-neutral-800 dark:text-neutral-100 mb-4">Open source</h2>
+        <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed mb-6">
+          RicoFast is MIT-licensed on GitHub. Open issues, send PRs, suggest features. The roadmap is steered by what people are actually trying to ship.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-4" data-aos="fade-up-xs" data-aos-delay="200" data-aos-once="true">
+        <Button url={siteConfig.social.github} type="fill">
+          <Github size={16} /> Star on GitHub <ArrowRight size={16} />
+        </Button>
+        <Button url="/changelog">
+          View Changelog
+        </Button>
+      </div>
+    </article>
+  </section>
+</Layout>

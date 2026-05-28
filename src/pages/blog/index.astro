@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import BlogSection from "@/components/sections/BlogSection.astro";
+
+const POSTS_PER_PAGE = 6;
+const currentPage = 1;
+---
+
+<Layout title="Blog — RicoFast" description="Latest articles, updates, and insights from the RicoFast team.">
+  <section class="relative z-20 container mx-auto my-12 px-7 lg:px-0">
+    <PageHeader
+      title="Blog"
+      description="Latest articles, updates, and insights."
+    />
+  </section>
+  <section class="relative z-20 mx-auto my-12 lg:px-0">
+    <div class="mt-12">
+      <BlogSection
+        title=""
+        listPage={true}
+        pagination={{
+          enable: true,
+          currentPage: currentPage
+        }}
+        postsPerPage={POSTS_PER_PAGE}
+      />
+    </div>
+  </section>
+</Layout>

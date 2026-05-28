@@ -1,0 +1,44 @@
+---
+title: "Content Layer and faster builds"
+publishDate: 2026-03-18
+version: "v0.3.0"
+description: "Astro Content Layer migration, unified metadata, and a 30% faster cold build."
+---
+
+## Migration to Content Layer
+
+Blog and changelog content moved to Astro v5's `glob` loader and Content Layer API. The migration removed older content patterns and made the site easier to extend later with external Markdown, a CMS, or another content source.
+
+Key changes from the earlier preview:
+
+- `entry.slug` became `entry.id`
+- `entry.render()` became `render(entry)` from `astro:content`
+- `Astro.glob()` usage moved to `import.meta.glob()` where static imports were still needed
+- `getStaticPaths()` params were normalized for Astro v6 readiness
+
+## Schema unification
+
+Blog and changelog frontmatter now follow a shared shape:
+
+```yaml
+title: string
+description: string
+publishDate: date
+version?: string     # changelog only
+tags?: string[]      # blog only
+read?: number        # blog only
+img?: string
+img_alt?: string
+featured?: boolean
+```
+
+## Performance wins
+
+- Cold build time: **21s -> 14s** on CI (Vercel hobby runner, 8 routes)
+- First-load JS on Home: **31KB -> 24KB** gzipped after splitting AnimatedText into a dynamic chunk
+- Blog cards now use `loading="lazy"` by default
+- Lighthouse on a fresh install: **95+** across Performance, Accessibility, Best Practices, and SEO on Home, Features, and Pricing
+
+## Release status
+
+`v0.3` locked the content and performance baseline. The remaining work before `v1.0` was product-story polish, route coverage, and final template cleanup.

@@ -1,0 +1,449 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/home/HeroSection.astro";
+import SectionHeader from "@/components/elements/SectionHeader.astro";
+import Pricing from "@/components/sections/Pricing.astro";
+import FAQ from "@/components/sections/FAQ.astro";
+import BlogSection from "@/components/sections/BlogSection.astro";
+import Button from "@/components/ui/Button.astro";
+import BrowserFrame from "@/components/ui/BrowserFrame.astro";
+import TechStackCard from "@/components/cards/TechStackCard.astro";
+import { siteConfig } from "@/config/site";
+import {
+  LayoutDashboard, Layers, FileText,
+  Bot, Code, PenTool, Rocket, Github, BarChart,
+  ArrowRight,
+  Compass, Triangle, Sun, CircleDot, Orbit, Anvil
+} from "@lucide/astro";
+
+// FAQ data
+const faqItems = [
+  { question: "Is this template free?", answer: "Yes. RicoFast is MIT-licensed and free for both personal and commercial use. Fork it, ship with it, sell what you build on top of it — no attribution required." },
+  { question: "Do I need to know Astro to use it?", answer: "Basic HTML/CSS familiarity is enough. The template is structured so the first 90% of customization happens in three places: site.js, global.css tokens, and content directories. Most users ship without writing any new Astro components." },
+  { question: "Can I customize the design system?", answer: "Yes. Colors, fonts, spacing, and border radii are all CSS custom properties defined in src/styles/global.css. The full token reference lives in docs/DESIGN.md so you always know what to change." },
+  { question: "Where can I deploy it?", answer: "Anywhere that hosts static sites — Vercel, Netlify, Cloudflare Pages, GitHub Pages, AWS S3, or your own server. The build outputs a plain dist/ directory. Vercel and Netlify have one-click setup." },
+  { question: "How fast is it really?", answer: "Lighthouse 95+ across Performance, Accessibility, Best Practices, and SEO on a fresh install. Astro ships zero JS by default — interactive bits load only where needed." },
+  { question: "Is there support?", answer: "Yes — open an issue on GitHub. The repo is actively maintained and community contributions are welcome. The Pro/Enterprise tiers shown on the Pricing page are demo content for the template itself, not a paid plan for RicoFast." },
+];
+
+// Features data
+const features = [
+  { icon: "/assets/icon/structure.png",  title: "Clean page structure", desc: "9 pre-built pages — Home, Features, Pricing, Blog, Changelog, About, Contact, Elements, 404 — wired and responsive out of the box." },
+  { icon: "/assets/icon/components.png", title: "Reusable sections", desc: "15+ modular section components — Hero, FeatureGrid, Pricing, FAQ, Steps, FinalCTA — composable with no layout conflicts." },
+  { icon: "/assets/icon/document.png",   title: "MDX-powered content", desc: "Blog and changelog driven by Astro v5 Content Layer. Import components inside Markdown. No CMS needed." },
+  { icon: "/assets/icon/fast.png",       title: "Lightweight and fast", desc: "Zero JS by default. Lighthouse 95+ on Performance, Accessibility, Best Practices, and SEO from a fresh install." },
+  { icon: "/assets/icon/motion.png",     title: "Built-in motion", desc: "Scroll reveals via AOS, orchestrated entrances via motion.js. Honors prefers-reduced-motion." },
+  { icon: "/assets/icon/customize.png",  title: "Easy to customize", desc: "~30 CSS custom properties drive every color and font. Rebrand in minutes by editing one file." },
+];
+
+// Problem cards data
+const problems = [
+  { icon: "/assets/icon/clock.png",   title: "Starting fresh slows you down", desc: "Every SaaS needs the same 12 sections. Rebuilding them for every project costs weeks you should spend on the product." },
+  { icon: "/assets/icon/battery.png", title: "Generic templates devalue work", desc: "Most free templates look like templates. Your product deserves a site that feels deliberate, not stamped out." },
+  { icon: "/assets/icon/bell.png",    title: "Unstable systems break with growth", desc: "Ad-hoc colors, magic numbers, drift between pages — small inconsistencies compound until every change risks breaking something else." },
+];
+
+// Use cases
+const useCases = [
+  { icon: Bot, label: "AI tools", desc: "Credible launch site from day one" },
+  { icon: Code, label: "Developer tools", desc: "API docs, SDK landing, dev platforms" },
+  { icon: PenTool, label: "Design tools", desc: "Creative apps and design systems" },
+  { icon: Rocket, label: "Micro SaaS", desc: "Indie projects and side hustles" },
+  { icon: Github, label: "Open-source", desc: "Project sites and community hubs" },
+  { icon: BarChart, label: "Analytics", desc: "Dashboards and data tools" },
+];
+
+
+// Tech stack
+const techStack = [
+  { name: "Astro 5.15", desc: "Zero JS by default" },
+  { name: "Tailwind v4", desc: "@theme tokens + utilities" },
+  { name: "MDX", desc: "Markdown + components" },
+  { name: "TypeScript", desc: "Type-safe content schema" },
+  { name: "Lucide Icons", desc: "Consistent icon set" },
+  { name: "Vercel ready", desc: "One-click deploy" },
+];
+
+// Logos placeholder — fictional brand wordmarks for the social-proof strip.
+// Swap with real customer logos / SVGs when shipping.
+const logos = [
+  { name: "Northwind", icon: Compass },
+  { name: "Acme", icon: Triangle },
+  { name: "Lumen", icon: Sun },
+  { name: "Helio", icon: CircleDot },
+  { name: "Orbit", icon: Orbit },
+  { name: "Forge", icon: Anvil },
+];
+---
+
+<Layout
+  title="RicoFast — A design-led SaaS template for Astro"
+  description="Ship your SaaS site in days, not weeks. A clean, fast, and modular open-source template built with Astro and Tailwind CSS."
+  keywords="saas template, astro template, tailwind template, startup website, indie hacker"
+>
+
+  <!-- 1. Hero -->
+  <HeroSection />
+
+  <!-- 2. Logo / Social Proof -->
+  <section class="py-12 md:py-16 lg:py-24 site-container" data-aos="fade-up-xs" data-aos-once="true"  data-aos-delay="650" >
+    <p class="text-center text-sm text-neutral-400 dark:text-neutral-500 mb-6">Drop in your customer logos when you launch</p>
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 opacity-60">
+      {logos.map((logo) => (
+        <div class="flex items-center gap-2 px-4 py-2 border border-dashed border-neutral-300 dark:border-neutral-700 rounded-lg">
+          <logo.icon class="w-4 h-4 text-neutral-400 dark:text-neutral-500" />
+          <span class="text-sm font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">{logo.name}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. Problem -->
+  <section class="py-16 md:py-24 site-container">
+    <SectionHeader title="Most SaaS sites start with the wrong problems" description="The hard part isn't building features. It's building a site that doesn't feel generic, doesn't drift apart over time, and doesn't take a month of weekends." />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      {problems.map((problem, i) => (
+        <div
+          class="p-6 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700"
+          data-aos="fade-up-sm"
+          data-aos-delay={i * 100}
+          data-aos-once="true"
+        >
+          <img
+            src={problem.icon}
+            alt={problem.title}
+            loading="lazy"
+            width="64"
+            height="64"
+            class="w-16 h-16 mb-4 object-contain"
+          />
+          <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-100 mb-2">{problem.title}</h3>
+          <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{problem.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 4. Solution -->
+  <section class="py-8 md:py-12 site-container" data-aos="fade-up-xs" data-aos-once="true">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-brand mb-4">A design system, not just a template</h2>
+      <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed">
+        RicoFast is built on a documented token system — colors, type scale, spacing, motion — so every page you add stays coherent with the ones already shipped. Less arbitration, fewer regressions, more time on the product.
+      </p>
+    </div>
+    <div class="mt-10 md:mt-12 flex flex-wrap justify-center items-end gap-4 sm:gap-6 md:gap-8">
+      {[
+        { name: 'blue', file: 'folder-blue.webp' },
+        { name: 'yellow', file: 'folder-yellow.webp' },
+        { name: 'green', file: 'folder-greean.webp' },
+        { name: 'red', file: 'folder-red.webp' },
+        { name: 'gray', file: 'folder-gray.webp' },
+      ].map((folder, i) => (
+        <div
+          data-aos="fade-up-xs"
+          data-aos-delay={i * 120}
+          data-aos-once="true"
+          class="inline-block"
+        >
+          <img
+            src={`/assets/folder/${folder.file}`}
+            alt={`${folder.name} folder`}
+            width="128"
+            height="128"
+            class="w-20 sm:w-24 md:w-28 lg:w-32 h-auto drop-shadow-sm transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105 hover:drop-shadow-lg"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700 my-4 site-container"></div>
+
+  <!-- 5. Features Grid -->
+  <section class="py-16 md:py-24 site-container">
+    <SectionHeader title="Everything you need, nothing you don't" description="A focused set of features built for real SaaS sites. No bloat, no half-finished add-ons." />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      {features.map((feature, i) => (
+        <div
+          data-aos="fade-up-sm"
+          data-aos-delay={i * 100}
+          data-aos-once="true"
+          class="h-full"
+        >
+          <div
+            class="h-full p-6 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border transition-all duration-300 ease-in-out border-primary/10 dark:border-neutral-700 hover:shadow-md hover:-translate-y-1"
+          >
+            <img
+              src={feature.icon}
+              alt={feature.title}
+              loading="lazy"
+              width="64"
+              height="64"
+              class="w-16 h-16 mb-4 object-contain"
+            />
+            <h3 class="text-lg font-semibold text-neutral-800 dark:text-neutral-100 mb-2">{feature.title}</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{feature.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 6. Product Preview -->
+  <section class="py-16 md:py-24 site-container" data-aos="fade-up-sm" data-aos-once="true">
+    <SectionHeader title="A full layout system, not just sections" description="Hero, features, pricing, dashboards, settings — every page is composed from the same token system, so the whole product feels coherent." />
+    <div class="mt-8 max-w-4xl mx-auto" data-aos="fade-up-sm" data-aos-once="true" data-aos-delay="300">
+      <BrowserFrame url="app.ricoui.com/dashboard">
+        <div class="flex h-[300px] md:h-[400px]">
+          <!-- Sidebar -->
+          <aside class="hidden sm:flex flex-col w-14 md:w-16 border-r border-primary/10 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-900/40 py-4 px-2 md:px-3 gap-2">
+            <div class="w-7 h-7 mx-auto rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center mb-2">
+              <div class="w-2.5 h-2.5 rounded-sm bg-primary"></div>
+            </div>
+            <div class="app-nav-active relative w-full h-8 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center">
+              <LayoutDashboard class="w-3.5 h-3.5 text-primary" />
+            </div>
+            <div class="w-full h-8 rounded-md flex items-center justify-center hover:bg-neutral-200/40 dark:hover:bg-neutral-700/40">
+              <Layers class="w-3.5 h-3.5 text-neutral-400" />
+            </div>
+            <div class="w-full h-8 rounded-md flex items-center justify-center hover:bg-neutral-200/40 dark:hover:bg-neutral-700/40">
+              <FileText class="w-3.5 h-3.5 text-neutral-400" />
+            </div>
+            <div class="w-full h-8 rounded-md flex items-center justify-center hover:bg-neutral-200/40 dark:hover:bg-neutral-700/40">
+              <BarChart class="w-3.5 h-3.5 text-neutral-400" />
+            </div>
+            <div class="flex-1"></div>
+            <div class="w-7 h-7 mx-auto rounded-full bg-accent/40 border border-accent/60"></div>
+          </aside>
+
+          <!-- Main -->
+          <div class="flex-1 p-4 md:p-6 flex flex-col gap-4 overflow-hidden">
+            <!-- Toolbar -->
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div>
+                  <h3 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100 leading-none">Overview</h3>
+                  <p class="text-[10px] text-neutral-400 mt-1">Last 30 days</p>
+                </div>
+                <span class="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/5">
+                  <span class="app-live-dot relative w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span class="text-[9px] uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-medium">Live</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="hidden md:block w-32 h-7 rounded-md border border-neutral-200 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-800/40"></div>
+                <div class="w-7 h-7 rounded-full bg-primary/20 border border-primary/30"></div>
+              </div>
+            </div>
+
+            <!-- Stat row -->
+            <div class="grid grid-cols-3 gap-2 md:gap-3">
+              {[
+                { label: "Revenue", value: "$48.2k", delta: "+22.1%" },
+                { label: "New users", value: "1,284", delta: "+8.4%" },
+                { label: "MRR", value: "$12.6k", delta: "+5.2%" },
+              ].map((s, i) => (
+                <div
+                  class="app-stat-card relative overflow-hidden rounded-md border border-primary/10 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-800/40 p-2 md:p-3"
+                  style={`--shimmer-delay: ${i * 1.2}s;`}
+                >
+                  <span class="block text-[9px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400">{s.label}</span>
+                  <span class="block text-sm md:text-base font-brand text-neutral-800 dark:text-neutral-100 mt-1">{s.value}</span>
+                  <span class="block text-[9px] text-emerald-600 dark:text-emerald-400 mt-1">{s.delta}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- Table mock -->
+            <div class="flex-1 rounded-md border border-primary/10 dark:border-neutral-700 bg-bg-primary/40 dark:bg-neutral-800/40 overflow-hidden">
+              <div class="grid grid-cols-12 gap-2 px-3 py-2 border-b border-primary/10 dark:border-neutral-700 text-[9px] uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                <span class="col-span-5">Customer</span>
+                <span class="col-span-3">Plan</span>
+                <span class="col-span-2">Status</span>
+                <span class="col-span-2 text-right">MRR</span>
+              </div>
+              {[1, 2, 3, 4].map((i) => (
+                <div class:list={["grid grid-cols-12 gap-2 items-center px-3 py-2 border-b border-primary/5 dark:border-neutral-700/40 last:border-0", i === 1 && "app-row-cursor"]}>
+                  <div class="col-span-5 flex items-center gap-2">
+                    <div class={`w-5 h-5 rounded-full ${i % 2 === 0 ? 'bg-primary/30' : 'bg-accent/40'}`}></div>
+                    <div
+                      class="app-customer-bar h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600"
+                      style={`width: ${[60, 72, 50, 64][i - 1]}%; animation-delay: ${(i - 1) * 750}ms;`}
+                    ></div>
+                    {i === 1 && <span class="app-blink-cursor inline-block w-[2px] h-3 bg-primary"></span>}
+                  </div>
+                  <div class="col-span-3">
+                    <div class="inline-block px-1.5 py-0.5 rounded text-[9px] bg-primary/10 text-primary">{['Pro', 'Team', 'Pro', 'Enterprise'][i - 1]}</div>
+                  </div>
+                  <div class="col-span-2">
+                    <div class="inline-flex items-center gap-1">
+                      <div class={`w-1.5 h-1.5 rounded-full ${i === 3 ? 'bg-amber-400' : 'bg-emerald-400'}`}></div>
+                      <span class="text-[9px] text-neutral-500 dark:text-neutral-400">{i === 3 ? 'Trial' : 'Active'}</span>
+                    </div>
+                  </div>
+                  <div class="col-span-2 text-right text-[10px] font-medium text-neutral-700 dark:text-neutral-200">${[148, 89, 49, 290][i - 1]}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </BrowserFrame>
+      <p class="text-center text-xs text-neutral-400 dark:text-neutral-500 mt-4">Replace this mock with your own product screenshot — see <code class="text-primary">src/pages/index.astro</code>.</p>
+    </div>
+  </section>
+
+  <!-- 7. Use Cases -->
+  <section class="py-16 md:py-24 site-container">
+    <SectionHeader title="Made for different kinds of SaaS" description="Whether you're shipping an AI tool, a developer platform, or an indie side project — the layout system adapts to your product." />
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-8" >
+      {useCases.map((uc, i) => (
+        <div
+          class="flex flex-col items-center p-4 rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10 dark:border-neutral-700 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+          data-aos="fade-up-sm"
+          data-aos-delay={i * 120}
+          data-aos-once="true"
+        >
+          <uc.icon class="w-6 h-6 text-primary mb-2" />
+          <span class="text-sm font-semibold text-neutral-800 dark:text-neutral-100">{uc.label}</span>
+          <span class="text-xs text-neutral-400 mt-1">{uc.desc}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+
+
+  <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700 my-4 site-container"></div>
+
+  <!-- 9. Tech Stack -->
+  <section class="py-16 md:py-24 site-container" data-aos="fade-up-sm" data-aos-once="true">
+    <SectionHeader title="Built with modern tools" />
+    <div class="mt-8" data-aos="fade-up-sm" data-aos-once="true" data-aos-delay="300">
+      <TechStackCard />
+    </div>
+  </section>
+
+  <!-- 10. Pricing -->
+  <Pricing
+    title="Free template, real pricing examples"
+    description="RicoFast itself is MIT-licensed and free. The 3-tier layout below is reference content — swap in your own plans when you launch."
+  />
+
+  <div class="w-full border-b border-dashed border-neutral-200 dark:border-neutral-700 my-4 site-container"></div>
+
+  <!-- 11. FAQ -->
+  <FAQ
+    title="Frequently asked questions"
+    items={faqItems}
+  />
+
+  <!-- 12. Latest Articles -->
+  <div class="py-16 md:py-24">
+    <BlogSection title="Latest articles" />
+  </div>
+
+  <!-- 13. Final CTA -->
+  <section class="py-12 md:py-20 site-container  rounded-xl bg-bg-secondary dark:bg-bg-secondary-dark border border-primary/10" data-aos="fade-up-xs" data-aos-once="true">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-brand mb-4" data-aos="fade-up-xs" data-aos-once="true" data-aos-delay="200" >Start building your SaaS today</h2>
+      <p class="text-neutral-600 dark:text-neutral-300 mb-8 leading-relaxed" data-aos="fade-up-xs" data-aos-once="true" data-aos-delay="300">
+        Clone the template, replace the content, ship to production. Three steps to a live site.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up-xs" data-aos-once="true" data-aos-delay="400">
+        <Button url={siteConfig.social.github} type="fill" className="text-lg px-8 py-3">
+          Get Template <ArrowRight size={18} />
+        </Button>
+        <Button url="/features" className="text-lg px-8 py-3">
+          View Features
+        </Button>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ─── App preview — Live ping dot ─────────────────── */
+  .app-live-dot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: rgb(16, 185, 129);
+    animation: app-live-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes app-live-ping {
+    0%   { transform: scale(1);   opacity: 0.7; }
+    80%, 100% { transform: scale(2.8); opacity: 0; }
+  }
+
+  /* ─── Active sidebar item — focus ring pulse ─────── */
+  .app-nav-active::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 10px;
+    border: 1px solid var(--color-primary);
+    opacity: 0;
+    animation: app-nav-ring 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+  }
+  @keyframes app-nav-ring {
+    0%        { opacity: 0;    transform: scale(0.96); }
+    50%       { opacity: 0.65; transform: scale(1.05); }
+    100%      { opacity: 0;    transform: scale(1.12); }
+  }
+
+  /* ─── Stat cards — staggered shimmer sweep ────────── */
+  .app-stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(45, 109, 195, 0.18) 50%,
+      transparent 65%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: app-stat-shimmer 4.5s ease-in-out infinite;
+    animation-delay: var(--shimmer-delay, 0s);
+    pointer-events: none;
+  }
+  @keyframes app-stat-shimmer {
+    0%        { transform: translateX(-100%); }
+    35%, 100% { transform: translateX(100%);  }
+  }
+
+  /* ─── Table — typing cursor on first row ─────────── */
+  .app-blink-cursor {
+    animation: app-blink 1.05s steps(2, start) infinite;
+  }
+  @keyframes app-blink {
+    to { visibility: hidden; }
+  }
+
+  /* ─── Customer bars — staggered "live data" flux ── */
+  .app-customer-bar {
+    transform-origin: left center;
+    animation: app-bar-flux 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  @keyframes app-bar-flux {
+    0%, 100% { transform: scaleX(1);    opacity: 1; }
+    35%      { transform: scaleX(0.72); opacity: 0.78; }
+    70%      { transform: scaleX(1.06); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-live-dot::before,
+    .app-nav-active::after,
+    .app-stat-card::before,
+    .app-blink-cursor,
+    .app-customer-bar {
+      animation: none !important;
+    }
+  }
+</style>

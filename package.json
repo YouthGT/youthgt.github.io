@@ -1,0 +1,64 @@
+{
+	"name": "ricoui-saas-template",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "A design-led SaaS website template built with Astro, Tailwind CSS v4, MDX, and a reusable component system.",
+	"keywords": [
+		"astro",
+		"astro-template",
+		"saas",
+		"saas-template",
+		"landing-page",
+		"startup",
+		"tailwindcss",
+		"tailwindcss-v4",
+		"mdx",
+		"blog",
+		"changelog",
+		"dark-mode",
+		"responsive",
+		"typescript"
+	],
+	"author": {
+		"name": "RicoUI",
+		"email": "hello@ricoui.com",
+		"url": "https://ricoui.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ricocc/ricoui-saas-template.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ricocc/ricoui-saas-template/issues"
+	},
+	"homepage": "https://github.com/ricocc/ricoui-saas-template#readme",
+	"license": "MIT",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"check": "biome check --apply-unsafe ."
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.9.5",
+		"@biomejs/biome": "1.7.3",
+		"@tailwindcss/typography": "^0.5.13",
+		"astro": "^5.15.4",
+		"postcss": "^8.4.31",
+		"tailwindcss": "^4.1.14",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.11"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^4.3.10",
+		"@astrojs/rss": "^4.0.13",
+		"@astrojs/sitemap": "^3.6.0",
+		"@lucide/astro": "^0.546.0",
+		"@tailwindcss/vite": "^4.1.14",
+		"aos": "^2.3.4",
+		"motion": "^12.23.24",
+		"sharp": "^0.34.4"
+	}
+}
