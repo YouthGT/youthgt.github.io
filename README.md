@@ -4,6 +4,8 @@
 
 An open-source SaaS website template built with Astro 5.15 and Tailwind CSS v4. Designed for indie hackers, AI/dev-tool teams, and OSS maintainers who want a polished, design-forward product site.
 
+![preview](/docs/screenshot.jpeg) 
+
 ![Astro](https://img.shields.io/badge/Astro-5.15.4-FF5D01?logo=astro&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.14-38B2AC?logo=tailwind-css&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)

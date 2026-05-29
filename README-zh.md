@@ -2,7 +2,12 @@
 
 > [English](README.md)  | 中文文档
 
+
+
 一个开源的 SaaS 网站模板，基于 Astro 5.15 + Tailwind CSS v4 构建。专为独立开发者、AI/开发工具团队、开源项目维护者打造，让你拥有有设计感的产品站点。
+
+![preview](/docs/screenshot.jpeg) 
+
 
 ![Astro](https://img.shields.io/badge/Astro-5.15.4-FF5D01?logo=astro&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.14-38B2AC?logo=tailwind-css&logoColor=white)
