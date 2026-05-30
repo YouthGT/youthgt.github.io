@@ -9,7 +9,7 @@ import AnimatedText from "@/components/ui/AnimatedText.astro";
 import SectionHeader from "@/components/elements/SectionHeader.astro";
 import {
   ArrowRight, Mail, Check, X, Zap, Sparkles, Palette, Code, Globe, Shield,
-  Rocket, Bot, ChartNoAxesColumn, PenTool, Monitor, Smartphone, Github as GithubIcon, Layers,
+  Rocket, Bot, ChartNoAxesColumn, PenTool, Monitor, Smartphone, GitFork, Layers,
   FileText, LayoutDashboard, Copy, Wrench, Menu, ChevronRight, ChevronLeft,
   ChevronDown, ExternalLink, Sun, Moon, Search, Download, Grid3x3, List,
   Rss, Lock, CircleAlert, CircleCheck, Info, TriangleAlert
@@ -70,7 +70,7 @@ const icons = [
   { Icon: Layers, name: "Layers", usage: "Sections" },
   { Icon: Grid3x3, name: "Grid", usage: "Grid view" },
   { Icon: List, name: "List", usage: "List view" },
-  { Icon: GithubIcon, name: "Github", usage: "GitHub link" },
+  { Icon: GitFork, name: "GitFork", usage: "GitHub link" },
   { Icon: Rss, name: "Rss", usage: "RSS feed" },
   { Icon: Zap, name: "Zap", usage: "Performance" },
   { Icon: Sparkles, name: "Sparkles", usage: "Animations" },
@@ -265,7 +265,7 @@ const sampleFaq = [
         <div class="flex flex-wrap items-center gap-4">
           <Button url="#" type="fill">Get Started <ArrowRight size={16} /></Button>
           <Button url="#" type="outline"><Mail size={16} /> Send Email</Button>
-          <Button url="#" type="fill"><GithubIcon size={16} /> Star on GitHub</Button>
+          <Button url="#" type="fill"><GitFork size={16} /> Star on GitHub</Button>
         </div>
       </div>
     </div>

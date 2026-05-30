@@ -50,7 +50,7 @@ if (pagination.enable) {
 
 // 为每篇文章添加链接属性 - 创建新对象而不是修改原对象
 const postsWithLinks = posts.map(post => {
-  // 根据 Astro v5 官方文档，entry.id 就是条目的唯一标识符
+  // Content Layer 的 entry.id 是条目的唯一标识符
   // 直接使用 entry.id 生成 URL，对于 [...slug] 路由，id 已经是正确的路径
   const link = `/blog/${post.id}`;
   return {

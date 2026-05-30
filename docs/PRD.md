@@ -24,7 +24,7 @@ The project is a static-first front-end template. It includes demo pricing, demo
 
 ## Implemented Scope
 
-- Static SaaS marketing site built with Astro 5.15.
+- Static SaaS marketing site built with Astro 6.4.
 - Tailwind CSS v4 design token system in `src/styles/global.css`.
 - Light and dark modes with persisted user preference.
 - MDX blog and changelog powered by Astro Content Layer.
@@ -38,7 +38,8 @@ The project is a static-first front-end template. It includes demo pricing, demo
 
 | Area | Implementation |
 | --- | --- |
-| Framework | Astro 5.15 |
+| Framework | Astro 6.4 |
+| Build tooling | Vite 7.3 |
 | Styling | Tailwind CSS v4, CSS custom properties, `@theme` tokens |
 | Content | MDX, `@astrojs/mdx`, Astro Content Layer |
 | Icons | `@lucide/astro` |

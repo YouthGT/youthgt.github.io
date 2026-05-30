@@ -28,8 +28,8 @@ const featureModules = [
   {
     icon: FileText,
     title: "Content with full MDX support",
-    desc: "Blog and changelog powered by Astro v5 Content Layer. Plain Markdown for prose, imported Astro components for interactive bits. No CMS, no plugin sprawl.",
-    points: ["Astro v5 Content Layer (glob loader)", "Component imports inside MDX", "TOC + reading progress + share built-in", "Auto RSS feed at /rss.xml"],
+    desc: "Blog and changelog powered by Astro 6 Content Layer. Plain Markdown for prose, imported Astro components for interactive bits. No CMS, no plugin sprawl.",
+    points: ["Astro 6 Content Layer with glob loader", "Component imports inside MDX", "TOC + reading progress + share built-in", "Auto RSS feed at /rss.xml"],
     direction: "left",
     visual: "mdx",
   },
@@ -230,7 +230,7 @@ const featureModules = [
         <Button url="/" type="fill" className="text-lg px-8 py-3">
           View Live Demo <ArrowRight size={18} />
         </Button>
-        <Button url={siteConfig.social.github} className="text-lg px-8 py-3">
+        <Button url={siteConfig.social.github} className="text-lg px-8 py-3" target="_blank">
           Get Template
         </Button>
       </div>

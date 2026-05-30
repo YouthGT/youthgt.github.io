@@ -11,7 +11,7 @@ import TechStackCard from "@/components/cards/TechStackCard.astro";
 import { siteConfig } from "@/config/site";
 import {
   LayoutDashboard, Layers, FileText,
-  Bot, Code, PenTool, Rocket, Github, BarChart,
+  Bot, Code, PenTool, Rocket, GitFork, ChartNoAxesColumnIncreasing,
   ArrowRight,
   Compass, Triangle, Sun, CircleDot, Orbit, Anvil
 } from "@lucide/astro";
@@ -30,7 +30,7 @@ const faqItems = [
 const features = [
   { icon: "/assets/icon/structure.png",  title: "Clean page structure", desc: "9 pre-built pages — Home, Features, Pricing, Blog, Changelog, About, Contact, Elements, 404 — wired and responsive out of the box." },
   { icon: "/assets/icon/components.png", title: "Reusable sections", desc: "15+ modular section components — Hero, FeatureGrid, Pricing, FAQ, Steps, FinalCTA — composable with no layout conflicts." },
-  { icon: "/assets/icon/document.png",   title: "MDX-powered content", desc: "Blog and changelog driven by Astro v5 Content Layer. Import components inside Markdown. No CMS needed." },
+  { icon: "/assets/icon/document.png",   title: "MDX-powered content", desc: "Blog and changelog driven by Astro 6 Content Layer. Import components inside Markdown. No CMS needed." },
   { icon: "/assets/icon/fast.png",       title: "Lightweight and fast", desc: "Zero JS by default. Lighthouse 95+ on Performance, Accessibility, Best Practices, and SEO from a fresh install." },
   { icon: "/assets/icon/motion.png",     title: "Built-in motion", desc: "Scroll reveals via AOS, orchestrated entrances via motion.js. Honors prefers-reduced-motion." },
   { icon: "/assets/icon/customize.png",  title: "Easy to customize", desc: "~30 CSS custom properties drive every color and font. Rebrand in minutes by editing one file." },
@@ -49,20 +49,10 @@ const useCases = [
   { icon: Code, label: "Developer tools", desc: "API docs, SDK landing, dev platforms" },
   { icon: PenTool, label: "Design tools", desc: "Creative apps and design systems" },
   { icon: Rocket, label: "Micro SaaS", desc: "Indie projects and side hustles" },
-  { icon: Github, label: "Open-source", desc: "Project sites and community hubs" },
-  { icon: BarChart, label: "Analytics", desc: "Dashboards and data tools" },
+  { icon: GitFork, label: "Open-source", desc: "Project sites and community hubs" },
+  { icon: ChartNoAxesColumnIncreasing, label: "Analytics", desc: "Dashboards and data tools" },
 ];
 
-
-// Tech stack
-const techStack = [
-  { name: "Astro 5.15", desc: "Zero JS by default" },
-  { name: "Tailwind v4", desc: "@theme tokens + utilities" },
-  { name: "MDX", desc: "Markdown + components" },
-  { name: "TypeScript", desc: "Type-safe content schema" },
-  { name: "Lucide Icons", desc: "Consistent icon set" },
-  { name: "Vercel ready", desc: "One-click deploy" },
-];
 
 // Logos placeholder — fictional brand wordmarks for the social-proof strip.
 // Swap with real customer logos / SVGs when shipping.
@@ -211,7 +201,7 @@ const logos = [
               <FileText class="w-3.5 h-3.5 text-neutral-400" />
             </div>
             <div class="w-full h-8 rounded-md flex items-center justify-center hover:bg-neutral-200/40 dark:hover:bg-neutral-700/40">
-              <BarChart class="w-3.5 h-3.5 text-neutral-400" />
+              <ChartNoAxesColumnIncreasing class="w-3.5 h-3.5 text-neutral-400" />
             </div>
             <div class="flex-1"></div>
             <div class="w-7 h-7 mx-auto rounded-full bg-accent/40 border border-accent/60"></div>
@@ -351,7 +341,7 @@ const logos = [
         Clone the template, replace the content, ship to production. Three steps to a live site.
       </p>
       <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up-xs" data-aos-once="true" data-aos-delay="400">
-        <Button url={siteConfig.social.github} type="fill" className="text-lg px-8 py-3">
+        <Button url={siteConfig.social.github} type="fill" className="text-lg px-8 py-3" target="_blank">
           Get Template <ArrowRight size={18} />
         </Button>
         <Button url="/features" className="text-lg px-8 py-3">

@@ -4,7 +4,7 @@ import PageHeader from "@/components/elements/PageHeader.astro";
 import Button from "@/components/ui/Button.astro";
 import Badge from "@/components/ui/Badge.astro";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, Heart, Code, Users, GitBranch, Github } from "@lucide/astro";
+import { ArrowRight, Heart, Code, Users, GitBranch, GitFork } from "@lucide/astro";
 
 const timeline = [
   {
@@ -23,7 +23,7 @@ const timeline = [
     version: "v0.3",
     date: "May 2026",
     title: "Content layer + polish",
-    desc: "Migrated to Astro v5 Content Layer API. Tightened dark mode contrast, cut cold-build time by 30%, added the BrowserFrame reusable component. See the launch post for details.",
+    desc: "Migrated to Astro Content Layer API. Tightened dark mode contrast, cut cold-build time by 30%, added the BrowserFrame reusable component. See the launch post for details.",
   },
   {
     version: "v1.0",
@@ -127,8 +127,8 @@ const timeline = [
       </div>
 
       <div class="flex flex-wrap gap-4" data-aos="fade-up-xs" data-aos-delay="200" data-aos-once="true">
-        <Button url={siteConfig.social.github} type="fill">
-          <Github size={16} /> Star on GitHub <ArrowRight size={16} />
+        <Button url={siteConfig.social.github} type="fill" target="_blank">
+          <GitFork size={16} /> Star on GitHub <ArrowRight size={16} />
         </Button>
         <Button url="/changelog">
           View Changelog

@@ -1,6 +1,6 @@
 # RicoFast Project Overview
 
-> Last updated: 2026-05-29
+> Last updated: 2026-05-30
 
 RicoFast is a static-first SaaS website template built with Astro, Tailwind CSS v4, MDX, and a reusable design system.
 
@@ -19,7 +19,8 @@ A polished SaaS template for products that need to look credible from day one.
 
 ## Tech Stack
 
-- Astro 5.15
+- Astro 6.4
+- Vite 7.3
 - Tailwind CSS v4
 - MDX
 - TypeScript

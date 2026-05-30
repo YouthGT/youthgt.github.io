@@ -4,12 +4,13 @@
 
 
 
-一个开源的 SaaS 网站模板，基于 Astro 5.15 + Tailwind CSS v4 构建。专为独立开发者、AI/开发工具团队、开源项目维护者打造，让你拥有有设计感的产品站点。
+一个以设计驱动的开源 SaaS 网站模板，基于 Astro 6 + Tailwind CSS v4 构建。专为独立开发者、AI/开发工具团队、开源项目维护者打造，让你拥有有设计感的产品站点。
 
-![preview](/docs/screenshot.jpeg) 
+![preview](/docs/screenshot.jpeg)
 
 
-![Astro](https://img.shields.io/badge/Astro-5.15.4-FF5D01?logo=astro&logoColor=white)
+![Astro](https://img.shields.io/badge/Astro-6.4.2-FF5D01?logo=astro&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.3.3-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.14-38B2AC?logo=tailwind-css&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -26,7 +27,7 @@
 - **11 个生产就绪页面** — Home（12 个 section）、Features、Pricing、Blog、Changelog、About、Contact、Sign in、Sign up、Elements、404
 - **15+ 可复用 section 组件** — Hero、FeatureGrid、FeatureDetail、Pricing cards、Comparison table、FAQ、Steps、Tech stack、Use cases、FinalCTA 等
 - **Auth 页面模板** — 登录 / 注册各含两种布局变体（分屏和居中卡片），接入你的 auth provider 即可使用
-- **MDX 驱动的 Blog & Changelog** — 基于 Astro v5 Content Layer API，兼容 v6
+- **MDX 驱动的 Blog & Changelog** — 基于 Astro 6 Content Layer API 和 `astro/loaders`
 - **内置暗黑模式** — class-based、无切换闪烁、对比度审核过
 - **Token 驱动的设计系统** — ~30 个 CSS 自定义属性，全部文档化于 `docs/DESIGN.md`
 - **移动优先响应式** — 375 / 768 / 1024 / 1440 全断点测试
@@ -38,13 +39,19 @@
 
 ## 技术栈
 
-- **框架：** [Astro 5.15.4](https://astro.build)（Content Layer API）
+- **框架：** [Astro 6.4.2](https://astro.build)（Content Layer API）
+- **构建工具：** [Vite 7.3](https://vite.dev/)
 - **样式：** [Tailwind CSS v4.1](https://tailwindcss.com)（`@theme` token 系统）
 - **内容：** MDX 通过 `@astrojs/mdx`
 - **动画：** [AOS](https://michalsnik.github.io/aos/) + [motion.js](https://motion.dev/)
-- **图标：** [Lucide](https://lucide.dev/)
+- **图标：** [Lucide](https://lucide.dev/)，通过 `@lucide/astro` 使用
 - **类型检查：** TypeScript + `astro check`
 - **代码规范：** [Biome](https://biomejs.dev/)
+
+## 环境要求
+
+- Node.js `>=22.12.0`
+- pnpm `>=9`（本项目以 `pnpm-lock.yaml` 作为依赖锁定文件）
 
 ## 快速开始
 
@@ -54,7 +61,7 @@ git clone https://github.com/ricocc/ricoui-saas-template.git my-saas
 cd my-saas
 
 # 2. 安装依赖
-pnpm install   # 或 npm / yarn
+pnpm install
 
 # 3. 启动开发服务器（http://localhost:5200）
 pnpm dev

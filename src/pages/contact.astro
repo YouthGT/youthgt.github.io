@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/ui/Button.astro";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, Bug, Clock3, Github, LifeBuoy, Mail, MessageSquare, Send, Sparkles } from "@lucide/astro";
+import { ArrowRight, Bug, Clock3, GitFork, LifeBuoy, Mail, MessageSquare, Send, Sparkles } from "@lucide/astro";
 
 const contactTopics = [
   { value: "general", label: "General inquiry" },
@@ -20,7 +20,7 @@ const channels = [
     href: `mailto:${siteConfig.mail}`,
   },
   {
-    icon: Github,
+    icon: GitFork,
     label: "GitHub",
     text: "Open an issue",
     href: siteConfig.social.github,
@@ -84,8 +84,8 @@ const expectations = [
           <div class="grid gap-5">
             {expectations.map(({ icon: Icon, title, desc }) => (
               <div class="flex gap-3">
-                <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/25 text-neutral-800 dark:bg-accent/20 dark:text-neutral-100">
-                  <Icon size={16} />
+                <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-lighter/10 text-neutral-800 dark:bg-primary-lighter/10 dark:text-neutral-400">
+                  <Icon size={16} /> 
                 </span>
                 <div>
                   <h2 class="text-sm font-semibold text-neutral-800 dark:text-neutral-100">{title}</h2>

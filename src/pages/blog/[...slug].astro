@@ -3,12 +3,12 @@ import { getCollection, render } from "astro:content";
 import PostLayout from "@/layouts/PostLayout.astro";
 import Toc from '@/components/widgets/Toc.astro';
 
-// 根据 Astro v5/v6，对于 SSG 模式下的动态路由，需要使用 getStaticPaths()
+// SSG 模式下的动态路由需要使用 getStaticPaths()
 // 来告诉 Astro 在构建时生成哪些页面
 export async function getStaticPaths() {
 	const postEntries = await getCollection("post");
 	return postEntries.map((entry) => {
-		// 根据 Astro v5 官方文档，entry.id 就是条目的唯一标识符
+		// Content Layer 的 entry.id 是条目的唯一标识符
 		// 对于 [...slug] 路由，需要将 entry.id 转换为 slug 数组
 		// entry.id 已经是相对于集合根目录的路径，例如 "dir/index" 或 "dir"
 		// 注意：对于 [...slug] 路由，params.slug 应该是字符串，Astro 会自动处理

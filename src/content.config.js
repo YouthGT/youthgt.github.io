@@ -1,5 +1,6 @@
 // 1. 从 `astro:content` 导入工具函数
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 // 2. 导入加载器
 import { glob } from 'astro/loaders';

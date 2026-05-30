@@ -2,11 +2,12 @@
 
 > [中文文档](README-zh.md) | English
 
-An open-source SaaS website template built with Astro 5.15 and Tailwind CSS v4. Designed for indie hackers, AI/dev-tool teams, and OSS maintainers who want a polished, design-forward product site.
+An open-source SaaS website template built with Astro 6 and Tailwind CSS v4. Designed for indie hackers, AI/dev-tool teams, and OSS maintainers who want a polished, design-forward product site.
 
 ![preview](/docs/screenshot.jpeg) 
 
-![Astro](https://img.shields.io/badge/Astro-5.15.4-FF5D01?logo=astro&logoColor=white)
+![Astro](https://img.shields.io/badge/Astro-6.4.2-FF5D01?logo=astro&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.3.3-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.14-38B2AC?logo=tailwind-css&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -23,7 +24,7 @@ Most open-source SaaS templates fall into two camps: bare starters that leave yo
 - **11 production-ready pages** — Home (12 sections), Features, Pricing, Blog, Changelog, About, Contact, Sign in, Sign up, Elements, 404
 - **15+ reusable section components** — Hero, FeatureGrid, FeatureDetail, Pricing cards, Comparison table, FAQ, Steps, Tech stack, Use cases, FinalCTA, and more
 - **Auth page templates** — Sign in & Sign up in two layout variants (split-screen and centered card), ready to wire up your auth provider
-- **MDX-powered Blog & Changelog** — Astro v5 Content Layer API, ready for v6
+- **MDX-powered Blog & Changelog** — Astro 6 Content Layer API with `astro/loaders`
 - **Built-in dark mode** — class-based, no flash on load, contrast-audited
 - **Token-driven design system** — ~30 CSS custom properties, all documented in `docs/DESIGN.md`
 - **Mobile-first responsive** — tested at 375 / 768 / 1024 / 1440
@@ -35,13 +36,19 @@ Most open-source SaaS templates fall into two camps: bare starters that leave yo
 
 ## Tech stack
 
-- **Framework:** [Astro 5.15.4](https://astro.build) (Content Layer API)
+- **Framework:** [Astro 6.4.2](https://astro.build) (Content Layer API)
+- **Build tooling:** [Vite 7.3](https://vite.dev/)
 - **Styling:** [Tailwind CSS v4.1](https://tailwindcss.com) (`@theme` tokens)
 - **Content:** MDX via `@astrojs/mdx`
 - **Animation:** [AOS](https://michalsnik.github.io/aos/) + [motion.js](https://motion.dev/)
-- **Icons:** [Lucide](https://lucide.dev/)
+- **Icons:** [Lucide](https://lucide.dev/) via `@lucide/astro`
 - **Type checking:** TypeScript + `astro check`
 - **Linter:** [Biome](https://biomejs.dev/)
+
+## Requirements
+
+- Node.js `>=22.12.0`
+- pnpm `>=9` (this repo uses `pnpm-lock.yaml` as the source of truth)
 
 ## Quick start
 
@@ -51,7 +58,7 @@ git clone https://github.com/ricocc/ricoui-saas-template.git my-saas
 cd my-saas
 
 # 2. Install dependencies
-pnpm install   # or npm / yarn
+pnpm install
 
 # 3. Start dev server (http://localhost:5200)
 pnpm dev
