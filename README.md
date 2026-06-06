@@ -4,7 +4,9 @@
 
 An open-source SaaS website template built with Astro 6 and Tailwind CSS v4. Designed for indie hackers, AI/dev-tool teams, and OSS maintainers who want a polished, design-forward product site.
 
-![preview](/docs/screenshot.jpeg) 
+![preview](/docs/screenshot.jpeg)
+
+![Chinese version preview](/docs/ricoui-saas-zh.jpeg)
 
 ![Astro](https://img.shields.io/badge/Astro-6.4.2-FF5D01?logo=astro&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-7.3.3-646CFF?logo=vite&logoColor=white)
@@ -12,6 +14,8 @@ An open-source SaaS website template built with Astro 6 and Tailwind CSS v4. Des
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 **Links:** [Live Demo](https://ricofast.pages.dev/) · [GitHub](https://github.com/ricocc/ricoui-saas-template) · [Changelog](https://ricofast.pages.dev/changelog) · [Design Reference](https://ricofast.pages.dev/elements)
+
+**Chinese Version:** branch `template-zh` · [Preview](https://ricoui-saas-zh.netlify.app/)
 
 ---
 
