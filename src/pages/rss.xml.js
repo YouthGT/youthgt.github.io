@@ -4,8 +4,8 @@ import { getCollection } from "astro:content";
 export async function GET(context) {
   const blog = await getCollection('post');
   return rss({
-    title: 'RicoUI SaaS Template Astro',
-    description: 'Astro SaaS Template by Rico UI',
+    title: 'YouthGT 的技术博客',
+    description: '分享编程、嵌入式、Android、PCB等技术领域的学习经验与总结',
     site: context.site,
     items: blog.map((post) => {
       const link = `/blog/${post.id}/`;
@@ -14,8 +14,8 @@ export async function GET(context) {
         pubDate: post.data.publishDate,
         description: post.data.description,
         link,
-        stylesheet: '/rss/pretty-feed-v3.xsl',
       };
     }),
+    stylesheet: '/rss/pretty-feed-v3.xsl',
   });
 }

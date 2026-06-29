@@ -1,0 +1,57 @@
+---
+title: "Hexo 博客的搭建记录"
+description: "使用Hexo框架搭建个人博客的完整步骤记录"
+publishDate: 2020-02-19T04:18:00Z
+author: YouthGT
+tags: ["搭建博客", "Hexo", "Markdown"]
+featured: false
+draft: false
+---
+
+### 安装Nodejs
+
+```bash
+node -v    # 查看node版本
+npm -v     # 查看npm版本
+```
+
+### 安装cnpm和Hexo
+
+```bash
+npm install -g cnpm --registry=http://registry.npm.taobao.org
+cnpm install -g hexo-cli
+hexo -v
+```
+
+### 初始化博客
+
+```bash
+mkdir blog && cd blog
+sudo hexo init
+hexo s    # 启动本地服务 http://localhost:4000/
+```
+
+### 部署到GitHub
+
+1. GitHub创建一个仓库 YourGithubName.github.io
+2. 安装git部署插件：`cnpm install --save hexo-deployer-git`
+3. 配置 `_config.yml`：
+```yaml
+deploy:
+  type: git
+  repo: https://github.com/YourGithubName/YourGithubName.github.io.git
+  branch: master
+```
+4. `hexo d` 部署
+
+### 安装NEXT主题
+
+```bash
+git clone https://github.com.cnpmjs.org/theme-next/hexo-theme-next themes/next
+```
+
+修改 `_config.yml`：`theme: Next`
+
+```bash
+hexo clean && hexo g && hexo d
+```

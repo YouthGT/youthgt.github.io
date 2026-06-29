@@ -1,36 +1,23 @@
-// 1. 从 `astro:content` 导入工具函数
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
-
-// 2. 导入加载器
 import { glob } from 'astro/loaders';
 
-// 3. 定义你的集合
 const post = defineCollection({
-	// 使用 glob 加载器从 src/content/post 目录加载所有 .mdx 文件
 	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/post' }),
-	// Type-check frontmatter using a schema
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
 		publishDate: z.coerce.date(),
-		read: z.number().optional(),
-		tags: z.array(z.string()).optional(),
+		author: z.string().default('YouthGT'),
+		tags: z.array(z.string()).default([]),
+		featured: z.boolean().optional(),
+		draft: z.boolean().optional(),
+		modDatetime: z.coerce.date().optional(),
 		img: z.string().optional(),
 		img_alt: z.string().optional(),
-		featured: z.boolean().optional(),
+		canonicalURL: z.string().optional(),
+		read: z.number().optional(),
 	}),
 });
 
-const changelog = defineCollection({
-	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/changelog' }),
-	schema: z.object({
-		title: z.string(),
-		publishDate: z.coerce.date(),
-		version: z.string().optional(),
-		description: z.string().optional(),
-	}),
-});
-
-// 4. 导出一个 `collections` 对象来注册你的集合
-export const collections = { post, changelog };
+export const collections = { post };

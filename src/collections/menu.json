@@ -1,27 +1,19 @@
 [
 	{
-		"name": "Home",
+		"name": "首页",
 		"url": "/"
 	},
 	{
-		"name": "Pages",
+		"name": "博客",
 		"children": [
-			{ "name": "Features", "url": "/features" },
-			{ "name": "Pricing", "url": "/pricing" },
-			{ "name": "About", "url": "/about" },
-			{ "name": "Blog", "url": "/blog" },
-			{ "name": "Changelog", "url": "/changelog" },
-			{ "name": "Sign in", "url": "/sign-in" },
-			{ "name": "Sign up", "url": "/sign-up" },
-			{ "name": "404", "url": "/404" }
+			{ "name": "全部文章", "url": "/blog" },
+			{ "name": "标签", "url": "/tags" },
+			{ "name": "搜索", "url": "/search" },
+			{ "name": "归档", "url": "/archives" }
 		]
 	},
 	{
-		"name": "Elements",
-		"url": "/elements"
-	},
-	{
-		"name": "Contact",
-		"url": "/contact"
+		"name": "关于",
+		"url": "/about"
 	}
 ]

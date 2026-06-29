@@ -4,32 +4,6 @@ import ToTop from "@/components/widgets/ToTop.astro";
 import { siteConfig, socialLinks } from "@/config/site.js";
 
 const currentYear = new Date().getFullYear();
-
-const footerLinks = {
-  product: [
-    { name: "Features", url: "/features" },
-    { name: "Pricing", url: "/pricing" },
-    { name: "Changelog", url: "/changelog" },
-    { name: "Sign in", url: "/sign-in" },
-    { name: "Sign up", url: "/sign-up" },
-  ],
-  resources: [
-    { name: "Blog", url: "/blog" },
-    { name: "Elements", url: "/elements" },
-    { name: "404", url: "/404" },
-    { name: "Docs", url: siteConfig.social.github + "#readme" },
-    { name: "GitHub", url: siteConfig.social.github },
-  ],
-  company: [
-    { name: "About", url: "/about" },
-    { name: "Contact", url: "/contact" },
-  ],
-  legal: [
-    { name: "License (MIT)", url: siteConfig.social.github + "/blob/main/LICENSE" },
-  ],
-};
-
-const templateVersion = "v1.0.0";
 ---
 
 <section class="text-gray-700 border-t mt-20 md:mt-48 border-dashed border-primary/15 dark:border-primary-dark/15 border-[.75px]">
@@ -39,65 +13,37 @@ const templateVersion = "v1.0.0";
       <div class="max-w-sm">
         <Logo />
         <p class="mt-4 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-          A polished SaaS template built with Astro and Tailwind CSS. Open-source, fast, and ready for production.
+          分享编程、嵌入式、Android、PCB等技术领域的学习经验与总结。
         </p>
       </div>
 
-      <!-- Four columns -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12">
-        <!-- Product -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12">
+        <!-- Pages -->
         <div>
-          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Product</h4>
+          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">页面</h4>
           <ul class="space-y-3">
-            {footerLinks.product.map((link) => (
-              <li>
-                <a href={link.url} class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-200">
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            <li><a href="/" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">首页</a></li>
+            <li><a href="/blog" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">博客</a></li>
+            <li><a href="/tags" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">标签</a></li>
+            <li><a href="/about" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">关于</a></li>
           </ul>
         </div>
 
-        <!-- Resources -->
+        <!-- Explore -->
         <div>
-          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Resources</h4>
+          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">浏览</h4>
           <ul class="space-y-3">
-            {footerLinks.resources.map((link) => (
-              <li>
-                <a href={link.url} class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-200">
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            <li><a href="/archives" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">归档</a></li>
+            <li><a href="/search" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">搜索</a></li>
+            <li><a href="/rss.xml" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">RSS</a></li>
           </ul>
         </div>
 
-        <!-- Company -->
+        <!-- Social -->
         <div>
-          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Company</h4>
+          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">社交</h4>
           <ul class="space-y-3">
-            {footerLinks.company.map((link) => (
-              <li>
-                <a href={link.url} class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-200">
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- Legal -->
-        <div>
-          <h4 class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 mb-4">Legal</h4>
-          <ul class="space-y-3">
-            {footerLinks.legal.map((link) => (
-              <li>
-                <a href={link.url} class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-200">
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            <li><a href={siteConfig.social.github} target="_blank" class="text-sm text-neutral-500 dark:text-neutral-400 hover:text-primary dark:hover:text-primary-light transition-colors">GitHub</a></li>
           </ul>
         </div>
       </div>
@@ -106,18 +52,15 @@ const templateVersion = "v1.0.0";
     <!-- Bottom bar -->
     <div class="border-t border-dashed border-primary/10 dark:border-primary-dark/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-sm text-neutral-400 dark:text-neutral-500">
-        © {currentYear}
-        <a href={siteConfig.url || " "} target="_blank" class="hover:text-primary dark:hover:text-primary-light transition-colors">{siteConfig.author || " "}</a>.
-        Released under the MIT License.
+        © {currentYear} <a href={siteConfig.url} target="_blank" class="hover:text-primary dark:hover:text-primary-light transition-colors">{siteConfig.author}</a>.
       </p>
 
       <div class="flex items-center gap-4">
         <span class="inline-flex items-center gap-2 text-xs text-neutral-400 dark:text-neutral-500">
           <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border border-dashed border-primary/30 text-primary/80">
             <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-            {templateVersion}
+            Astro & Tailwind
           </span>
-          <span>Built with Astro & Tailwind</span>
         </span>
         <span class="inline-flex justify-center space-x-4">
           {socialLinks.map((social) => (
@@ -143,30 +86,8 @@ const templateVersion = "v1.0.0";
 <ToTop />
 
 <style is:global>
-  .footer-social-icon {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .footer-social-icon svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-  }
-
-  .footer-social-icon-link:hover .ic-twitter {
-    color: #1DA1F2;
-  }
-
-  .footer-social-icon-link:hover .ic-github {
-    color: #333;
-  }
-
-  .footer-social-icon-link:hover .ic-rss {
-    color: #F26522;
-  }
+  .footer-social-icon { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .footer-social-icon svg { width: 18px; height: 18px; fill: currentColor; }
+  .footer-social-icon-link:hover .ic-github { color: #333; }
+  .footer-social-icon-link:hover .ic-rss { color: #F26522; }
 </style>

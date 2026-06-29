@@ -4,7 +4,6 @@ import Pagination from "@/components/widgets/Pagination.astro";
 import BlogCard from "@/components/cards/BlogCard.astro";
 import SectionHeader from "@/components/elements/SectionHeader.astro";
 import Button from "@/components/ui/Button.astro";
-import AnimatedText from "@/components/ui/AnimatedText.astro";
 // 定义组件接收的属性
 const {
   title = "Latest Articles",
@@ -77,7 +76,7 @@ const featuredPostWithLink = featuredPost ? {
   <section class="mb-16">
     <div class="site-container">
       <h2 class="text-3xl font-brand mb-6 text-neutral-800 dark:text-white">
-            <AnimatedText delay={0.75} stagger={0.08} content="Featured" />
+            Featured
       </h2>
       <div class=" dark:from-neutral-900 dark:to-neutral-800 p-1 rounded-2xl ">
         <BlogCard

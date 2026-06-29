@@ -1,0 +1,75 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("post");
+
+let posts = allPosts.filter((post) => !post.data.draft);
+
+posts = posts.sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+// Group by year → month
+const yearMap = new Map();
+for (const post of posts) {
+  const d = new Date(post.data.publishDate);
+  const year = d.getFullYear();
+  const month = d.getMonth(); // 0-indexed
+  if (!yearMap.has(year)) yearMap.set(year, new Map());
+  const monthMap = yearMap.get(year);
+  if (!monthMap.has(month)) monthMap.set(month, []);
+  monthMap.get(month).push(post);
+}
+
+const monthNames = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+---
+
+<Layout title="归档 — YouthGT" description="按年月归档浏览博客文章">
+  <section class="site-container my-12">
+    <PageHeader
+      title="归档"
+      description={`共 ${posts.length} 篇文章`}
+    />
+  </section>
+
+  <section class="site-container max-w-3xl mx-auto pb-24">
+    {Array.from(yearMap.entries()).sort((a, b) => b[0] - a[0]).map(([year, monthMap]) => (
+      <div class="mb-12" data-aos="fade-up-sm" data-aos-once="true">
+        <h2 class="text-3xl font-brand text-neutral-800 dark:text-neutral-100 mb-6">{year}</h2>
+        {Array.from(monthMap.entries()).sort((a: [number, any[]], b: [number, any[]]) => b[0] - a[0]).map(([month, monthPosts]) => (
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold text-neutral-600 dark:text-neutral-400 mb-4 ml-1">
+              {monthNames[month]}
+            </h3>
+            <div class="space-y-3">
+              {monthPosts.map((post) => {
+                const link = `/blog/${post.id}`;
+                const day = new Date(post.data.publishDate).getDate();
+                return (
+                  <a
+                    href={link}
+                    class="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-bg-secondary dark:hover:bg-bg-secondary-dark transition-all duration-200"
+                  >
+                    <span class="text-sm text-neutral-400 dark:text-neutral-500 font-mono w-8 flex-shrink-0">
+                      {String(day).padStart(2, '0')}
+                    </span>
+                    <span class="flex-1 text-neutral-700 dark:text-neutral-300 group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
+                      {post.data.title}
+                    </span>
+                    {post.data.tags && post.data.tags.length > 0 && (
+                      <span class="text-xs text-neutral-400 dark:text-neutral-500 hidden sm:inline">
+                        {post.data.tags[0]}
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    ))}
+  </section>
+</Layout>

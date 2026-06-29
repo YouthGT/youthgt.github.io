@@ -1,0 +1,63 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import BlogCard from "@/components/cards/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("post");
+  const tagSet = new Set<string>();
+  for (const post of allPosts) {
+    if (post.data.draft) continue;
+    const tags = post.data.tags || [];
+    for (const tag of tags) {
+      tagSet.add(tag);
+    }
+  }
+  return Array.from(tagSet).map((tag: string) => ({
+    params: { tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props as { tag: string };
+const allPosts = await getCollection("post");
+
+let filteredPosts = allPosts.filter(
+  (post: any) => !post.data.draft && (post.data.tags || []).includes(tag)
+);
+
+filteredPosts = filteredPosts.sort(
+  (a: any, b: any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<Layout title={`${tag} — YouthGT`} description={`标签「${tag}」下的文章`}>
+  <section class="site-container my-12">
+    <PageHeader
+      title={tag}
+      description={`共 ${filteredPosts.length} 篇文章`}
+    />
+  </section>
+
+  <section class="site-container pb-24">
+    <div class="grid gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+      {filteredPosts.map((post: any) => {
+        const link = `/blog/${post.id}`;
+        return (
+          <BlogCard
+            content={{ ...post.data, link, slug: post.id }}
+            data-aos="fade-up-sm"
+            data-aos-once="true"
+          />
+        );
+      })}
+    </div>
+
+    {filteredPosts.length === 0 && (
+      <div class="text-center py-20 text-neutral-500 dark:text-neutral-400">
+        这个标签下还没有文章
+      </div>
+    )}
+  </section>
+</Layout>

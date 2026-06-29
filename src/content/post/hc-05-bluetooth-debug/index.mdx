@@ -1,0 +1,35 @@
+---
+title: "HC-05蓝牙模块的调试"
+description: "HC-05蓝牙模块进入AT模式的方法、常用AT指令及接线说明"
+publishDate: 2021-04-28T11:58:00Z
+author: YouthGT
+tags: ["MCU", "HC-05", "蓝牙"]
+featured: false
+draft: false
+---
+
+### 一、进入AT模式
+
+HC-05带小黑色按钮的，要选按着黑色按钮，然后再插上电脑的USB口。不带按钮的，要给KEY接线端接上一个电压（VCC），然后再插入电脑。当蓝牙模块state灯变为慢闪，则表明已经进入AT模式。
+
+- 在AT模式下，波特率通常设置为：38400
+- 部分蓝牙模块的波特率可能是9600，具体看产品指引
+
+### 二、用AT常用指令设置HC-05
+
+```
+AT+NAME=Bluetooth Car   蓝牙名称为Bluetooth Car
+AT+ROLE=0               蓝牙模式为从模式
+AT+CMODE=0              蓝牙连接模式为任意地址连接模式
+AT+PSWD=1234            蓝牙配对密码为1234
+AT+UART=9600            蓝牙通信串口波特率为9600，停止位1位，无校验位
+AT+RMAAD                清空配对列表
+```
+
+### 三、HC-05的接线
+
+蓝牙与USB转TTL模块接线为：RXD-TX  TXD-RX  VCC-VCC  GND-GND
+
+### 四、连接测试
+
+设好从模式后，把蓝牙模块接上手机进行测试，当蓝牙变成快闪模式时就可配对，默认密码为设置的1234。

@@ -1,0 +1,37 @@
+---
+title: "keil uvsion5与51单片机的学习总结（不定时更新）"
+description: "Keil uVision5使用技巧与51单片机常见问题总结"
+publishDate: 2020-12-19T12:16:00Z
+author: YouthGT
+tags: ["软件使用", "keil uvsion 5", "51单片机"]
+featured: false
+draft: false
+---
+
+![keil](https://img-blog.csdnimg.cn/20210223003647586.png)
+
+### 软件下载
+
+[https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw](https://pan.baidu.com/s/1QjmrZcayz0edyzkcLT7nCw) 提取码: f7xv
+
+### 常见报错
+
+**ERROR L104: MULTIPLE PUBLIC DEFINITIONS**
+出现该错误则是因为程序中某个变量重复定义，把头文件中的变量定义前加extern。
+
+extern用法：
+```
+extern int a;    // 声明
+int a = 0;       // 定义
+```
+
+### C51语法常见问题
+
+**\_nop\_()函数**
+在51C中一般包含在 `#include "intrins.h"` 头文件中。该函数延时一个指令周期（12个时钟周期）。在12MHZ晶振下，一个机械周期就是1us。
+
+nop指令的作用：
+1. 使指令按字对齐，减少取指令时的内存访问次数
+2. 产生一定的延迟
+3. I/O传输时等待缓冲区清空
+4. 清除由上一个算术逻辑指令设置的flag位

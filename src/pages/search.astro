@@ -1,0 +1,78 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+---
+
+<Layout title="搜索 — YouthGT" description="搜索博客文章">
+  <section class="site-container my-12">
+    <PageHeader
+      title="搜索"
+      description="搜索博客文章"
+    />
+  </section>
+
+  <section class="site-container max-w-3xl mx-auto pb-24">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <script is:inline src="/pagefind/pagefind-ui.js" type="module">
+      import { PagefindUI } from '/pagefind/pagefind-ui.js';
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        resetStyles: false,
+        baseUrl: '/',
+      });
+    </script>
+    <div id="search" class="pagefind-ui-custom"></div>
+  </section>
+</Layout>
+
+<style is:global>
+  .pagefind-ui-custom {
+    --pagefind-ui-primary: var(--color-primary);
+    --pagefind-ui-text: var(--color-text-secondary);
+    --pagefind-ui-background: var(--color-bg-secondary);
+    --pagefind-ui-border: var(--color-neutral-300);
+    --pagefind-ui-tag: var(--color-primary);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 12px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-font: "Inter", system-ui, sans-serif;
+  }
+  .pagefind-ui-custom .pagefind-ui__search-input {
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .pagefind-ui-custom .pagefind-ui__result {
+    border: 1px solid var(--pagefind-ui-border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: var(--pagefind-ui-background);
+  }
+  .pagefind-ui-custom .pagefind-ui__result-title {
+    font-family: var(--font-brand), serif;
+    font-size: 1.25rem;
+  }
+  .pagefind-ui-custom .pagefind-ui__result-excerpt {
+    margin-top: 8px;
+  }
+  .pagefind-ui-custom mark {
+    background: var(--color-accent);
+    color: inherit;
+  }
+  .dark .pagefind-ui-custom mark {
+    background: rgba(250, 209, 59, 0.3);
+    color: #e0e0e0;
+  }
+  .pagefind-ui-custom .pagefind-ui__drawer {
+    margin-top: 20px;
+  }
+  .pagefind-ui-custom .pagefind-ui__search-clear {
+    border-radius: 8px;
+  }
+  .pagefind-ui-custom .pagefind-ui__button {
+    border-radius: 10px;
+    padding: 8px 20px;
+  }
+</style>

@@ -2,16 +2,11 @@
 import { getCollection, render } from "astro:content";
 import PostLayout from "@/layouts/PostLayout.astro";
 import Toc from '@/components/widgets/Toc.astro';
+import { ArrowLeft, ArrowRight } from "@lucide/astro";
 
-// SSG 模式下的动态路由需要使用 getStaticPaths()
-// 来告诉 Astro 在构建时生成哪些页面
 export async function getStaticPaths() {
 	const postEntries = await getCollection("post");
 	return postEntries.map((entry) => {
-		// Content Layer 的 entry.id 是条目的唯一标识符
-		// 对于 [...slug] 路由，需要将 entry.id 转换为 slug 数组
-		// entry.id 已经是相对于集合根目录的路径，例如 "dir/index" 或 "dir"
-		// 注意：对于 [...slug] 路由，params.slug 应该是字符串，Astro 会自动处理
 		const slugString = entry.id;
 		return {
 			params: { slug: slugString },
@@ -20,22 +15,34 @@ export async function getStaticPaths() {
 	});
 }
 
-// 使用 [...slug] 路由来处理包含斜杠的路径（官方推荐）
-// entry 由 getStaticPaths 通过 props 传入，无需再从 params 推导 slug
-
-// 从 props 获取 entry（在 SSG 模式下通过 getStaticPaths 传递）
 const { entry } = Astro.props;
 
-// 如果找不到文章，返回 404
 if (!entry) {
 	return Astro.redirect("/404");
 }
 
 const { Content, headings } = await render(entry);
 const filtered = headings.filter(h => h.depth <= 2);
+
+// Get all posts for prev/next navigation
+const allPosts = await getCollection("post");
+const sortedPosts = allPosts
+	.filter(p => !p.data.draft)
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const currentIndex = sortedPosts.findIndex(p => p.id === entry.id);
+const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
+const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+
+const formattedDate = new Date(entry.data.publishDate).toLocaleDateString('zh-CN', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'Asia/Shanghai',
+});
 ---
 
-<PostLayout title={entry.data.title} description={entry.data.description}>
+<PostLayout title={`${entry.data.title} — YouthGT`} description={entry.data.description}>
 	<!-- Reading progress bar -->
 	<div id="reading-progress" class="reading-progress" style="transform: scaleX(0);"></div>
 
@@ -47,7 +54,7 @@ const filtered = headings.filter(h => h.depth <= 2);
 				<div class="article-tags">
 					{entry.data.tags && entry.data.tags.length > 0 ? (
 						entry.data.tags.map(tag => (
-							<span class="article-tag letter-spacing-wide text-xs">{tag}</span>
+							<a href={`/tags/${encodeURIComponent(tag)}`} class="article-tag letter-spacing-wide text-xs hover:opacity-80 transition-opacity">{tag}</a>
 						))
 					) : (
 						<span class="article-tag text-xs">Article</span>
@@ -62,11 +69,7 @@ const filtered = headings.filter(h => h.depth <= 2);
 				<!-- Metadata -->
 				<div class="article-meta text-sm text-neutral-500 dark:text-neutral-400">
 					<time datetime={entry.data.publishDate.toISOString()}>
-						{entry.data.publishDate.toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric'
-						})}
+						{formattedDate}
 					</time>
 					{entry.data.read && (
 						<>
@@ -93,6 +96,40 @@ const filtered = headings.filter(h => h.depth <= 2);
 							<Content />
 						</div>
 					</article>
+
+					<!-- Prev/Next Navigation -->
+					{(prevPost || nextPost) && (
+						<div class="mt-16 pt-8 border-t border-dashed border-neutral-200 dark:border-neutral-700">
+							<div class="flex justify-between gap-4">
+								{prevPost ? (
+									<a
+										href={`/blog/${prevPost.id}`}
+										class="group flex-1 flex flex-col gap-1 p-4 rounded-xl border border-primary/10 dark:border-neutral-700 hover:bg-bg-secondary dark:hover:bg-bg-secondary-dark transition-all duration-200"
+									>
+										<span class="flex items-center gap-1 text-xs text-neutral-400 dark:text-neutral-500">
+											<ArrowLeft size={14} /> 上一篇
+										</span>
+										<span class="text-sm font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-primary dark:group-hover:text-primary-light transition-colors line-clamp-2">
+											{prevPost.data.title}
+										</span>
+									</a>
+								) : <div class="flex-1"></div>}
+								{nextPost ? (
+									<a
+										href={`/blog/${nextPost.id}`}
+										class="group flex-1 flex flex-col gap-1 p-4 rounded-xl border border-primary/10 dark:border-neutral-700 hover:bg-bg-secondary dark:hover:bg-bg-secondary-dark transition-all duration-200 text-right"
+									>
+										<span class="flex items-center gap-1 text-xs text-neutral-400 dark:text-neutral-500 justify-end">
+											下一篇 <ArrowRight size={14} />
+										</span>
+										<span class="text-sm font-medium text-neutral-700 dark:text-neutral-300 group-hover:text-primary dark:group-hover:text-primary-light transition-colors line-clamp-2">
+											{nextPost.data.title}
+										</span>
+									</a>
+								) : <div class="flex-1"></div>}
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</main>
@@ -120,11 +157,7 @@ function updateReadingProgress() {
   progressBar.style.transform = `scaleX(${Math.min(scrollPercentage / 100, 1)})`;
 }
 
-// Event listener
 window.addEventListener('scroll', updateReadingProgress, { passive: true });
-
-// Initialize
 document.addEventListener('DOMContentLoaded', updateReadingProgress);
 updateReadingProgress();
 </script>
-

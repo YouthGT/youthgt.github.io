@@ -1,38 +1,17 @@
 {
-	"name": "ricoui-saas-template",
+	"name": "youthgt-blog",
 	"type": "module",
 	"version": "1.0.0",
 	"packageManager": "pnpm@9.14.2",
-	"description": "A design-led SaaS website template built with Astro, Tailwind CSS v4, MDX, and a reusable component system.",
-	"keywords": [
-		"astro",
-		"astro-template",
-		"saas",
-		"saas-template",
-		"landing-page",
-		"startup",
-		"tailwindcss",
-		"tailwindcss-v4",
-		"mdx",
-		"blog",
-		"changelog",
-		"dark-mode",
-		"responsive",
-		"typescript"
-	],
+	"description": "YouthGT's personal blog — built with Astro, Tailwind CSS v4, and MDX.",
 	"author": {
-		"name": "RicoUI",
-		"email": "hello@ricoui.com",
-		"url": "https://ricoui.com"
+		"name": "YouthGT",
+		"url": "https://youthgt.github.io"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ricocc/ricoui-saas-template.git"
+		"url": "https://github.com/YouthGT/youthgt.github.io.git"
 	},
-	"bugs": {
-		"url": "https://github.com/ricocc/ricoui-saas-template/issues"
-	},
-	"homepage": "https://github.com/ricocc/ricoui-saas-template#readme",
 	"license": "MIT",
 	"engines": {
 		"node": ">=22.12.0",
@@ -41,7 +20,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro check && astro build",
+		"build": "astro check && astro build && pagefind --site dist",
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "biome check --apply-unsafe ."
@@ -49,8 +28,10 @@
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
 		"@biomejs/biome": "1.7.3",
+		"@pagefind/default-ui": "^1.4.0",
 		"@tailwindcss/typography": "^0.5.13",
 		"astro": "^6.4.2",
+		"pagefind": "^1.4.0",
 		"postcss": "^8.4.31",
 		"tailwindcss": "^4.1.14",
 		"typescript": "^5.4.5",
@@ -61,9 +42,12 @@
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.3",
 		"@lucide/astro": "^1.17.0",
+		"@resvg/resvg-js": "^2.6.2",
+		"@shikijs/transformers": "^3.20.0",
 		"@tailwindcss/vite": "^4.1.14",
 		"aos": "^2.3.4",
 		"motion": "^12.23.24",
+		"satori": "^0.18.3",
 		"sharp": "^0.34.4"
 	}
 }

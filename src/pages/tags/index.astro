@@ -1,0 +1,49 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/elements/PageHeader.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("post");
+
+// Collect all tags with counts
+const tagMap = new Map();
+for (const post of allPosts) {
+  if (post.data.draft) continue;
+  const tags = post.data.tags || [];
+  for (const tag of tags) {
+    tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+  }
+}
+
+// Sort by count descending
+const tags = Array.from(tagMap.entries())
+  .sort((a, b) => b[1] - a[1]);
+---
+
+<Layout title="标签 — YouthGT" description="通过标签浏览博客文章">
+  <section class="site-container my-12">
+    <PageHeader
+      title="标签"
+      description={`共 ${tags.length} 个标签`}
+    />
+  </section>
+
+  <section class="site-container max-w-4xl mx-auto pb-24">
+    <div class="flex flex-wrap gap-3 justify-center" data-aos="fade-up-sm" data-aos-once="true">
+      {tags.map(([tag, count], i) => (
+        <a
+          href={`/tags/${encodeURIComponent(tag)}`}
+          class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary/20 bg-bg-secondary dark:bg-bg-secondary-dark text-neutral-700 dark:text-neutral-300 hover:text-primary dark:hover:text-primary-light hover:border-primary dark:hover:border-primary-light transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+          data-aos="fade-up-xs"
+          data-aos-delay={i * 40}
+          data-aos-once="true"
+        >
+          <span class="font-medium">{tag}</span>
+          <span class="text-xs text-neutral-400 dark:text-neutral-500 bg-primary/10 dark:bg-primary/20 px-2 py-0.5 rounded-full">
+            {count}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

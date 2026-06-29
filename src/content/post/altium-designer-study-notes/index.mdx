@@ -1,0 +1,49 @@
+---
+title: "Altium Designer学习总结（不定时更新）"
+description: "Altium Designer画PCB的步骤、原则和常见问题总结"
+publishDate: 2021-02-19T12:40:00Z
+author: YouthGT
+tags: ["软件使用", "Altium Designer", "PCB"]
+featured: false
+draft: false
+---
+
+![AD](https://img-blog.csdnimg.cn/20210223003740743.png)
+
+## Altlium designer画PCB步骤
+
+### 原理图绘制
+
+元件的放置，网络编号，封装添加（封装管理器），编译，导入到PCB
+
+### PCB绘制
+
+布局，布线，敷铜，电器规则检查（规则设置），调整并锁定特殊零件
+
+**常见特殊位置的零件：**
+1. 接口类：如：电源接口、扬声器、视频、音频接口、键盘、鼠标、USB等
+2. 显示类：如：发光二极管、数码显示管等
+3. 旋钮类：如：音量控制、调谐、波段等
+4. 其他类：必须放置在特定位置的零件
+
+### PCB设计的基本原则
+
+**布局原则：**
+- 元件的布局要求均衡，疏密有序
+- 先布置关键元件如微处理器、DSP、FPGA、存储器等
+- 尽可能按照信号流向进行布局
+
+**布线原则：**
+- 地线＞电源线＞导线
+- 导线间最小间距一般不能小于12mil
+- 设计布线时，走线尽量少拐弯
+- 输入端与输入端边线应避免相邻平行，以免产生反射干扰
+
+**重点规则：** 零件间距、方向、放置层、导线宽度、导线所在层
+
+### 常见问题
+
+1. action not available in 3D view：3D视图中不可用的操作，按2可连线
+2. GPIO：通用型之输入输出的简称
+3. Top Solder层控制不覆盖绿油的区域，Top Paste层控制钢网开孔
+4. SOT = Small Outline Transistor，SOD = Small Outline Diode
