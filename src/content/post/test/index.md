@@ -7,7 +7,7 @@ tags:
   - ""
   - 测试
 featured: false
-draft: true
+draft: false
 img: /images/index.png
 ---
 
