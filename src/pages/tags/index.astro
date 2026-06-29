@@ -11,6 +11,7 @@ for (const post of allPosts) {
   if (post.data.draft) continue;
   const tags = post.data.tags || [];
   for (const tag of tags) {
+    if (!tag?.trim()) continue;
     tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
   }
 }

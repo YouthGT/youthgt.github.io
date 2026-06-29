@@ -7,8 +7,8 @@ description: ""
 publishDate: {{date:YYYY-MM-DD}}T{{time:HH:mm}}:00Z
 # 作者：默认 YouthGT，一般无需修改
 author: YouthGT
-# 标签：用于分类与标签页，可多个，如 ["教程", "Astro"]；请删掉默认的空 ""
-tags: [""]
+# 标签：用于分类与标签页，可多个，如 ["教程", "Astro"]（留空 [] 则无标签）
+tags: []
 # 精选：true 时出现在首页「精选文章」区，仅重点文章设为 true
 featured: false
 # 草稿：true=不公开（不进列表，仅 /blog/<名字> 直链可见）；改为 false 才正式发布

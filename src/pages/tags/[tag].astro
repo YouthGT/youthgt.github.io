@@ -11,7 +11,7 @@ export async function getStaticPaths() {
     if (post.data.draft) continue;
     const tags = post.data.tags || [];
     for (const tag of tags) {
-      tagSet.add(tag);
+      if (tag?.trim()) tagSet.add(tag);
     }
   }
   return Array.from(tagSet).map((tag: string) => ({
