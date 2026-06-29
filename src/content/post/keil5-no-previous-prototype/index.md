@@ -1,11 +1,13 @@
 ---
-title: "Keil5编译时warng：no previous prototype SystemInit"
-description: "Keil5编译报错no previous prototype SystemInit的解决方法"
+title: Keil5编译时warng：no previous prototype SystemInit
+description: Keil5编译报错no previous prototype SystemInit的解决方法
 publishDate: 2021-07-08T04:34:00Z
 author: YouthGT
-tags: ["软件使用", "keil uvsion 5"]
+tags:
+  - 软件使用
+  - keil uvsion 5
 featured: false
-img: "/og.png"
+img: /og.png
 draft: false
 ---
 
