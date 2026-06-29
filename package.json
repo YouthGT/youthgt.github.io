@@ -23,6 +23,7 @@
 		"build": "astro check && astro build && pagefind --site dist",
 		"preview": "astro preview",
 		"astro": "astro",
+		"new:post": "node scripts/new-post.mjs",
 		"check": "biome check --apply-unsafe ."
 	},
 	"devDependencies": {
